@@ -18,9 +18,7 @@ M-meta/alt
 
 2. switch buffer 
 > C-x C-n  switch to next buffer
-
 > C-x C-p  switch to previous buffer
-
 3. other comands
 > C-x C-j  erase buffer
 
