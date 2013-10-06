@@ -6,7 +6,7 @@ This project is a slight configure file for emacs.
 For emacs 23 and after is ok
 
 ## USAGE
-You should copy all files in your $HOME directory
+You should copy all files in your $HOME/.emacs.d/ directory
 and copy .emacs file to $HOME
 
 ## KEY-BINDING
