@@ -35,7 +35,7 @@
 ; set copy a whole line by key binding
 ; --------------------------------------------------------------------
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(global-set-key "\C-x\C-k" 'copy-line)
+(global-set-key "\C-c\C-l" 'copy-line)
 
 ; --------------------------------------------------------------------
 ; column-marker.el and fill-column-indicator.el setting
