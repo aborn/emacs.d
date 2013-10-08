@@ -13,7 +13,7 @@
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key "\C-x\C-n" 'next-buffer)
 (global-set-key "\C-x\C-j" 'erase-buffer)
-(global-set-key "\C-x\C-k" 'kill-buffer) 
+(global-set-key "\C-x\C-k" 'kill-buffer)
 ;;(global-set-key [?\C-,] 'switch-to-prev-buffer)  ;; emacs 24
 ;;(global-set-key [?\C-.] 'switch-to-next-buffer)  ;; emacs 24
 (global-set-key "\C-i" 'just-one-space)
@@ -35,7 +35,7 @@
 ; set copy a whole line by key binding
 ; --------------------------------------------------------------------
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(global-set-key "\C-c\C-l" 'copy-line)
+(global-set-key "\C-x\C-a" 'copy-line)
 
 ; --------------------------------------------------------------------
 ; column-marker.el and fill-column-indicator.el setting
