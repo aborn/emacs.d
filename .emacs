@@ -9,12 +9,13 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-(loop for x downfrom 40 to 1 do
-      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
 
 (setq display-time-day-and-date t)
+(setq inhibit-startup-message t)
 (display-time)
+(show-paren-mode t)
 (define-key global-map "\C-x\C-g" 'goto-line)
+(column-number-mode t)   ;; show column number
 (global-linum-mode t)
 (global-auto-revert-mode t)
 (setq linum-format "%4d \u2502")
@@ -66,4 +67,15 @@
   global-fci-mode fci-mode (lambda () (fci-mode 1)))  
 (global-fci-mode 1)  
 
-;; modify at 2013-10-26
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; emace auto-complete version 1.3.1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "/home/aborn/.emacs.d/site-lisp/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/aborn/.emacs.d/site-lisp/auto-complete/ac-dict")
+(ac-config-default)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-10-26
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

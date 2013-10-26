@@ -27,9 +27,14 @@ M-meta/alt
 	* C-o      switch to other window
 	* C-x C-g  goto a specific line
 	* C-x n/m  column maker
+## OTHER OPEN SOURCE CODE
+* auto-complete version 1.3.1, the original package in
+ ~/.emacs.d/site-lisp/auto-complete1.3.1 and insatll using ins.sh, the 
+ compiled in  ~/.emacs.d/site-lisp/auto-complete
 
 ## VERSION
 2013-10-06 v0.1
+2313-10-26 v0.2
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
