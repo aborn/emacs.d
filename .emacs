@@ -4,6 +4,14 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
+
+;; set indent
+(setq indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq tab-width 4)
+(loop for x downfrom 40 to 1 do
+      (setq tab-stop-list (cons (* x 4) tab-stop-list)))
+
 (setq display-time-day-and-date t)
 (display-time)
 (define-key global-map "\C-x\C-g" 'goto-line)
@@ -13,36 +21,43 @@
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key "\C-x\C-n" 'next-buffer)
 (global-set-key "\C-x\C-j" 'erase-buffer)
+(global-set-key "\C-x\C-k" 'kill-buffer)
+(global-set-key "\C-x\C-r" 'revert-buffer)
+(global-set-key "\C-x\C-m" 'indent-region)
+
 ;;(global-set-key [?\C-,] 'switch-to-prev-buffer)  ;; emacs 24
 ;;(global-set-key [?\C-.] 'switch-to-next-buffer)  ;; emacs 24
 (global-set-key "\C-i" 'just-one-space)
 (global-set-key "\C-o" 'other-window)
 
-; --------------------------------------------------------------------
-; set color-theme, pls download color-theme.el form
-; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
-; then unzip this file into ~/.emacs.d/site-lisp/
-; --------------------------------------------------------------------
+;; --------------------------------------------------------------------
+;; set color-theme, pls download color-theme.el form
+;; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
+;; then unzip this file into ~/.emacs.d/site-lisp/
+;; --------------------------------------------------------------------
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn 
      (color-theme-initialize)
      (color-theme-hober)))
 ;;(color-theme-dark-green)   
+(color-theme-billw)
 
-; --------------------------------------------------------------------
-; set copy a whole line by key binding
-; --------------------------------------------------------------------
+;; --------------------------------------------------------------------
+;; set copy a whole line by key binding
+;; --------------------------------------------------------------------
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(global-set-key "\C-x\C-k" 'copy-line)
+(global-set-key "\C-x\C-a" 'copy-line)
 
-; --------------------------------------------------------------------
-; column-marker.el and fill-column-indicator.el setting
-; --------------------------------------------------------------------
+;; --------------------------------------------------------------------
+;; column-marker.el and fill-column-indicator.el setting
+;; --------------------------------------------------------------------
 (require 'column-marker)
 (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))    
 (global-set-key [?\C-x ?m] 'column-marker-1)
 (global-set-key [?\C-x ?n] 'column-marker-3)
+;; C-u C-u M-x column-marker-1 erases all column highlighting
+
 (require 'fill-column-indicator)  
 (setq fci-rule-width 2)  
 (setq fci-rule-color "yellow")  
@@ -50,5 +65,6 @@
 (define-globalized-minor-mode   
   global-fci-mode fci-mode (lambda () (fci-mode 1)))  
 (global-fci-mode 1)  
+
 
 
