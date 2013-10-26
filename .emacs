@@ -26,6 +26,7 @@
 (global-set-key "\C-x\C-k" 'kill-buffer)
 (global-set-key "\C-x\C-r" 'revert-buffer)
 (global-set-key "\C-x\C-m" 'indent-region)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;;(global-set-key [?\C-,] 'switch-to-prev-buffer)  ;; emacs 24
 ;;(global-set-key [?\C-.] 'switch-to-next-buffer)  ;; emacs 24
@@ -76,6 +77,14 @@
 (add-to-list 'ac-dictionary-directories "/home/aborn/.emacs.d/site-lisp/auto-complete/ac-dict")
 (ac-config-default)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set c/c++ mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq c-default-style "linux"
+      c-basic-offset 4
+      tab-width 4
+      indent-tabs-mode t)
+(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-10-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
