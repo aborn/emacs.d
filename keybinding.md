@@ -9,5 +9,6 @@ keybinding.md
 * C-x n   column-marker-3
 * C-h k   help key binding
 * C-x C-a copy a line
+* M-w C-s search and highlight all the content
 
 
