@@ -16,6 +16,7 @@
 (display-time)
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-linum-mode t)
+(global-auto-revert-mode t)
 (setq linum-format "%4d \u2502")
 (setq frame-title-format "--love cld--emacs@%b")   
 (global-set-key "\C-x\C-p" 'previous-buffer)
@@ -56,7 +57,6 @@
 (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))    
 (global-set-key [?\C-x ?m] 'column-marker-1)
 (global-set-key [?\C-x ?n] 'column-marker-3)
-;; C-u C-u M-x column-marker-1 erases all column highlighting
 
 (require 'fill-column-indicator)  
 (setq fci-rule-width 2)  
@@ -65,6 +65,4 @@
 (define-globalized-minor-mode   
   global-fci-mode fci-mode (lambda () (fci-mode 1)))  
 (global-fci-mode 1)  
-
-
 
