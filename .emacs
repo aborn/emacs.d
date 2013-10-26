@@ -66,3 +66,4 @@
   global-fci-mode fci-mode (lambda () (fci-mode 1)))  
 (global-fci-mode 1)  
 
+;; modify at 2013-10-26
