@@ -6,9 +6,14 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 
 ;; set indent
+(setq-default indent-tabs-mode nil)
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
+;(customize-variable (quote tab-stop-list))
+(custom-set-variables
+ '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
+
 
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
@@ -44,7 +49,8 @@
      (color-theme-initialize)
      (color-theme-hober)))
 ;;(color-theme-dark-green)   
-(color-theme-billw)
+;;(color-theme-billw)
+(color-theme-tty-dark)
 
 ;; --------------------------------------------------------------------
 ;; set copy a whole line by key binding
