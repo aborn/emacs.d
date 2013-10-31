@@ -17,6 +17,9 @@
 
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
+(require 'hl-line)                  ; highlight current line
+(global-hl-line-mode t)             ; setting as global hl
+
 (display-time)
 (show-paren-mode t)
 (define-key global-map "\C-x\C-g" 'goto-line)
