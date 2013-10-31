@@ -25,7 +25,7 @@
 (define-key global-map "\C-x\C-g" 'goto-line)
 (column-number-mode t)   ;; show column number
 (global-linum-mode t)
-(global-auto-revert-mode t)
+(global-auto-revert-mode t) 
 (setq linum-format "%4d \u2502")
 (setq frame-title-format "--love cld--emacs@%b")   
 (global-set-key "\C-x\C-p" 'previous-buffer)
@@ -34,6 +34,7 @@
 (global-set-key "\C-x\C-k" 'kill-buffer)
 (global-set-key "\C-x\C-r" 'revert-buffer)
 (global-set-key "\C-x\C-m" 'indent-region)
+(global-set-key (kbd "M-n") 'set-mark-command)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;;(global-set-key [?\C-,] 'switch-to-prev-buffer)  ;; emacs 24
