@@ -6,8 +6,8 @@ This project is a slight configure file for emacs.
 emacs version 23 and after is ok
 
 ## USAGE
-You should copy all files in your $HOME/.emacs.d/ directory
-and copy .emacs file to $HOME
+download all file in this project and running configure
+./configure
 
 ## KEY-BINDING
 C-control
@@ -39,7 +39,8 @@ M-meta/alt
  
 ## VERSION
 * 2013-10-06 v0.1
-* 2313-10-26 v0.2
+* 2013-10-26 v0.2
+* 2013-11-04 v1.0    # using ./configure to install 
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)

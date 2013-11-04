@@ -34,8 +34,9 @@ function copy-files()
         echo "create new folder ${HOME}/.emacs.d"
         mkdir -p ${HOME}/.emacs.d
     else
-        echo "warning: it will delete all files in ${HOME}/.emacs.d"
-        rm -rf ${HOME}/.emacs.d/*
+        echo "the folder .emacs.d/ exist!"
+        #  echo "warning: it will delete all files in ${HOME}/.emacs.d"
+        #  rm -rf ${HOME}/.emacs.d/*
     fi
     EMACSHOME=${HOME}/.emacs.d
     cp -rf  ./*   ${EMACSHOME}     # copy all files to emacs
