@@ -14,7 +14,6 @@
 (custom-set-variables
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 
-
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -82,9 +81,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emace auto-complete version 1.3.1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "/home/aborn/.emacs.d/site-lisp/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/home/aborn/.emacs.d/site-lisp/auto-complete/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/ac-dict")
 (ac-config-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -98,3 +97,4 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-10-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(put 'erase-buffer 'disabled nil)
