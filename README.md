@@ -3,7 +3,7 @@ emacs.lite
 
 ## INTRODUCTION
 This project is a slight configure file for emacs.
-emacs version 23 and after is ok
+emacs version 23 or after 
 
 ## USAGE
 download all file in this project and running configure
@@ -30,7 +30,8 @@ M-meta/alt
     * C-x C-m  indent-region
     * C-x C-k  kill-buffer
     * M-w C-s  search and highlight all the matched content
-> for more detail key-binding, please refs to the file keybinding.md
+
+> Note: for more detail key-binding, please refs to the file keybinding.md
 
 ## OTHER OPEN SOURCE CODE
 * auto-complete version 1.3.1, the original package in
