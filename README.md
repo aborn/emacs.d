@@ -30,6 +30,7 @@ M-meta/alt
     * C-x C-m  indent-region
     * C-x C-k  kill-buffer
     * M-w C-s  search and highlight all the matched content
+    * C-x C-y  open sr-speedbar
 
 > Note: for more detail key-binding, please refs to the file keybinding.md
 

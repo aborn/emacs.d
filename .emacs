@@ -2,6 +2,9 @@
 ;; emaca basic setting only for version 23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
+(let ((default-directory "~/.emacs.d/site-lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 
@@ -105,6 +108,26 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; install cedet and add speedbar download from 
+;;     http://www.emacswiki.org/emacs/sr-speedbar.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-ede-mode 1)
+(require 'semantic/sb)
+(semantic-mode 1)
+(require 'sr-speedbar)
+(global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
+(setq sr-speedbar-right-side nil)  ;; nil means speedbar appears on left
+(setq sr-speedbar-skip-other-window-p t)
+(setq speedbar-show-unknown-files t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; add undo-tree download from, C-x u to shows undo-tree graph
+;;                         http://www.dr-qubit.org/undo-tree/undo-tree.el 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'undo-tree)
+(global-undo-tree-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-11-23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
