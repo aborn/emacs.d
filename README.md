@@ -7,7 +7,7 @@ emacs version 23 and after is ok
 
 ## USAGE
 download all file in this project and running configure
-./configure
+> $./configure
 
 ## KEY-BINDING
 C-control
@@ -30,7 +30,7 @@ M-meta/alt
     * C-x C-m  indent-region
     * C-x C-k  kill-buffer
     * M-w C-s  search and highlight all the matched content
-
+> for more detail key-binding, please refs to the file keybinding.md
 
 ## OTHER OPEN SOURCE CODE
 * auto-complete version 1.3.1, the original package in
@@ -40,7 +40,8 @@ M-meta/alt
 ## VERSION
 * 2013-10-06 v0.1
 * 2013-10-26 v0.2
-* 2013-11-04 v1.0    # using ./configure to install 
+* 2013-11-04 v1.0 (add ./configure for install)
+* 2013-11-23 v1.1 (add markdown major)
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
