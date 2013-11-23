@@ -94,7 +94,18 @@
       tab-width 4
       indent-tabs-mode t)
 (add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-11-16
+;; set markdown-mode download from 
+;;                    http://jblevins.org/projects/markdown-mode/
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load-file "~/.emacs.d/site-lisp/custom/markdown-mode.el")
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2013-11-23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
