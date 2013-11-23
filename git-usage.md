@@ -25,8 +25,11 @@ This file content tells your how to use git when you forget it!!
 ## IGNORE
 edit file ~/.gitignore_global with follow contents
 >*~
+>
 >*.pyc
+>
 >*.class
+>
 >*.swp
 and using follow command to active
 >$git config --global core.excludesfile ~/.gitignore_global
