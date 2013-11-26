@@ -14,5 +14,3 @@ keybinding.md
 * M-n      mark set (like C+@)
 * M-%      search and replace
 * C-x u    shows undo-tree graph
-
-
