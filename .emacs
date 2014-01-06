@@ -134,7 +134,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add matlab mode, this setting from 
-;;              http://www.emacswiki.org/emacs/MatlabMode
+;;              http://www.emacswiki.org/emacs/MatlabMod
+;; code download from http://download.csdn.net/detail/loveaborn/6814809
+;; or http://matlab-emacs.cvs.sourceforge.net/viewvc/matlab-emacs/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/matlab-emacs")    ; matlab.el path
 (add-to-list 'load-path "/usr/matlab/bin/matlab")               ; matlab path
