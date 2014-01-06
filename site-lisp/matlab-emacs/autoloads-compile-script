@@ -1,0 +1,7 @@
+(add-to-list 'load-path nil)
+(add-to-list 'load-path ".")
+(add-to-list 'load-path "/home/aborn/.emacs.d/cedet-1.1/common")
+(add-to-list 'load-path "/home/aborn/.emacs.d/cedet-1.1/eieio")
+(add-to-list 'load-path "/home/aborn/.emacs.d/cedet-1.1/semantic/bovine/")
+(add-to-list 'load-path "/home/aborn/.emacs.d/cedet-1.1/semantic/")
+(require 'cedet-autogen)
