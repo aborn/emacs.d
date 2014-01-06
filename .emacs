@@ -56,14 +56,14 @@
      (color-theme-hober)))
 ;;(color-theme-dark-green)   
 ;;(color-theme-billw)
-;;(color-theme-subtle-hacker)    ;; this for GUI, or color-theme-select
-(color-theme-tty-dark)
+(color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
+;;(color-theme-tty-dark)          ;; this for command line mode
 
 ;; --------------------------------------------------------------------
 ;; set copy a whole line by key binding
 ;; --------------------------------------------------------------------
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(global-set-key "\C-x\C-a" 'copy-line)
+(global-set-key "\C-x\C-l" 'copy-line)
 
 ;; --------------------------------------------------------------------
 ;; column-marker.el and fill-column-indicator.el setting
@@ -114,8 +114,11 @@
 ;; install cedet and add speedbar download from 
 ;;     http://www.emacswiki.org/emacs/sr-speedbar.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-ede-mode 1)
+(require 'cedet)
+(global-ede-mode t)
+;;(global-ede-mode 1)
 (require 'semantic/sb)
+(require 'semantic/ia)
 (semantic-mode 1)
 (require 'sr-speedbar)
 (global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
@@ -128,6 +131,33 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; add matlab mode, this setting from 
+;;              http://www.emacswiki.org/emacs/MatlabMode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/.emacs.d/site-lisp/matlab-emacs")    ; matlab.el path
+(add-to-list 'load-path "/usr/matlab/bin/matlab")               ; matlab path
+(require 'matlab-load)
+(autoload 'run-octave "octave-inf" nil t)                       ; special
+(autoload 'matlab-mode "matlab" "Enter MATLAB mode." t)
+(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
+(autoload 'matlab-shell "matlab" "Interactive MATLAB mode." t)
+
+(setq matlab-indent-function-body t)    ; if you want function bodies indented
+(setq matlab-verify-on-save-flag nil)   ; turn off auto-verify on save
+(defun my-matlab-mode-hook ()
+  (setq fill-column 80))		        ; where auto-fill should wrap
+(add-hook 'matlab-mode-hook 'my-matlab-mode-hook)
+(defun my-matlab-shell-mode-hook ()
+  '())
+(add-hook 'matlab-shell-mode-hook 'my-matlab-shell-mode-hook)
+(global-font-lock-mode t)
+					                      ;  To get hilit19 support try adding:
+(require 'tlc)
+(autoload 'tlc-mode "tlc" "tlc Editing Mode" t)
+(add-to-list 'auto-mode-alist '("\\.tlc$" . tlc-mode))
+(setq tlc-indent-function t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-06
