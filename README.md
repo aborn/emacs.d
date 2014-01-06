@@ -22,7 +22,7 @@ M-meta/alt
 
 3. other comands
 	* C-x C-j  erase buffer
-	* C-x C-a  copy a whole line
+	* C-x C-l  copy a whole line
 	* C-i      just one space
 	* C-o      switch to other window
 	* C-x C-g  goto a specific line
@@ -31,6 +31,7 @@ M-meta/alt
     * C-x C-k  kill-buffer
     * M-w C-s  search and highlight all the matched content
     * C-x C-y  open sr-speedbar
+    * C-c C-s  running matlab code
 
 > Note: for more detail key-binding, please refs to the file keybinding.md
 
@@ -44,6 +45,7 @@ M-meta/alt
 * 2013-10-26 v0.2
 * 2013-11-04 v1.0 (add ./configure for install)
 * 2013-11-23 v1.1 (add markdown major)
+* 2014-01-06 v1.2 (add matlab mode)
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
