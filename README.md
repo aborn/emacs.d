@@ -14,7 +14,7 @@ download all file in this project and running configure
 * copy the key to github.com
 * cp ./config ~/.ssh/
 * git clone git@github.com:aborn/emacs.lite.git
-* ... more github.com
+* ... more refs to github.sh
 
 ## KEY-BINDING
 C-control
