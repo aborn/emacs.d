@@ -13,7 +13,7 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-;(customize-variable (quote tab-stop-list))
+                                        ;(customize-variable (quote tab-stop-list))
 (custom-set-variables
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 
@@ -50,14 +50,20 @@
 ;; then unzip this file into ~/.emacs.d/site-lisp/
 ;; --------------------------------------------------------------------
 (require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn 
-     (color-theme-initialize)
-     (color-theme-hober)))
+(color-theme-initialize)
+(setq color-theme-is-global t)
+(color-theme-robin-hood)
+
+(eval-after-load "color-theme" 
+  (if window-system  
+      '(color-theme-subtle-hacker)   ;; GUI mode
+    '(color-theme-tty-dark)))        ;; Command line mode
+
 ;;(color-theme-dark-green)   
 ;;(color-theme-billw)
-(color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
-;;(color-theme-tty-dark)          ;; this for command line mode
+
+;;(Color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
+;;(color-theme-tty-dark)            ;; this for command line mode
 
 ;; --------------------------------------------------------------------
 ;; set copy a whole line by key binding
@@ -105,7 +111,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-file "~/.emacs.d/site-lisp/custom/markdown-mode.el")
 (autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -155,7 +161,7 @@
   '())
 (add-hook 'matlab-shell-mode-hook 'my-matlab-shell-mode-hook)
 (global-font-lock-mode t)
-					                      ;  To get hilit19 support try adding:
+                                        ;  To get hilit19 support try adding:
 (require 'tlc)
 (autoload 'tlc-mode "tlc" "tlc Editing Mode" t)
 (add-to-list 'auto-mode-alist '("\\.tlc$" . tlc-mode))
