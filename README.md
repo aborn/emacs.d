@@ -53,6 +53,7 @@ M-meta/alt
 * 2013-11-04 v1.0 (add ./configure for install)
 * 2013-11-23 v1.1 (add markdown major)
 * 2014-01-06 v1.2 (add matlab mode)
+* 2014-01-14 v1.3 (add php mode)
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
