@@ -18,7 +18,7 @@ This file content tells your how to use git when you forget it!!
 * git config --global user.email "loveaborn@foxmail.com"
 * git init
 * git clone git@github.com:usr/repo.git
-* git clone https://github.com/aborn/emacs.lite.git
+* git clone https://github.com/aborn/emacs.lite.git (1)
 * git remote add upstream git://github.com/usr/repo.git
 * git fetch upstream (fork)
 * git merge upstream/master
