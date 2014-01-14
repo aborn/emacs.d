@@ -9,6 +9,13 @@ emacs version 23 or after
 download all file in this project and running configure
 > $./configure
 
+## GITHUB
+* generate the ssh key
+* copy the key to github.com
+* cp ./config ~/.ssh/
+* git clone git@github.com:aborn/emacs.lite.git
+* ... more github.com
+
 ## KEY-BINDING
 C-control
 M-meta/alt
