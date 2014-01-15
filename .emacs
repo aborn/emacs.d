@@ -4,19 +4,24 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
-
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
+(load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
 
+;; --------------------------------------------------------------------
 ;; set indent
+;; --------------------------------------------------------------------
 (setq-default indent-tabs-mode nil)
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-                                        ;(customize-variable (quote tab-stop-list))
+;(customize-variable (quote tab-stop-list))
+
+;; --------------------------------------------------------------------
+;; basic setting for emacs and mode turn on or off
+;; --------------------------------------------------------------------
 (custom-set-variables
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
-
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -24,12 +29,17 @@
 
 (display-time)
 (show-paren-mode t)
-(define-key global-map "\C-x\C-g" 'goto-line)
 (column-number-mode t)   ;; show column number
 (global-linum-mode t)
 (global-auto-revert-mode t) 
 (setq linum-format "%4d \u2502")
 (setq frame-title-format "--love cld--emacs@%b")   
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;; --------------------------------------------------------------------
+;; hot key (key binding) setting all together
+;; --------------------------------------------------------------------
+(define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key "\C-x\C-n" 'next-buffer)
 (global-set-key "\C-x\C-j" 'erase-buffer)
@@ -37,8 +47,7 @@
 (global-set-key "\C-x\C-r" 'revert-buffer)
 (global-set-key "\C-x\C-m" 'indent-region)
 (global-set-key (kbd "M-n") 'set-mark-command)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-
+(global-set-key "\C-x\C-l" 'copy-line)
 ;;(global-set-key [?\C-,] 'switch-to-prev-buffer)  ;; emacs 24
 ;;(global-set-key [?\C-.] 'switch-to-next-buffer)  ;; emacs 24
 (global-set-key "\C-i" 'just-one-space)
@@ -53,23 +62,15 @@
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (color-theme-robin-hood)
-
 (eval-after-load "color-theme" 
   (if window-system  
-      '(color-theme-subtle-hacker)   ;; GUI mode
-    '(color-theme-tty-dark)))        ;; Command line mode
+      '(color-theme-subtle-hacker)  ;; GUI mode
+    '(color-theme-tty-dark)))       ;; Command line mode
 
-;;(color-theme-dark-green)   
-;;(color-theme-billw)
-
+;;(color-theme-dark-green)          ;; other options
+;;(color-theme-billw)               ;; other options
 ;;(Color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
 ;;(color-theme-tty-dark)            ;; this for command line mode
-
-;; --------------------------------------------------------------------
-;; set copy a whole line by key binding
-;; --------------------------------------------------------------------
-(load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(global-set-key "\C-x\C-l" 'copy-line)
 
 ;; --------------------------------------------------------------------
 ;; column-marker.el and fill-column-indicator.el setting
@@ -188,6 +189,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-14
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-15
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
