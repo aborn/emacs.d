@@ -15,7 +15,7 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-;(customize-variable (quote tab-stop-list))
+                                        ;(customize-variable (quote tab-stop-list))
 
 ;; --------------------------------------------------------------------
 ;; basic setting for emacs and mode turn on or off
@@ -52,9 +52,19 @@
 ;;(global-set-key [?\C-.] 'switch-to-next-buffer)  ;; emacs 24
 (global-set-key "\C-i" 'just-one-space)
 (global-set-key "\C-o" 'other-window)
+(global-set-key (kbd "C-h C-f") 'find-function)
 
 ;; --------------------------------------------------------------------
-;; set color-theme, pls download color-theme.el form
+;; By an unknown contributor, move-cursor to matched bracket
+;; --------------------------------------------------------------------
+(global-set-key "%" 'match-paren)
+(defun match-paren (arg)
+  "Go to the matching paren if on a paren; otherwise insert %."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+        (t (self-insert-command (or arg 1)))))
+
 ;; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
 ;; then unzip this file into ~/.emacs.d/site-lisp/
 ;; --------------------------------------------------------------------
