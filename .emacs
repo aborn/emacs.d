@@ -44,9 +44,9 @@
 ;; --------------------------------------------------------------------
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
-(global-set-key (kbd "C-,") 'previous-buffer)
+(global-set-key (kbd "C-,") 'previous-buffer)      ;; emacs 23
 (global-set-key "\C-x\C-n" 'next-buffer)
-(global-set-key (kbd "C-.") 'next-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)          ;; emacs 23
 (global-set-key "\C-x\C-j" 'erase-buffer)
 (global-set-key "\C-x\C-k" 'kill-buffer)
 (global-set-key "\C-x\C-r" 'revert-buffer)
@@ -59,6 +59,7 @@
 (global-set-key "\C-o" 'other-window)
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key "\C-x\C-e" 'eval-current-buffer)
+(global-set-key (kbd "C-'") 'move-middle-of-line)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket

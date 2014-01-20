@@ -16,4 +16,6 @@ keybinding.md
 * M-%      search and replace
 * C-x u    shows undo-tree graph
 * C-c C-s  run matlab code (matlab-shell-save-and-go)
-* C-H C-F  find function 
+* C-H C-F  find function
+* C-'      move point to middle of line
+* C-x C-e  eval-current-buffer

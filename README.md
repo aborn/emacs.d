@@ -41,6 +41,8 @@ M-meta/alt
     * M-w C-s  search and highlight all the matched content
     * C-x C-y  open sr-speedbar
     * C-c C-s  running matlab code
+    * C-'      move point to middle of line
+    * C-x C-e  eval-current-buffer
 
 > Note: for more detail key-binding, please refs to the file keybinding.md
 
