@@ -7,6 +7,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
+(require 'load-directory)
+(load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -15,7 +17,7 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-                                        ;(customize-variable (quote tab-stop-list))
+;(customize-variable (quote tab-stop-list))
 
 ;; --------------------------------------------------------------------
 ;; basic setting for emacs and mode turn on or off
@@ -25,6 +27,7 @@
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
+;(require 'move-middle-of-line)
 (global-hl-line-mode t)             ; setting as global hl
 
 (display-time)
@@ -43,7 +46,7 @@
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key "\C-x\C-n" 'next-buffer)
-(global-set-key (kbd "C-." 'next-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)
 (global-set-key "\C-x\C-j" 'erase-buffer)
 (global-set-key "\C-x\C-k" 'kill-buffer)
 (global-set-key "\C-x\C-r" 'revert-buffer)
@@ -55,6 +58,7 @@
 (global-set-key "\C-i" 'just-one-space)
 (global-set-key "\C-o" 'other-window)
 (global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key "\C-x\C-e" 'eval-current-buffer)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
