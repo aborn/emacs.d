@@ -72,6 +72,7 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
 
+;; --------------------------------------------------------------------
 ;; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
 ;; then unzip this file into ~/.emacs.d/site-lisp/
 ;; --------------------------------------------------------------------
@@ -206,6 +207,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-15
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
