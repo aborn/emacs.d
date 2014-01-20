@@ -16,3 +16,4 @@ keybinding.md
 * M-%      search and replace
 * C-x u    shows undo-tree graph
 * C-c C-s  run matlab code (matlab-shell-save-and-go)
+* C-H C-F  find function 

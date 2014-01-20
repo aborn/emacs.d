@@ -41,7 +41,9 @@
 ;; --------------------------------------------------------------------
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
+(global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key "\C-x\C-n" 'next-buffer)
+(global-set-key (kbd "C-." 'next-buffer)
 (global-set-key "\C-x\C-j" 'erase-buffer)
 (global-set-key "\C-x\C-k" 'kill-buffer)
 (global-set-key "\C-x\C-r" 'revert-buffer)
