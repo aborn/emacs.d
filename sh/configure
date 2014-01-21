@@ -5,13 +5,15 @@
 #                custom emacs in different machine
 # USAGE
 #    ./configure
+#
 # AUTHOR
 #    Aborn Jiang (aborn.jiang@gmail.com)
+#
 # VERSION
 #    v0.1  
 #####################################################
 
-ABSPATH=$(cd $(dirname $0); pwd)
+ABSPATH=$(cd $(dirname $0);cd ..; pwd)
 echo "the current path is ${ABSPATH}"
 
 function fun-info()

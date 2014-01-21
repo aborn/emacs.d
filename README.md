@@ -14,7 +14,11 @@ download all file in this project and running configure
 * copy the key to github.com
 * cp ./config ~/.ssh/
 * git clone git@github.com:aborn/emacs.lite.git
-* ... more refs to github.sh
+* ... more refs to
+  [github.sh](https://github.com/aborn/emacs.lite/blob/master/sh/github.sh,
+  "github.com clone setting initial.") and
+  [git-usage](https://github.com/aborn/emacs.lite/blob/master/doc/git-usage.md,
+  "how to use git.")
 
 ## KEY-BINDING
 C-control
@@ -42,7 +46,7 @@ M-meta/alt
     * C-x C-e  eval-current-buffer
 
 > Note: for more detail key-binding, please refs to the file
-> [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/keybinding.md,
+> [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/doc/keybinding.md,
 > "all hot-key instructions in this repo")
 
 ## OTHER OPEN SOURCE CODE
