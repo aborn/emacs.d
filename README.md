@@ -44,7 +44,7 @@ M-meta/alt
     * C-'      move point to middle of line
     * C-x C-e  eval-current-buffer
 
-> Note: for more detail key-binding, please refs to the file keybinding.md
+> Note: for more detail key-binding, please refs to the file [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/keybinding.md)
 
 ## OTHER OPEN SOURCE CODE
 * auto-complete version 1.3.1, the original package in
