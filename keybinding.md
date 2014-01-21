@@ -2,6 +2,7 @@ keybinding.md
 =============
 
 * C-x C-m  indent-region
+* C-x C-j  erase buffer
 * F3       kmacro-start-macro-or-insert-counter
 * F4       kmacro-end-or-call-macro
 * C-u C-u  M-x column-marker-1 erases all column highlighting
@@ -19,3 +20,5 @@ keybinding.md
 * C-H C-F  find function
 * C-'      move point to middle of line
 * C-x C-e  eval-current-buffer
+* C-x C-g  goto a specific
+* C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all highlighting)

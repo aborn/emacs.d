@@ -3,7 +3,7 @@ emacs.lite
 
 ## INTRODUCTION
 This project is a slight configure file for emacs.
-emacs version 23 or after 
+emacs version 23 or later
 
 ## USAGE
 download all file in this project and running configure
@@ -30,12 +30,9 @@ M-meta/alt
     * C-,      switch to previous buffer
 
 3. other comands
-	* C-x C-j  erase buffer
 	* C-x C-l  copy a whole line
 	* C-i      just one space
 	* C-o      switch to other window
-	* C-x C-g  goto a specific line
-	* C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all highlighting)
     * C-x C-m  indent-region
     * C-x C-k  kill-buffer
     * M-w C-s  search and highlight all the matched content
@@ -44,7 +41,9 @@ M-meta/alt
     * C-'      move point to middle of line
     * C-x C-e  eval-current-buffer
 
-> Note: for more detail key-binding, please refs to the file [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/keybinding.md)
+> Note: for more detail key-binding, please refs to the file
+> [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/keybinding.md,
+> "all hot-key instructions in this repo")
 
 ## OTHER OPEN SOURCE CODE
 * auto-complete version 1.3.1, the original package in
