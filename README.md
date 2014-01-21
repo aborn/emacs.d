@@ -7,13 +7,13 @@ emacs version 23 or later
 
 ## USAGE
 download all file in this project and running configure
-> $./configure
+> $./sh/configure
 
 ## GITHUB
-* generate the ssh key
-* copy the key to github.com
-* cp ./config ~/.ssh/
-* git clone git@github.com:aborn/emacs.lite.git
+1. generate the ssh key
+2. copy the key to github.com
+3. cp ./doc/config ~/.ssh/
+4. git clone git@github.com:aborn/emacs.lite.git
 * ... more refs to
   [github.sh](https://github.com/aborn/emacs.lite/blob/master/sh/github.sh 
   "github.com clone setting initial.") and
