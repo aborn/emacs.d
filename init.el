@@ -9,8 +9,9 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-(require 'load-directory)
-(load-directory "~/.emacs.d/site-lisp/iemacsfun/")
+(load-file "~/.emacs.d/site-lisp/iemacsfun/move-middle-of-line.el")
+;(require 'load-directory)
+;(load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -28,6 +29,7 @@
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
+                                    ; max frame when launch emacs GUI
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
