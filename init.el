@@ -26,6 +26,8 @@
 ;; --------------------------------------------------------------------
 (custom-set-variables
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -34,12 +36,14 @@
 
 (display-time)
 (show-paren-mode t)
-(column-number-mode t)   ;; show column number
+(column-number-mode t)              ; show column number
 (global-linum-mode t)
 (global-auto-revert-mode t) 
 (setq linum-format "%4d \u2502")
 (setq frame-title-format "--love cld--emacs@%b")   
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+(kill-buffer "*scratch*")
+(find-file "~/.emacs.d/init.el")    ; initial open init.el file
 
 ;; --------------------------------------------------------------------
 ;; hot key (key binding) setting all together
@@ -62,6 +66,7 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key "\C-x\C-e" 'eval-current-buffer)
 (global-set-key (kbd "C-'") 'move-middle-of-line)
+(global-set-key (kbd "<C-tab>") 'bury-buffer)       ;; switch buffer C-tab
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
