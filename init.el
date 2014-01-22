@@ -1,5 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emaca basic setting only for version 23 and later version
+;; put this file (init.el) in ~/.emacs.d/
+;; ~/.emacs.d/init.el equals to ~/.emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))

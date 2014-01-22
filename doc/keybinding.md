@@ -21,4 +21,6 @@ keybinding.md
 * C-'      move point to middle of line
 * C-x C-e  eval-current-buffer
 * C-x C-g  goto a specific
-* C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all highlighting)
+* C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all
+highlighting)
+* C-x C-x go to marked pos

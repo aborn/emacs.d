@@ -46,8 +46,11 @@ function copy-files()
     
     if [ -f .emacs ];then
         cp .emacs ~
+    elif [ -f init.el ];then
+        echo "the initial file is ~/.emacs.d/init.el rather than ~/.emacs"
+        echo "It OK for emacs."
     else
-        echo "Failed: can not find .emacs file in `pwd`"
+        echo "Failed: can not find .emacs or init.el initial file in `pwd`"
     fi
     fun-info "copy-files" "e"
 }
