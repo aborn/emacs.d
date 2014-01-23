@@ -22,6 +22,13 @@
 (setq tab-width 4)
 ;;(customize-variable (quote tab-stop-list))
 
+;; --------------------------------------------------------------------;
+;; add follwing code to keep *shell* in middle using
+;;    C-l C-l
+;; --------------------------------------------------------------------;
+(remove-hook 'comint-output-filter-functions 
+			 'comint-postoutput-scroll-to-bottom)
+
 ;; --------------------------------------------------------------------
 ;; basic setting for emacs and mode turn on or off
 ;; --------------------------------------------------------------------
