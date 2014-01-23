@@ -166,6 +166,7 @@
 (setq sr-speedbar-right-side nil)  ;; nil means speedbar appears on left
 (setq sr-speedbar-skip-other-window-p t)
 (setq speedbar-show-unknown-files t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add undo-tree download from, C-x u to shows undo-tree graph
 ;;                         http://www.dr-qubit.org/undo-tree/undo-tree.el 
@@ -239,4 +240,3 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
