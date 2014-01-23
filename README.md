@@ -54,7 +54,10 @@ M-meta/alt
 * auto-complete version 1.3.1, the original package in
  ~/.emacs.d/site-lisp/auto-complete1.3.1 and insatll using ins.sh, the 
  compiled in  ~/.emacs.d/site-lisp/auto-complete
- 
+
+## AUTHOR
+Aborn Jiang (aborn.jiang@gmail.com)
+
 ## VERSION
 * 2013-10-06 v0.1
 * 2013-10-26 v0.2
@@ -64,7 +67,3 @@ M-meta/alt
 * 2014-01-14 v1.3   (add php mode)
 * 2014-01-20 v1.3.1 (add % move point to matched bracket)
 * 2014-01-23 v1.3.2 (add session and desktop mode setting)
-
-
-## AUTHOR
-Aborn Jiang (aborn.jiang@gmail.com)
