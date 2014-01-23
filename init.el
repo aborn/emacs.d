@@ -10,8 +10,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
 (load-file "~/.emacs.d/site-lisp/iemacsfun/move-middle-of-line.el")
-                                        ;(require 'load-directory)
-                                        ;(load-directory "~/.emacs.d/site-lisp/iemacsfun/")
+;;(require 'load-directory)
+;;(load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -20,7 +20,7 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
-                                        ;(customize-variable (quote tab-stop-list))
+;;(customize-variable (quote tab-stop-list))
 
 ;; --------------------------------------------------------------------
 ;; basic setting for emacs and mode turn on or off
@@ -221,8 +221,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)
+(require 'desktop)
 (desktop-save-mode 1)
-
+(defun my-desktop-save ()
+  (interactive)
+  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+  (if (eq (desktop-owner) (emacs-pid))
+	  (desktop-save desktop-dirname)))
+(add-hook 'auto-save-hook 'my-desktop-save)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
