@@ -6,3 +6,14 @@
   (end-of-line)
   (backward-char (/ (current-column) 2)))
 
+(defun move-forward-by-five (arg)
+  "Move point forward by fine lines"
+  (interactive "p")
+  (push-mark)
+  (forward-line 5))
+
+(defun move-backward-by-five (arg)
+"Move point backward by five lines"
+  (interactive "p")
+  (push-mark)
+  (forward-line -5))

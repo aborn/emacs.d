@@ -75,6 +75,8 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key "\C-x\C-e" 'eval-current-buffer)
 (global-set-key (kbd "C-'") 'move-middle-of-line)
+(global-set-key (kbd "C-;") 'move-forward-by-five)
+(global-set-key (kbd "C-:") 'move-backward-by-five)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)       ;; switch buffer C-tab
 
 ;; --------------------------------------------------------------------
@@ -94,7 +96,7 @@
 ;; --------------------------------------------------------------------
 (require 'color-theme)
 (color-theme-initialize)
-(setq color-theme-is-global t)
+(setq color-theme-is-global t)			;
 (color-theme-robin-hood)
 (eval-after-load "color-theme" 
   (if window-system  
