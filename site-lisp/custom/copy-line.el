@@ -2,6 +2,7 @@
 ;; custom.el this file for aborn
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(provide 'copy-line)
 (defun copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring"
   (interactive "p")

@@ -1,3 +1,4 @@
+(provide 'move-swift)
 (defun move-middle-of-line (arg)
   "Move point to the middle of line current displayed" 
   (interactive "p")
