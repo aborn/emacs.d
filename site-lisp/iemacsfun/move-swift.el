@@ -8,7 +8,7 @@
   (backward-char (/ (current-column) 2)))
 
 (defun move-forward-by-five (arg)
-  "Move point forward by fine lines"
+  "Move point forward by five lines"
   (interactive "p")
   (push-mark)
   (forward-line 5))
