@@ -5,7 +5,7 @@ iemacsfun
 
 #### It includes following files
 
-##### move-middle-of-line.sh
+##### move-swift.el
 functions in feature move-swift (add (require 'move-swift) in init.el
 or .emacs)
 
