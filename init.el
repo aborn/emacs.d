@@ -6,6 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/.emacs.d/site-lisp/wubi")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
@@ -248,7 +249,18 @@
 	  (desktop-save desktop-dirname)))
 (add-hook 'auto-save-hook 'my-desktop-save)
 
+;;------------------------------------------------------------------------------
+;; add chinese wubi input method to emacs
+;; url:daiyuwen.freeshell.org/gb/wubi/wubi.html 
+;;------------------------------------------------------------------------------
+(require 'wubi)
+(wubi-load-local-phrases) ;add user's wubi phrases
+(register-input-method "chinese-wubi" "Chinese-GB" 'quail-use-package
+                       "WuBi" "WuBi"
+                       "wubi") 
+(setq default-input-method "chinese-wubi")
+(define-key global-map "\C-c\C-j" 'toggle-input-method)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-23
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

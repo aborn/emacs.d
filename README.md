@@ -45,6 +45,7 @@ M-meta/alt
     * C-c C-s  running matlab code
     * C-'      move point to middle of line
     * C-x C-e  eval-current-buffer
+    * C-c C-j  active chinese wubi input method
 
 > Note: for more detail key-binding, please refs to the file
 > [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/doc/keybinding.md 
@@ -67,3 +68,4 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-01-14 v1.3   (add php mode)
 * 2014-01-20 v1.3.1 (add % move point to matched bracket)
 * 2014-01-23 v1.3.2 (add session and desktop mode setting)
+* 2014-01-25 v1.3.3 (add chinese input method )
