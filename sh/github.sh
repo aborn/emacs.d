@@ -21,6 +21,9 @@ REPONAME=$1
 
 git config --global push.default matching
 git config --global push.default simple
+git config --global user.name "${USERNAME}"
+git config --global user.email "${EMAILADDR}"
+git config --global core.editor emacs
 
 CONFIGFILE="${HOME}/.ssh/config"
 
@@ -29,4 +32,4 @@ echo "User ${EMAILADDR}" >> ${CONFIGFILE}
 echo "Port 443" >> ${CONFIGFILE}
 echo "Hostname ssh.github.com" >> ${CONFIGFILE}
 
-git clone git@github.com:${USERNAME}/${REPONAME}.git
+#git clone git@github.com:${USERNAME}/${REPONAME}.git
