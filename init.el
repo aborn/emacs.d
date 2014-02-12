@@ -56,7 +56,8 @@
 (column-number-mode t)              ; show column number
 (global-linum-mode t)
 (global-auto-revert-mode t) 
-(setq linum-format "%4d \u2502")
+(setq linum-format "%4d \u2502")            ; for GUI and command line emacs 24
+;(setq linum-format "%4d |")                ; for command line emacs 23
 (setq frame-title-format "--love cld--emacs@%b")   
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (kill-buffer "*scratch*")
