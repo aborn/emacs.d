@@ -41,6 +41,7 @@ function copy-files()
         #  rm -rf ${HOME}/.emacs.d/*
     fi
     EMACSHOME=${HOME}/.emacs.d
+    echo "copy all file in `pwd` to ~/.emacs.d"
     cp -rf  ./*   ${EMACSHOME}     # copy all files to emacs
     [ $? -ne 0 ] && echo "Failed: error in  copy files to ${EMACSHOME}" && exit 1
     
