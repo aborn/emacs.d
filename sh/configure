@@ -14,6 +14,7 @@
 #####################################################
 
 ABSPATH=$(cd $(dirname $0);cd ..; pwd)
+echo
 echo "the current path is ${ABSPATH}"
 
 function fun-info()
@@ -42,6 +43,7 @@ function copy-files()
     fi
     EMACSHOME=${HOME}/.emacs.d
     echo "copy all file in `pwd` to ~/.emacs.d"
+    cd ${ABSPATH}
     cp -rf  ./*   ${EMACSHOME}     # copy all files to emacs
     [ $? -ne 0 ] && echo "Failed: error in  copy files to ${EMACSHOME}" && exit 1
     
@@ -70,7 +72,7 @@ function install-auto-complete()
 function main()
 {
     copy-files
-    install-auto-complete
+#    install-auto-complete
 }
 
 main
