@@ -24,3 +24,4 @@ keybinding.md
 * C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all
 highlighting)
 * C-x C-x go to marked pos
+* M-m      switch to *shell* buffer

@@ -86,7 +86,8 @@
 (global-set-key (kbd "C-'") 'move-middle-of-line)
 (global-set-key (kbd "C-;") 'move-forward-by-five)
 (global-set-key (kbd "C-:") 'move-backward-by-five)
-(global-set-key (kbd "<C-tab>") 'bury-buffer)       ; switch buffer C-tab
+(global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
+(global-set-key (kbd "M-m") 'switch-to-shell-buffer)  ; function in move-swift
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket

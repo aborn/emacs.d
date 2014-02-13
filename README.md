@@ -69,3 +69,4 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-01-20 v1.3.1 (add % move point to matched bracket)
 * 2014-01-23 v1.3.2 (add session and desktop mode setting)
 * 2014-01-25 v1.3.3 (add chinese wubi input method )
+

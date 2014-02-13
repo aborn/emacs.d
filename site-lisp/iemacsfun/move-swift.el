@@ -18,3 +18,8 @@
   (interactive "p")
   (push-mark)
   (forward-line -5))
+
+(defun switch-to-shell-buffer (arg)
+"Swith to *shell* buff"
+(interactive "p")
+(switch-to-buffer "*shell*"))
