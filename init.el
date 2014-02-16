@@ -262,7 +262,9 @@
                        "wubi") 
 (setq default-input-method "chinese-wubi")
 (define-key global-map "\C-c\C-j" 'toggle-input-method)
+(define-key global-map "\C-cj" 'toggle-input-method)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-01-25
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-14
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
