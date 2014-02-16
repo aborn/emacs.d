@@ -23,6 +23,7 @@ This file content tells your how to use git when you forget it!!
 * git remote add upstream git://github.com/usr/repo.git
 * git fetch upstream (fork)
 * git merge upstream/master
+* git remote set-url origin git@github.com:aborn/.emacs.d.git 
 
 ## FAQ
 1. fatal: Unable to find remote helper for 'https'
