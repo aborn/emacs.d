@@ -23,6 +23,7 @@ This file content tells your how to use git when you forget it!!
 * git remote add upstream git://github.com/usr/repo.git
 * git fetch upstream (fork)
 * git merge upstream/master
+
 ## FAQ
 1. fatal: Unable to find remote helper for 'https'
 A. you should install curl, and libghc6-curl-dev libghc-curl-dev.
