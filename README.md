@@ -1,4 +1,4 @@
-emacs.lite
+.emacs.d
 ==========
 
 ## INTRODUCTION
@@ -13,12 +13,12 @@ download all file in this project and running configure
 1. generate the ssh key
 2. copy the key to github.com
 3. cp ./doc/config ~/.ssh/
-4. git clone git@github.com:aborn/emacs.lite.git
+4. git clone git@github.com:aborn/.emacs.d.git
 
 > ... more refs to
-  [github.sh](https://github.com/aborn/emacs.lite/blob/master/sh/github.sh
+  [github.sh](https://github.com/aborn/.emacs.d/blob/master/sh/github.sh
   "github.com clone setting initial.") and
-  [git-usage](https://github.com/aborn/emacs.lite/blob/master/doc/git-usage.md
+  [git-usage](https://github.com/aborn/.emacs.d/blob/master/doc/git-usage.md
   "how to use git.")
 
 ## KEY-BINDING
@@ -48,7 +48,7 @@ M-meta/alt
     * C-c C-j  active chinese wubi input method
 
 > Note: for more detail key-binding, please refs to the file
-> [keybinding.md](https://github.com/aborn/emacs.lite/blob/master/doc/keybinding.md 
+> [keybinding.md](https://github.com/aborn/.emacs.d/blob/master/doc/keybinding.md 
 > "all hot-key instructions in this repo")
 
 ## OTHER OPEN SOURCE CODE
