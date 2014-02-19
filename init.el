@@ -45,7 +45,7 @@
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
-                                    ; max frame when launch emacs GUI
+										; max frame when launch emacs GUI
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -57,7 +57,7 @@
 (global-auto-revert-mode t) 
 (global-linum-mode t)
 (setq linum-format "%4d \u2502")            ; for GUI and command line emacs 24
-;(setq linum-format "%4d |")                ; for command line emacs 23
+										;(setq linum-format "%4d |")                ; for command line emacs 23
 (setq frame-title-format "--love cld--emacs@%b")   
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (kill-buffer "*scratch*")
@@ -264,7 +264,13 @@
 (define-key global-map "\C-c\C-j" 'toggle-input-method)
 (define-key global-map "\C-cj" 'toggle-input-method)
 
+;;------------------------------------------------------------------------------
+;; add sql-indent mode
+;; wget 
+;;------------------------------------------------------------------------------
+(eval-after-load "sql"
+  (load-library "sql-indent"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-14
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-18
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

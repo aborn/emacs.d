@@ -70,4 +70,4 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-01-23 v1.3.2 (add session and desktop mode setting)
 * 2014-01-25 v1.3.3 (add chinese wubi input method )
 * 2014-02-14 v1.3.4 (add switch to *shell* buffer)
-
+* 2014-02-18 v1.3.5 (add sql mode)

@@ -5,7 +5,6 @@ git-usage
 This file content tells your how to use git when you forget it!!
 
 ## MAIN COMMAND
-
 * git remote add origin git@github.com:aborn/emacs.lite.git
 * git add -A .
 * git commit -m "project:auto-send-weibo"
@@ -24,6 +23,14 @@ This file content tells your how to use git when you forget it!!
 * git fetch upstream (fork)
 * git merge upstream/master
 * git remote set-url origin git@github.com:aborn/.emacs.d.git 
+
+## HOW TO FORK
+* fork mysql2redis
+* git clone git@github.com:aborn/mysql2redis.git
+* git remote add upstream
+  https://github.com/dawnbreaks/mysql2redis.git
+* git fetch upstream
+* git merge upstream/master
 
 ## FAQ
 1. fatal: Unable to find remote helper for 'https'
