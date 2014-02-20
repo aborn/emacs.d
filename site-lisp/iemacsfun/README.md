@@ -12,4 +12,7 @@ or .emacs)
 * move-middle-of-line  move point to middle of current line. hotkey: C-'  
 * move-forward-by-five move point forward by five lines. hotkey: C-;
 * move-backward-by-five move point backward by five lines. hotkey: C-:
-* switch-to-shell-buffer swithc to *shell* buffer
+* switch-to-shell-buffer swithc to \*shell\* buffer
+
+#### switch-swift.el
+* switch-to-shell-buffer fast swtich current buffer to \*shell\* buffer

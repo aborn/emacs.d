@@ -28,7 +28,7 @@ M-meta/alt
 1. choose color theme
 	*  M-x color-theme-select
 
-2. switch buffer 
+2. switch buffer    
 	* C-x C-n  switch to next buffer
     * C-.      switch to next buffer
 	* C-x C-p  switch to previous buffer
@@ -71,3 +71,4 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-01-25 v1.3.3 (add chinese wubi input method )
 * 2014-02-14 v1.3.4 (add switch to *shell* buffer)
 * 2014-02-18 v1.3.5 (add sql mode)
+* 2014-02-20 v1.3.6 (add switch-swift in iemacsfun)

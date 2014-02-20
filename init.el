@@ -10,9 +10,6 @@
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
-
-;; (load-file "~/.emacs.d/site-lisp/custom/copy-line.el")
-;; (load-file "~/.emacs.d/site-lisp/iemacsfun/move-middle-of-line.el")
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
@@ -21,6 +18,7 @@
 ;; --------------------------------------------------------------------
 (require 'copy-line)
 (require 'move-swift)
+(require 'switch-swift)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -39,7 +37,7 @@
 			 'comint-postoutput-scroll-to-bottom)
 
 ;; --------------------------------------------------------------------
-;; basic setting for emacs and mode turn on or off
+;; basic setting for emacs and mode turn on or off when boot up
 ;; --------------------------------------------------------------------
 (custom-set-variables
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
@@ -48,7 +46,7 @@
 										; max frame when launch emacs GUI
 (setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
-(require 'hl-line)                  ; highlight current line
+(require 'hl-line)                  ;; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
 
 (display-time)
@@ -56,17 +54,21 @@
 (column-number-mode t)              ; show column number
 (global-auto-revert-mode t) 
 (global-linum-mode t)
-(setq linum-format "%4d \u2502")            ; for GUI and command line emacs 24
-										;(setq linum-format "%4d |")                ; for command line emacs 23
+(setq linum-format "%4d \u2502")    ; for GUI and command line emacs 24
+;; (setq linum-format "%4d |")      ; for command line emacs 23
 (setq frame-title-format "--love cld--emacs@%b")   
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file
+(if (get-buffer "*shell*")
+	()                              ; if *shell* buffer exists, do nothing
+  (shell))                          ; open shell when boot up 
+(split-window-horizontally)
 
 ;; --------------------------------------------------------------------
-;; hot key (key binding) setting all together
+;; hot key (key binding) setting all together 
 ;; --------------------------------------------------------------------
-(define-key global-map "\C-x\C-g" 'goto-line)
+(define-key global-map "\Co-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)       ; emacs 23
 ;; (global-set-key [?\C-,] 'switch-to-prev-buffer)  ; emacs 24
@@ -88,6 +90,8 @@
 (global-set-key (kbd "C-:") 'move-backward-by-five)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
 (global-set-key (kbd "M-m") 'switch-to-shell-buffer)  ; function in move-swift
+(global-set-key (kbd "C-j") 'switch-to-buffer)
+(global-set-key (kbd "M-j") 'find-file)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
