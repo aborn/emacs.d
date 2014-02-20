@@ -38,3 +38,6 @@ highlighting)
 * M-%      search and replace
 * C-j      switch to buffer
 * M-j      find file (open file)
+
+## IN SHELL MODE
+* M-r      search previous command.
