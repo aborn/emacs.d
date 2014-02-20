@@ -63,12 +63,13 @@
 (if (get-buffer "*shell*")
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
-(split-window-horizontally)
+(delete-other-windows)              ; keep one window
+(split-window-horizontally)         ; keep horizontally two windows
 
 ;; --------------------------------------------------------------------
 ;; hot key (key binding) setting all together 
 ;; --------------------------------------------------------------------
-(define-key global-map "\Co-x\C-g" 'goto-line)
+(define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)       ; emacs 23
 ;; (global-set-key [?\C-,] 'switch-to-prev-buffer)  ; emacs 24
@@ -270,11 +271,11 @@
 
 ;;------------------------------------------------------------------------------
 ;; add sql-indent mode
-;; wget 
+;; wget http://www.emacswiki.org/emacs/sql-indent.el
 ;;------------------------------------------------------------------------------
 (eval-after-load "sql"
   (load-library "sql-indent"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-18
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
