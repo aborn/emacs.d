@@ -6,8 +6,12 @@ This project is a slight configure file for emacs.
 emacs version 23 or later
 
 ## USAGE
-download all file in this project and running configure
+Download all file in this project and running configure  
 > $./sh/configure
+
+You can also use git clone it to you home path
+> cd ~  
+> git clone https://github.com/aborn/.emacs.d.git
 
 ## GITHUB
 1. generate the ssh key
@@ -52,8 +56,8 @@ M-meta/alt
 > "all hot-key instructions in this repo")
 
 ## OTHER OPEN SOURCE CODE
-* auto-complete version 1.3.1, the original package in
- ~/.emacs.d/site-lisp/auto-complete1.3.1 and insatll using ins.sh, the 
+* auto-complete version 1.3.1, the original package in  
+ ~/.emacs.d/site-lisp/auto-complete1.3.1 and insatll using ins.sh, the   
  compiled in  ~/.emacs.d/site-lisp/auto-complete
 
 ## AUTHOR
