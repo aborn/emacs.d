@@ -28,6 +28,9 @@ highlighting)
 * C-x C-y  open sr-speedbar
 * C-c C-j  toggle input method --chinese wubi (GUI)
 * C-c j    toggle input method --chinese wubi (CLI)
+* C-c C-k  start-kbd-macro
+* C-c C-l  end-kbd-macro
+* M-c      call-last-kbd-macro
 
 ## SIGAL CHARACTOR HOT KEY (Frequently used command)
 * %        search matched bracket

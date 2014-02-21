@@ -94,12 +94,15 @@
 (global-set-key (kbd "M-m") 'switch-to-shell-buffer)  ; function in move-swift
 (global-set-key (kbd "C-j") 'switch-to-buffer)
 (global-set-key (kbd "M-j") 'find-file)
+(global-set-key (kbd "M-c") 'call-last-kbd-macro)
+(global-set-key "\C-c\C-k" 'start-kbd-macro)
+(global-set-key "\C-c\C-l" 'end-kbd-macro)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
 ;; --------------------------------------------------------------------
 (global-set-key "%" 'match-paren)
-(defun match-paren (arg)
+(defun match-paren (arg)				
   "Go to the matching paren if on a paren; otherwise insert %."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
@@ -279,5 +282,5 @@
   (load-library "sql-indent"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-20
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-02-21
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
