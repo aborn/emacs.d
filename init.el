@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; emaca basic setting only for version 23 and later version
+;; emacs basic setting only for version 23 and later version
 ;; put this file (init.el) in ~/.emacs.d/
-;; ~/.emacs.d/init.el equals to ~/.emacs
+;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
@@ -48,6 +48,7 @@
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ;; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
+(setq x-select-enable-clipboard t)  ; copy and paste with other program
 
 (display-time)
 (show-paren-mode t)
@@ -266,10 +267,11 @@
                        "WuBi" "WuBi"
                        "wubi") 
 (setq default-input-method "chinese-wubi")
-(define-key global-map "\C-c\C-j" 'toggle-input-method)
-(define-key global-map "\C-cj" 'toggle-input-method)
+(global-set-key "\C-c\C-j" 'toggle-input-method)  ;; other except .md
+(global-set-key "\C-cj" 'toggle-input-method)     ;; .md
+(global-set-key [?\S- ] 'toggle-input-method)     ;; .md and other
 
-;;------------------------------------------------------------------------------
+;;-------------------- ----------------------------------------------------------
 ;; add sql-indent mode
 ;; wget http://www.emacswiki.org/emacs/sql-indent.el
 ;;------------------------------------------------------------------------------
