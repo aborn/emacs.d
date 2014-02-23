@@ -64,8 +64,8 @@
 (if (get-buffer "*shell*")
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
-(delete-other-windows)              ; keep one window
-(split-window-horizontally)         ; keep horizontally two windows
+;; (delete-other-windows)              ; keep one window
+;; (split-window-horizontally)         ; keep horizontally two windows
 
 ;; --------------------------------------------------------------------
 ;; hot key (key binding) setting all together 
