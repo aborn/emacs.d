@@ -274,36 +274,41 @@
 (global-set-key "\C-cj" 'toggle-input-method)     ;; .md
 (global-set-key [?\S- ] 'toggle-input-method)     ;; .md and other
 
-;;-------------------- ----------------------------------------------------------
+;;------------------------------------------------------------------------------
 ;; add sql-indent mode
 ;; wget http://www.emacswiki.org/emacs/sql-indent.el
 ;;------------------------------------------------------------------------------
 (eval-after-load "sql"
   (load-library "sql-indent"))
 
-
-;;-------------------- ----------------------------------------------------------
+;;------------------------------------------------------------------------------
 ;; add ace-jump mode for quick jump http://www.emacswiki.org/emacs/AceJump
 ;; download from 
 ;;     https://github.com/winterTTr/ace-jump-mode/blob/master/ace-jump-mode.el
-;;-------------------- ----------------------------------------------------------
+;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-x SPC") 'ace-jump-line-mode)
 ;; If you also use viper mode:
 ;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
 
-;;-------------------- ----------------------------------------------------------
+;;------------------------------------------------------------------------------
 ;; add quick-jump mode 
-;; download from
-;;-------------------- ----------------------------------------------------------
+;; download from http://www.emacswiki.org/emacs/quick-jump.el
+;;------------------------------------------------------------------------------
 (require 'quick-jump)
 ;; (quick-jump-default-keybinding)
 (global-set-key (kbd "C-<") 'quick-jump-go-back)
 (global-set-key (kbd "C->") 'quick-jump-go-forward)
-(global-set-key (kbd "C-x C-SPC") 'quick-jump-push-marker)
-(global-set-key (kbd "C-c C-SPC") 'quick-jump-clear-all-marker))
+(global-set-key (kbd "C-x C-x") 'quick-jump-push-marker)
+(global-set-key (kbd "C-c C-SPC") 'quick-jump-clear-all-marker)
 
+;;------------------------------------------------------------------------------
+;; add vim mode
+;;------------------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
+    (require 'evil)
+(global-set-key (kbd "C-x C-SPC") 'evil-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-02
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
