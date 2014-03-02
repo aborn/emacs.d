@@ -307,8 +307,21 @@
 ;; add vim mode
 ;;------------------------------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
-    (require 'evil)
+(require 'evil)
 (global-set-key (kbd "C-x C-SPC") 'evil-mode)
+
+;;------------------------------------------------------------------------------
+;; highlight-tail, which is download from 
+;;     http://blog.arithm.com/2008/04/12/highlight-tail-for-emacs/
+;; and the chinese reference is
+;;     http://emacser.com/highlight-tail.htm
+;; the file is highlight-tail.el
+;;------------------------------------------------------------------------------
+(require 'highlight-tail)
+(message "Highlight-tail loaded - now your Emacs will be even more sexy!")
+;; ; [ here some setq of variables - see CONFIGURATION section below ]
+(highlight-tail-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-02
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
