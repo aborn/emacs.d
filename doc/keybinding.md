@@ -43,5 +43,13 @@ highlighting)
 * M-j      find file (open file)
 * S-space  toggle input method.
 
+## swift jump in files
+* C-<          quick-jump-go-back
+* C->          quick-jump-go-forward
+* C-x C-SPC    quick-jump-push-marker
+* C-c C-SPC    quick-jump-clear-all-marker
+* C-c SPC      ace-jump-mode
+* C-x SPC      ace-jump-line-mode
+
 ## IN SHELL MODE
 * M-r      search previous command.
