@@ -19,6 +19,7 @@
 (require 'copy-line)
 (require 'move-swift)
 (require 'switch-swift)
+(require 'emacs-nifty-tricks)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -70,6 +71,7 @@
 ;; --------------------------------------------------------------------
 ;; hot key (key binding) setting all together 
 ;; --------------------------------------------------------------------
+(global-set-key "\C-cd" 'insert-date)
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)       ; emacs 23
@@ -323,5 +325,5 @@
 (highlight-tail-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-02
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

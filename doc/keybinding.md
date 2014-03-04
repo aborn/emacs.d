@@ -29,6 +29,7 @@ highlighting)
 * C-c C-k  start-kbd-macro
 * C-c C-l  end-kbd-macro
 * M-c      call-last-kbd-macro
+* C-c d    Insert date
 
 ## SIGAL CHARACTOR HOT KEY (Frequently used command)
 * %        search matched bracket
