@@ -32,4 +32,5 @@ echo "User ${EMAILADDR}" >> ${CONFIGFILE}
 echo "Port 443" >> ${CONFIGFILE}
 echo "Hostname ssh.github.com" >> ${CONFIGFILE}
 
+chmod 600 ${CONFIGFILE}
 #git clone git@github.com:${USERNAME}/${REPONAME}.git
