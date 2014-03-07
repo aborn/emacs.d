@@ -43,7 +43,7 @@ M-meta/alt
 	* C-i      just one space
 	* C-o      switch to other window
     * C-x C-m  indent-region
-    * C-x C-k  kill-buffer
+    * C-x k    kill-buffer
     * M-w C-s  search and highlight all the matched content
     * C-x C-y  open sr-speedbar
     * C-c C-s  running matlab code
@@ -56,9 +56,7 @@ M-meta/alt
 > "all hot-key instructions in this repo")
 
 ## OTHER OPEN SOURCE CODE
-* auto-complete version 1.3.1, the original package in  
- ~/.emacs.d/site-lisp/auto-complete1.3.1 and insatll using ins.sh, the   
- compiled in  ~/.emacs.d/site-lisp/auto-complete
+* all source code illustrations are showed in each module in file init.el
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
@@ -80,3 +78,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-03-02 v1.4.1 (add evil, that is, add vim mode)
 * 2014-03-02 v1.4.2 (add highlight-tail-mode)
 * 2014-03-04 v1.4.3 (add insert-date function)
+
+## IN THE FUTURE
+* learn org-mode, to-do-list and setting
+* html, php, multi-mode setting

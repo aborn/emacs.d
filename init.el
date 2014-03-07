@@ -55,18 +55,21 @@
 (show-paren-mode t)
 (column-number-mode t)              ; show column number
 (global-auto-revert-mode t) 
-(global-linum-mode t)
+(global-linum-mode t)               ; show line number
 (setq linum-format "%4d \u2502")    ; for GUI and command line emacs 24
 ;; (setq linum-format "%4d |")      ; for command line emacs 23
-(setq frame-title-format "--love cld--emacs@%b")   
+(setq frame-title-format '("%b (%f) &aborn love cld&  %s ", emacs-version))   
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+ 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file
 (if (get-buffer "*shell*")
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
-;; (delete-other-windows)              ; keep one window
-;; (split-window-horizontally)         ; keep horizontally two windows
+;; (delete-other-windows)           ; keep one window
+;; (split-window-horizontally)      ; keep horizontally two windows
 
 ;; --------------------------------------------------------------------
 ;; hot key (key binding) setting all together 
@@ -80,7 +83,7 @@
 (global-set-key (kbd "C-.") 'next-buffer)           ; emacs 23
 ;; (global-set-key [?\C-.] 'switch-to-next-buffer)  ; emacs 24
 (global-set-key "\C-x\C-j" 'erase-buffer)
-(global-set-key "\C-x\C-k" 'kill-buffer)
+;; (global-set-key "\C-xk" 'kill-buffer)            ; emacs built-in key
 (global-set-key "\C-x\C-r" 'revert-buffer)
 (global-set-key "\C-x\C-m" 'indent-region)
 (global-set-key (kbd "M-n") 'set-mark-command)
@@ -307,6 +310,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; add vim mode
+;;  download from git clone git://gitorious.org/evil/evil.git
 ;;------------------------------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
 (require 'evil)
@@ -325,5 +329,5 @@
 (highlight-tail-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-04
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-07
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
