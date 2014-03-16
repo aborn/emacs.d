@@ -104,6 +104,17 @@
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
 
 ;; --------------------------------------------------------------------
+;; setting org-mode
+;; --------------------------------------------------------------------
+;; (setq org-todo-keywords
+;; '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+(setq org-todo-keywords
+'((sequence "TODO" "ONGOING" "DONE" "DELEGATED")))
+(setq org-log-done 'time)   ;;  setting close time
+(setq org-log-done 'note)   ;;  setting a log note
+(set org-modules 'habits)
+
+;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
 ;; --------------------------------------------------------------------
 (global-set-key "%" 'match-paren)
@@ -329,5 +340,5 @@
 (highlight-tail-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-07
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-16
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

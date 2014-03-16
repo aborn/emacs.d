@@ -78,7 +78,4 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-03-02 v1.4.1 (add evil, that is, add vim mode)
 * 2014-03-02 v1.4.2 (add highlight-tail-mode)
 * 2014-03-04 v1.4.3 (add insert-date function)
-
-## IN THE FUTURE
-* learn org-mode, to-do-list and setting
-* html, php, multi-mode setting
+* 2014-03-16 v1.4.4 (add some basic org-mode settings)
