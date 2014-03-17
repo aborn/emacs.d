@@ -77,6 +77,7 @@
 (global-set-key "\C-cd" 'insert-date)
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
+(global-set-key "\M-p" 'previous-buffer)
 (global-set-key (kbd "C-,") 'previous-buffer)       ; emacs 23
 ;; (global-set-key [?\C-,] 'switch-to-prev-buffer)  ; emacs 24
 (global-set-key "\C-x\C-n" 'next-buffer)
@@ -112,7 +113,7 @@
 '((sequence "TODO" "ONGOING" "DONE" "DELEGATED")))
 (setq org-log-done 'time)   ;;  setting close time
 (setq org-log-done 'note)   ;;  setting a log note
-(set org-modules 'habits)
+;; (set org-modules 'habits)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
@@ -340,5 +341,5 @@
 (highlight-tail-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-16
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-17
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
