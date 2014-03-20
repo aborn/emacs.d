@@ -61,7 +61,7 @@
 (setq frame-title-format '("%b (%f) &aborn love cld&  [%s] emacs" emacs-version))   
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
- 
+
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file
@@ -110,7 +110,7 @@
 ;; (setq org-todo-keywords
 ;; '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 (setq org-todo-keywords
-'((sequence "TODO" "ONGOING" "DONE" "DELEGATED")))
+	  '((sequence "TODO" "ONGOING" "DONE" "DELEGATED")))
 (setq org-log-done 'time)   ;;  setting close time
 (setq org-log-done 'note)   ;;  setting a log note
 ;; (set org-modules 'habits)
@@ -337,9 +337,23 @@
 ;;------------------------------------------------------------------------------
 (require 'highlight-tail)
 (message "Highlight-tail loaded - now your Emacs will be even more sexy!")
-;; ; [ here some setq of variables - see CONFIGURATION section below ]
+;;  here some setq of variables - see CONFIGURATION section below 
+(setq highlight-tail-colors '(("black" . 0)
+							  ("#bc2525" . 25)
+							  ("black" . 66)))
+(setq highlight-tail-steps 14
+	  highlight-tail-timer 1)
+(setq highlight-tail-posterior-type 'const)
 (highlight-tail-mode)
 
+;;------------------------------------------------------------------------------
+;; change to dream-theme, this theme file in site-lisp/custom/dream-theme.el
+;; download from https://github.com/djcb/dream-theme
+;;------------------------------------------------------------------------------
+(require 'dream-theme)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-17
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-03-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
