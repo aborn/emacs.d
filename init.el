@@ -58,7 +58,7 @@
 (global-linum-mode t)               ; show line number
 (setq linum-format "%4d \u2502")    ; for GUI and command line emacs 24
 ;; (setq linum-format "%4d |")      ; for command line emacs 23
-(setq frame-title-format '("%b (%f) &aborn love cld&  %s ", emacs-version))   
+(setq frame-title-format '("%b (%f) &aborn love cld&  [%s] emacs" emacs-version))   
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
  
