@@ -5,9 +5,13 @@ TODO.md
 Features in emacs may used in the future.
 
 ### FEATURES LISTS
-* [keep your secrets secrt](emacs-fu.blogspot.com/2011/02/keeping-your-secrets-secret.html)
-* [root privileges onece](emacs-fu.blogspot.com/.../editing-with-root-privileges-once-more.html)
-* multi mode, like html, js, php etc.
+* [Keep your secrets secrt](emacs-fu.blogspot.com/2011/02/keeping-your-secrets-secret.html)
+* [Root privileges onece](emacs-fu.blogspot.com/.../editing-with-root-privileges-once-more.html)
+* Multi mode, like html, js, php etc.
+* Project management. [cask](http://cask.github.io/api.html).
+* How to send email in emacs ?
+* Org-mode learning.
+* Remote file editing and modify.
 
 ### UPDATE TIME
 2014-03-20
