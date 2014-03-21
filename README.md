@@ -82,5 +82,12 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-03-20 v1.4.5 (add dream-theme and change it)
 
 ## EMACS SCREENSHOT
-![](emacs.png "my emacs screenshot")
+* emacs dream-theme
+![](emacs-dream.png "my emacs dream-theme screenshot")
+
+* emacs default-theme
+![](emacs-default.png "my emacs default-theme screenshot")
+
+
+
 
