@@ -1,11 +1,11 @@
 .emacs.d
 ==========
 
-## INTRODUCTION
+## INTRO
 This project is a slight configure file for emacs.
 emacs version 23 or later
 
-## USAGE
+## USAGE/INSTALL
 Download all file in this project and running configure  
 > $./sh/configure
 
