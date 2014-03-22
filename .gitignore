@@ -1,1 +1,6 @@
 *~
+.emacs.desktop
+.emacs.desktop.lock
+.session
+ac-comphist.dat
+elpa/

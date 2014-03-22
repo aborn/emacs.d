@@ -83,10 +83,10 @@ Aborn Jiang (aborn.jiang@gmail.com)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme
-![](emacs-dream.png "my emacs dream-theme screenshot")
+![](images/emacs-dream.png "my emacs dream-theme screenshot")
 
 * emacs default-theme
-![](emacs-default.png "my emacs default-theme screenshot")
+![](images/emacs-default.png "my emacs default-theme screenshot")
 
 
 
