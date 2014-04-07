@@ -80,6 +80,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-03-04 v1.4.3 (add insert-date function)
 * 2014-03-16 v1.4.4 (add some basic org-mode settings)
 * 2014-03-20 v1.4.5 (add dream-theme and change it)
+* 2014-04-07 v1.4.6 (add key-binding in key-binding.el file)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme
