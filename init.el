@@ -333,8 +333,8 @@
 ;;  ~/.emacs.d/local/local-setting.el
 ;; *****************************************************************************
 (require 'key-binding)            ; all key-binding
- (if (file-exists-p "~/.emacs.d/local/local-setting.el")
- (require 'local-setting))
+(if (file-exists-p "~/.emacs.d/local/local-setting.el")
+	(require 'local-setting))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-07
