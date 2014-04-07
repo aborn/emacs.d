@@ -8,6 +8,7 @@
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/wubi")
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/local/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
@@ -21,7 +22,6 @@
 (require 'move-swift)
 (require 'switch-swift)
 (require 'emacs-nifty-tricks)
-
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -47,13 +47,11 @@
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 										; max frame when launch emacs GUI
-(setq display-time-day-and-date t)
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
 (setq x-select-enable-clipboard t)  ; copy and paste with other program
 
-(display-time)
 (show-paren-mode t)
 (column-number-mode t)              ; show column number
 (global-auto-revert-mode t) 
@@ -70,10 +68,12 @@
 (if (get-buffer "*shell*")
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
-;; (delete-other-windows)           ; keep one window
-;; (split-window-horizontally)      ; keep horizontally two windows
 
-
+;; setting mode line
+(display-time)
+(setq display-time-24hr-format t)
+(setq display-time-use-mail-icon t)
+(setq display-time-day-and-date t)
 
 ;; --------------------------------------------------------------------
 ;; setting org-mode
@@ -170,6 +170,10 @@
 (require 'semantic/sb)
 (require 'semantic/ia)
 (semantic-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; setting speedbar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'sr-speedbar)
 (global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
 (setq sr-speedbar-right-side nil)  ;; nil means speedbar appears on left
@@ -323,7 +327,15 @@
 ;;------------------------------------------------------------------------------
 ;; (require 'dream-theme)
 
+;; *****************************************************************************
+;; !! NOTE: local machine file setting.
+;; this machine's local setting in
+;;  ~/.emacs.d/local/local-setting.el
+;; *****************************************************************************
 (require 'key-binding)            ; all key-binding
+ (if (file-exists-p "~/.emacs.d/local/local-setting.el")
+ (require 'local-setting))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-07
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
