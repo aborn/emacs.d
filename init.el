@@ -21,7 +21,7 @@
 (require 'move-swift)
 (require 'switch-swift)
 (require 'emacs-nifty-tricks)
-(require 'key-binding)            ; load key-binding.el file
+
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -323,6 +323,7 @@
 ;;------------------------------------------------------------------------------
 ;; (require 'dream-theme)
 
+(require 'key-binding)            ; all key-binding
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-07
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

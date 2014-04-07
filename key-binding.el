@@ -1,7 +1,7 @@
 ;; provide all key bindings 
 (provide 'key-binding)
 ;; --------------------------------------------------------------------
-;; hot key (key binding) setting all together 
+;; global hot key (key binding) setting all together 
 ;; --------------------------------------------------------------------
 (global-set-key "\C-cd" 'insert-date)
 (define-key global-map "\C-x\C-g" 'goto-line)
@@ -32,3 +32,15 @@
 (global-set-key (kbd "M-j") 'find-file)
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
+
+;; --------------------------------------------------------------------
+;; each local major-mode key binding
+;; --------------------------------------------------------------------
+;; define matlab-mode key-binding
+(require 'matlab)
+(define-key matlab-mode-map (kbd "C-j") 'switch-to-buffer)
+(define-key matlab-mode-map (kbd "M-j") 'find-file)
+
+;; define php-mode key-binding
+(require 'php-mode)
+(define-key php-mode-map (kbd "M-j") 'find-file)
