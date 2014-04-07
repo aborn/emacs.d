@@ -52,7 +52,7 @@
 (global-hl-line-mode t)             ; setting as global hl
 (setq x-select-enable-clipboard t)  ; copy and paste with other program
 
-(show-paren-mode t)
+(show-paren-mode t)                 ; paren match show
 (column-number-mode t)              ; show column number
 (global-auto-revert-mode t) 
 (global-linum-mode t)               ; show line number
@@ -69,7 +69,7 @@
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
 
-;; setting mode line
+;;  mode line setting
 (display-time)
 (setq display-time-24hr-format t)
 (setq display-time-use-mail-icon t)
