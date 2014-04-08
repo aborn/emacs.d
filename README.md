@@ -50,6 +50,7 @@ M-meta/alt
     * C-'      move point to middle of line
     * C-x C-e  eval-current-buffer
     * C-c C-j  active chinese wubi input method
+    * M-$      ispell-word. Check and correct spelling of the word at point.
 
 > Note: for more detail key-binding, please refs to the file
 > [keybinding.md](https://github.com/aborn/.emacs.d/blob/master/doc/keybinding.md 
@@ -57,6 +58,10 @@ M-meta/alt
 
 ## OTHER OPEN SOURCE CODE
 * all source code illustrations are showed in each module in file init.el
+
+## DEPEND
+* pls install "aspell ispell hunspell" before use checking and
+correcting spelling. ispell-*  M-$
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)

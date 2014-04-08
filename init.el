@@ -63,13 +63,18 @@
 (setq uniquify-buffer-name-style 'reverse)
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(flyspell-prog-mode)                ; flyspell mode for comments & strings only
+
 ;; (kill-buffer "*scratch*")
-(find-file "~/.emacs.d/init.el")    ; initial open init.el file
+(find-file "~/.emacs.d/init.el")    ; initial open init.el file 
 (if (get-buffer "*shell*")
 	()                              ; if *shell* buffer exists, do nothing
   (shell))                          ; open shell when boot up 
 
+;; --------------------------------------------------------------------
 ;;  mode line setting
+;; --------------------------------------------------------------------
 (display-time)
 (setq display-time-24hr-format t)
 (setq display-time-use-mail-icon t)
@@ -335,6 +340,7 @@
 (require 'key-binding)            ; all key-binding
 (if (file-exists-p "~/.emacs.d/local/local-setting.el")
 	(require 'local-setting))
+(server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-07

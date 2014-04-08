@@ -1,4 +1,4 @@
-keybinding.md
+keyboarding.MD
 =============
 
 * C-x C-m  indent-region
@@ -43,6 +43,7 @@ highlighting)
 * S-space  toggle input method.
 * C-/      undo
 * C-?      redo
+* C-*      fly-spell auto correct previous word
 
 ## swift jump in files
 * C-<          quick-jump-go-back

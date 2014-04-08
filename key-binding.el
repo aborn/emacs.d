@@ -32,6 +32,7 @@
 (global-set-key (kbd "M-j") 'find-file)
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
+(global-set-key (kbd "C-*")'flyspell-auto-correct-previous-word)
 
 ;; --------------------------------------------------------------------
 ;; each local major-mode key binding
