@@ -85,7 +85,7 @@
 :weight bold :underline t))))
     `(cursor ((t (:background ,dt-yellow :foreground nil))))
     `(minibuffer-prompt ((t (:foreground ,dt-red :weight bold :background ,dt-bg-1))))
-    `(region ((t (:foreground nil :background ,dt-green))))  ; mark region dt-bg+2 (default)
+    `(region ((t (:foreground nil :background ,dt-bg+2))))
     `(scroll-bar ((t (:background ,dt-bg+2))))
     `(secondary-selection ((t (:foreground nil :background ,dt-bg+2))))
     `(tool-bar ((t (:background ,dt-bg+2))))
@@ -133,7 +133,7 @@
     `(font-lock-operator-face ((t (:foreground ,dt-blue-1))))
 
     ;; hlline
-    `(hl-line ((t (:foreground nil :background ,dt-red-4))))  ; dt-bg-2 (default)
+    `(hl-line ((t (:foreground nil :background ,dt-bg-2))))
 
     ;; info
     `(info-xref ((t (:foreground ,dt-yellow :weight bold))))
