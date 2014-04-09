@@ -50,7 +50,7 @@ highlighting)
 * C->          quick-jump-go-forward
 * C-x C-SPC    change to vim mode
 * C-x C-x      quick-jump-push-marker
-* C-c C-SPC    quick-jump-clear-all-marker
+* C-c C-c      quick-jump-clear-all-marker
 * C-c SPC      ace-jump-mode
 * C-x SPC      ace-jump-line-mode
 

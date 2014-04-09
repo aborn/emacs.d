@@ -298,7 +298,7 @@
 (global-set-key (kbd "C-<") 'quick-jump-go-back)
 (global-set-key (kbd "C->") 'quick-jump-go-forward)
 (global-set-key (kbd "C-x C-x") 'quick-jump-push-marker)
-(global-set-key (kbd "C-c C-SPC") 'quick-jump-clear-all-marker)
+(global-set-key (kbd "C-c C-c") 'quick-jump-clear-all-marker)
 
 ;;------------------------------------------------------------------------------
 ;; add vim mode
@@ -343,5 +343,5 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-07
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-09
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
