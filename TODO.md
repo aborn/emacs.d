@@ -12,6 +12,7 @@ Features in emacs may used in the future.
 * How to send email in emacs ?
 * Org-mode learning.
 * Remote file editing and modify.
+* ERC IRC
 
 ### UPDATE TIME
 2014-03-20
