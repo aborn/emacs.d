@@ -38,7 +38,7 @@
 (global-set-key (kbd "C-)") 'uncomment-region)
 
 ;; --------------------------------------------------------------------
-;; each local major-mode key binding
+;; each local major-mode key binding 
 ;; --------------------------------------------------------------------
 ;; define matlab-mode key-binding
 (require 'matlab)

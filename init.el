@@ -30,6 +30,9 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq tab-width 4)
+;;(setq max-lisp-eval-depth 3000)      ;; default 500
+;;(setq max-specpdl-size 3000)         ;; default 1000
+
 ;; (customize-variable (quote tab-stop-list))
 
 ;; --------------------------------------------------------------------;
@@ -173,7 +176,7 @@
 (global-ede-mode t)
 ;;(global-ede-mode 1)
 (require 'semantic/sb)
-(require 'semantic/ia)
+;;(require 'semantic/IA)
 (semantic-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
