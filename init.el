@@ -112,11 +112,15 @@
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)			
-(color-theme-robin-hood)
-(eval-after-load "color-theme" 
-  (if window-system  
-      '(color-theme-subtle-hacker)  ;; GUI mode
-    '(color-theme-tty-dark)))       ;; Command line mode
+
+(if (file-exists-p "~/.emacs.d/local/local-setting.el")
+	(message "use local-setting.el configure")            ;; using the local setting
+  (color-theme-robin-hood)
+  (eval-after-load "color-theme" 
+	(if window-system  
+		'(color-theme-subtle-hacker)  ;; GUI mode
+	  '(color-theme-tty-dark)))       ;; Command line mode
+  )
 
 ;;(color-theme-dark-green)          ;; other options
 ;;(color-theme-billw)               ;; other options
@@ -329,7 +333,10 @@
 (setq highlight-tail-steps 14
 	  highlight-tail-timer 1)
 (setq highlight-tail-posterior-type 'const)
-(highlight-tail-mode)
+
+(if (not highlight-tail-mode) 
+	(highlight-tail-mode 1)   ;; open tail mode if it does not open
+  (message "highlight-mode-mode already opened."))             
 
 ;;------------------------------------------------------------------------------
 ;; change to dream-theme, this theme file in site-lisp/custom/dream-theme.el
