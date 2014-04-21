@@ -249,7 +249,7 @@
   "Same frame speedbar."
   :group 'speedbar)
 
-(defcustom sr-speedbar-width-x 24
+(defcustom sr-speedbar-width-x 10   ; 24 for gui default
   "Initial width of `sr-speedbar-window' under window system."
   :type 'integer
   :group 'sr-speedbar)

@@ -187,6 +187,8 @@
 (setq sr-speedbar-right-side nil)  ;; nil means speedbar appears on left
 (setq sr-speedbar-skip-other-window-p t)
 (setq speedbar-show-unknown-files t)
+;;(setq sr-speedbar-max-width 10)
+;;(setq sr-speedbar-width-x 10)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add undo-tree download from, C-x u to shows undo-tree graph
@@ -335,6 +337,14 @@
 ;;------------------------------------------------------------------------------
 ;; (require 'dream-theme)
 
+
+;;------------------------------------------------------------------------------
+;; add maxframe package.
+;; https://github.com/rmm5t/maxframe.el
+;;------------------------------------------------------------------------------
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -346,5 +356,6 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-19
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-21
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(put 'erase-buffer 'disabled nil)
