@@ -7,10 +7,12 @@
 							  ("black" . 66)))
 
 ;;setting frame/window
-(require 'frame-cmds)
-(maximize-frame)
-(delete-other-windows)             ; keep one window
-(sr-speedbar-toggle)
+;; (require 'frame-cmds)   ;; frame-cmds packages has some problem
+;; (maximize-frame)
+
+;;(delete-other-windows)             ; keep one window
+(sr-speedbar-open)
+;;(sr-speedbar-toggle)
 (other-window 1)
 (split-window-horizontally)      ; keep horizontally two windows
 
