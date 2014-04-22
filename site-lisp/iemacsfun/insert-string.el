@@ -20,3 +20,8 @@
   (unless (boundp 'chinese-name)
     (setq chinese-name  "蒋国宝"))
   (insert-string chinese-name))
+
+(defun insert-buffer-name (arg)
+  "Insert buffer name at the current point"
+  (interactive "p")
+  (insert-string (buffer-name)))
