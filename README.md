@@ -3,11 +3,14 @@
 
 ## INTRO
 This project is a slight configure file for emacs.
-emacs version 23 or later
+emacs version 23+
 
-## USAGE/INSTALL
+## INSTALL
 Download all file in this project and running configure  
-> $./sh/configure
+> wget https://github.com/aborn/.emacs.d/archive/master.zip
+> unzip master.zip
+> cd .emacs.d-master/
+> ./sh/configure
 
 You can also use git clone it to you home path
 > cd ~  
@@ -26,8 +29,9 @@ You can also use git clone it to you home path
   "how to use git.")
 
 ## KEY-BINDING
-C-control
-M-meta/alt
+C-control  
+M-meta/alt  
+Most key bindings are listed in file **key-binding.el**.  
 
 1. choose color theme
 	*  M-x color-theme-select

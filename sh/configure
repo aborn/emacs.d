@@ -76,4 +76,5 @@ function main()
 }
 
 main
-
+echo "Congratulations, you have finished configure emacs!"
+echo "Have fun with emacs, yours Aborn Jiang (aborn.jiang@foxmail.com)."
