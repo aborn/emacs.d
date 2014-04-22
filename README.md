@@ -7,10 +7,10 @@ emacs version 23+
 
 ## INSTALL
 Download all file in this project and running configure  
-> wget https://github.com/aborn/.emacs.d/archive/master.zip
-> unzip master.zip
-> cd .emacs.d-master/
-> ./sh/configure
+> wget https://github.com/aborn/.emacs.d/archive/master.zip  
+> unzip master.zip  
+> cd .emacs.d-master/  
+> ./sh/configure  
 
 You can also use git clone it to you home path
 > cd ~  
