@@ -2,8 +2,8 @@
 ==========
 
 ## INTRO
-This project is a slight configure file for emacs.
-emacs version 23+
+This project is a slight configure file for emacs.  
+All configure files can be used emacs version 23+
 
 ## INSTALL
 Download all file in this project and running configure  
