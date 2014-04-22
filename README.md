@@ -6,13 +6,16 @@ This project is a slight configure file for emacs.
 All configure files can be used emacs version 23+
 
 ## INSTALL
-Download all file in this project and running configure  
+You can install this repository configure using one of following
+methods.  
+
+1. Download all file in this project and running configure  
 > wget https://github.com/aborn/.emacs.d/archive/master.zip  
 > unzip master.zip  
 > cd .emacs.d-master/  
 > ./sh/configure  
 
-You can also use git clone it to you home path
+2. Or, you can also use git clone it to you home path
 > cd ~  
 > git clone https://github.com/aborn/.emacs.d.git
 
@@ -53,7 +56,7 @@ Most key bindings are listed in file **key-binding.el**.
     * C-c C-s  running matlab code
     * C-'      move point to middle of line
     * C-x C-e  eval-current-buffer
-    * C-c C-j  active chinese wubi input method
+    * SHIFT-SPC  active chinese wubi input method
     * M-$      ispell-word. Check and correct spelling of the word at point.
 
 > Note: for more detail key-binding, please refs to the file
@@ -64,8 +67,10 @@ Most key bindings are listed in file **key-binding.el**.
 * all source code illustrations are showed in each module in file init.el
 
 ## DEPEND
-* pls install "aspell ispell hunspell" before use checking and
+* pls install "aspell ispell hunspell" before use checking and  
 correcting spelling. ispell-*  M-$
+* install following command to install this dependency.  
+> sudo apt-get install aspell ispell hunspell -y
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
@@ -98,8 +103,6 @@ Aborn Jiang (aborn.jiang@gmail.com)
 ![](images/emacs-dream.png "my emacs dream-theme screenshot")
 
 * emacs default-theme
-![](images/emacs-default.png "my emacs default-theme screenshot")
-
-
+![](images/emacs-default.png "my emacs default-theme screen-shot")
 
 

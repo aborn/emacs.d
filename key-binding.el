@@ -54,3 +54,7 @@
 ;; define php-mode key-binding
 (require 'php-mode)
 (define-key php-mode-map (kbd "M-j") 'find-file)
+
+;; define flyspell-mode-map
+(define-key flyspell-mode-map (kbd "C-.") 'switch-to-next-buffer)
+(define-key flyspell-mode-map (kbd "C-,") 'switch-to-prev-buffer)
