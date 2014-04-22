@@ -3,7 +3,7 @@
 ;; --------------------------------------------------------------------
 ;; global hot key (key binding) setting all together 
 ;; --------------------------------------------------------------------
-(global-set-key "\C-cd" 'insert-date)
+
 (define-key global-map "\C-x\C-g" 'goto-line)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 (global-set-key "\M-p" 'previous-buffer)
@@ -36,6 +36,11 @@
 (global-set-key (kbd "C-*") 'flyspell-auto-correct-previous-word)
 (global-set-key (kbd "C-(") 'comment-region)
 (global-set-key (kbd "C-)") 'uncomment-region)
+;; insert-string related
+(global-set-key "\C-cd" 'insert-date)
+(global-set-key "\C-cm" 'insert-email-address)
+(global-set-key "\C-cn" 'insert-name-english)
+(global-set-key "\C-cN" 'insert-name-chinese)
 
 ;; --------------------------------------------------------------------
 ;; each local major-mode key binding 

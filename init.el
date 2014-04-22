@@ -22,6 +22,7 @@
 (require 'move-swift)
 (require 'switch-swift)
 (require 'emacs-nifty-tricks)
+(require 'insert-string)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -351,6 +352,14 @@
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 
+;;------------------------------------------------------------------------------
+;; personal information these variables may be used in 
+;; ~/.emacs.d/site-lisp/iemacsfun/insert-string.el
+;;------------------------------------------------------------------------------
+(setq email-address "aborn.jiang@gmail.com");
+(setq english-name "Aborn Jiang");
+(setq chinese-name "蒋国宝");
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -362,5 +371,5 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-21
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-22
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
