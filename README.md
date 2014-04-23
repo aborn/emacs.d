@@ -7,7 +7,7 @@ All configure files can be used emacs version 23 or 23+.
 
 ## DOWNLOAD
 You can download all history release version from
-[here](https://github.com/aborn/ulitcs/releases, "Release Version
+[here](https://github.com/aborn/ulitcs/releases "Release Version
 Download").
 
 ## INSTALL
