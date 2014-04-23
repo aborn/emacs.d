@@ -1,9 +1,9 @@
-.emacs.d
+Ulitcs
 ==========
 
 ## INTRO
-This project is a slight configure file for emacs.  
-All configure files can be used emacs version 23+
+This project(**Ulitcs**) is a lite configure file for emacs.  
+All configure files can be used emacs version 23 or 23+.
 
 ## INSTALL
 You can install this repository configure using one of following
@@ -97,6 +97,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-07 v1.4.6 (add key-binding in key-binding.el file)
 * 2014-04-21 v1.5   (add maxframe.el file)
 * 2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)
+* 2014-04-23 v1.5.2 (project name **Ulitcs**, initial release)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  
