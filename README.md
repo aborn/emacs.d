@@ -70,7 +70,7 @@ Following list the **most popular hot-key**.
 * pls install "aspell ispell hunspell" before use checking and  
 correcting spelling. ispell-*  M-$
 * install following command to install this dependency.  
-> sudo apt-get install aspell ispell hunspell -y
+  > sudo apt-get install aspell ispell hunspell -y
 
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
