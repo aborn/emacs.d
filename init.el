@@ -133,9 +133,8 @@
 ;; --------------------------------------------------------------------
 (require 'column-marker)
 (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))    
-(global-set-key [?\C-x ?m] 'column-marker-1)
-(global-set-key [?\C-x ?n] 'column-marker-3)
-
+(global-set-key [?\C-x ?m] 'column-marker-3)
+;; un-marker  C-uu column-marker-3
 (require 'fill-column-indicator)  
 (setq fci-rule-width 2)  
 (setq fci-rule-color "yellow")  
@@ -295,7 +294,8 @@
 ;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "C-x SPC") 'ace-jump-line-mode)
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
 ;; If you also use viper mode:
 ;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
 

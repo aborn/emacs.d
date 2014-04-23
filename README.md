@@ -35,31 +35,31 @@ methods.
 C-control  
 M-meta/alt  
 Most key bindings are listed in file **key-binding.el**.  
+Following list the **most popular hot-key**.   
 
-1. choose color theme
-	*  M-x color-theme-select
+* C-x C-n  switch to next buffer  [default C-.]
+* C-x C-p  switch to previous buffer [default C-,]
+* C-x C-l  copy a whole line
+* C-i      just one space
+* C-o      switch to other window
+* C-x C-m  indent-region
+* C-x k    kill-buffer
+* M-w C-s  search and highlight all the matched content
+* C-x C-y  open sr-speedbar
+* C-'      move point to middle of line
+* C-;      move forward by five line
+* C-:      move backward by fine line
+* C-x C-e  eval-current-buffer
+* SHIFT-SPC  active chinese wubi input method
+* M-$      ispell-word. Check and correct spelling of the word at point.
+* C-c C-k  start-kbd-macro
+* C-c C-l  end-kbd-macro
+* C-c SPC  ace-jump-mode [also C-x SPC]
+* C-j      swith-to-buffer
+* M-j      find-file (open a file in a new buffer)
+* M-m      switch to **shell** buffer
 
-2. switch buffer    
-	* C-x C-n  switch to next buffer
-    * C-.      switch to next buffer
-	* C-x C-p  switch to previous buffer
-    * C-,      switch to previous buffer
-
-3. other comands
-	* C-x C-l  copy a whole line
-	* C-i      just one space
-	* C-o      switch to other window
-    * C-x C-m  indent-region
-    * C-x k    kill-buffer
-    * M-w C-s  search and highlight all the matched content
-    * C-x C-y  open sr-speedbar
-    * C-c C-s  running matlab code
-    * C-'      move point to middle of line
-    * C-x C-e  eval-current-buffer
-    * SHIFT-SPC  active chinese wubi input method
-    * M-$      ispell-word. Check and correct spelling of the word at point.
-
-> Note: for more detail key-binding, please refs to the file
+ Note: for more detail key-binding, please refs to the file
 > [keybinding.md](https://github.com/aborn/.emacs.d/blob/master/doc/keybinding.md 
 > "all hot-key instructions in this repo")
 

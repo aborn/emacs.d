@@ -7,8 +7,6 @@ keyboarding.MD
 * F4       kmacro-end-or-call-macro
 * C-u C-u  M-x column-marker-1 erases all column highlighting
 * C-u M-x shell open another shell
-* C-x m    column-marker-1
-* C-x n    column-marker-3
 * C-h k    help key binding
 * M-n      mark set (like C+@) or CapsLock
 * M-w C-s  search and highlight all the matched content
@@ -18,8 +16,7 @@ keyboarding.MD
 * C-H C-F  find function
 * C-x C-e  eval-current-buffer
 * C-x C-g  goto a specific line
-* C-x n/m  column maker (C-u C-u M-x column-marker-1 erases all
-highlighting)
+* C-x m    column maker highlighting, column-marker-3
 
 * C-x C-l  copy a line
 * C-x C-q  read only able/disable
@@ -30,6 +27,9 @@ highlighting)
 * C-c C-l  end-kbd-macro
 * M-c      call-last-kbd-macro
 * C-c d    Insert date
+* C-c m    Insert email address
+* C-c n    Insert english name
+* C-c N    Insert chinses name
 
 ## SIGAL CHARACTOR HOT KEY (Frequently used command)
 * %        search matched bracket
@@ -44,6 +44,8 @@ highlighting)
 * C-/      undo
 * C-?      redo
 * C-*      fly-spell auto correct previous word
+* M-a      backward-sentence
+* M-e      forward-sentence
 
 ## swift jump in files
 * C-<          quick-jump-go-back
@@ -52,7 +54,8 @@ highlighting)
 * C-x C-x      quick-jump-push-marker
 * C-c C-c      quick-jump-clear-all-marker
 * C-c SPC      ace-jump-mode
-* C-x SPC      ace-jump-line-mode
+* C-x SPC      ace-jump-mode
+* C-x n        ace-jump-line-mode
 
 ## IN SHELL MODE
 * M-r      search previous command.
