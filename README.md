@@ -99,10 +99,10 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)
 
 ## EMACS SCREENSHOT
-* emacs dream-theme
+* emacs dream-theme  
 ![](images/emacs-dream.png "my emacs dream-theme screenshot")
 
-* emacs default-theme
+* emacs default-theme  
 ![](images/emacs-default.png "my emacs default-theme screen-shot")
 
 
