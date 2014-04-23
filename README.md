@@ -75,7 +75,7 @@ correcting spelling. ispell-*  M-$
 ## AUTHOR
 Aborn Jiang (aborn.jiang@gmail.com)
 
-## VERSION
+## VERSION HISTORY
 * 2013-10-06 v0.1
 * 2013-10-26 v0.2
 * 2013-11-04 v1.0   (add ./configure for install)

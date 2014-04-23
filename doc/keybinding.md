@@ -30,6 +30,8 @@ keyboarding.MD
 * C-c m    Insert email address
 * C-c n    Insert english name
 * C-c N    Insert chinses name
+* C-c C-c p markdown to preview in browser
+* C-c C-c e markdown to save basename.html
 
 ## SIGAL CHARACTOR HOT KEY (Frequently used command)
 * %        search matched bracket
