@@ -62,3 +62,7 @@
 
 ;; define markdown-mode-map
 (define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
+
+;; define lisp-interaction-mode-map
+(define-key lisp-interaction-mode-map (kbd "C-j") 'switch-to-buffer)
+(define-key lisp-interaction-mode-map (kbd "C-x j") 'eval-print-last-sexp)
