@@ -103,6 +103,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-21 v1.5   (add maxframe.el file)
 * 2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)
 * 2014-04-23 v1.5.2 (project name **Ulitcs**, initial release)
+* 2014-04-24 v1.5.3 (add mit/gnu scheme mode)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

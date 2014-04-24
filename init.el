@@ -360,6 +360,12 @@
 (setq english-name "Aborn Jiang");
 (setq chinese-name "蒋国宝");
 
+;;------------------------------------------------------------------------------
+;; Add MIT/GNU scheme xscheme.el, which download from
+;; http://ftp.gnu.org/gnu/mit-scheme/utilities.pkg/xscheme.el
+;;------------------------------------------------------------------------------
+(require 'xscheme)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -371,6 +377,6 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-22
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
