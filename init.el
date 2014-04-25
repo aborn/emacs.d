@@ -23,6 +23,7 @@
 (require 'switch-swift)
 (require 'emacs-nifty-tricks)
 (require 'insert-string)
+(require 'buffer-dealing)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -210,6 +211,9 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/matlab-emacs")    ; matlab.el path
 (add-to-list 'load-path "/usr/matlab/bin/matlab")               ; matlab path
 (require 'matlab-load)
+(require 'matlab)
+(require 'cedet-matlab)
+
 (autoload 'run-octave "octave-inf" nil t)                       ; special
 (autoload 'matlab-mode "matlab" "Enter MATLAB mode." t)
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
@@ -276,8 +280,8 @@
                        "WuBi" "WuBi"
                        "wubi") 
 (setq default-input-method "chinese-wubi")
-(global-set-key "\C-c\C-j" 'toggle-input-method)  ;; other except .md
-(global-set-key "\C-cj" 'toggle-input-method)     ;; .md
+;; (global-set-key "\C-c\C-j" 'toggle-input-method)  ;; other except .md
+;; (global-set-key "\C-cj" 'toggle-input-method)     ;; .md
 (global-set-key [?\S- ] 'toggle-input-method)     ;; .md and other
 
 ;;------------------------------------------------------------------------------
@@ -293,8 +297,11 @@
 ;;     https://github.com/winterTTr/ace-jump-mode/blob/master/ace-jump-mode.el
 ;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
+;;(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;;(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode)
+
 (define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
 ;; If you also use viper mode:
 ;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
@@ -377,6 +384,6 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-24
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

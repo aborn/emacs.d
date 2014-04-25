@@ -50,6 +50,8 @@
 (require 'matlab)
 (define-key matlab-mode-map (kbd "C-j") 'switch-to-buffer)
 (define-key matlab-mode-map (kbd "M-j") 'find-file)
+(define-key matlab-mode-map (kbd "C-x j") 'matlab-shell-save-and-go)
+(define-key matlab-mode-map (kbd "C-x SPC")  'ace-jump-mode)
 
 ;; define php-mode key-binding
 (require 'php-mode)
@@ -62,6 +64,8 @@
 
 ;; define markdown-mode-map
 (define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
+(define-key markdown-mode-map (kbd "\C-x SPC") 'ace-jump-mode)
+
 
 ;; define lisp-interaction-mode-map
 (define-key lisp-interaction-mode-map (kbd "C-j") 'switch-to-buffer)
@@ -69,3 +73,26 @@
 
 ;; define emacs-lisp-mode-map
 (define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
+(define-key emacs-lisp-mode-map (kbd "C-x SPC")  'ace-jump-mode)
+
+;; define scheme-mode-map 
+(define-key scheme-mode-map (kbd "C-x j") 'xscheme-send-buffer)
+
+
+;; define shell-mode-map
+(define-key shell-mode-map (kbd "C-x SPC")  'ace-jump-mode)
+(define-key shell-mode-map (kbd "C-c SPC")  'ace-jump-mode)
+
+;; define matlab-shell--mode-map
+
+;; (require 'matlab-shell-mode)
+;; NOTE, the initial matlab-shell-mode-map can't be nil (empty)
+
+(if matlab-shell-mode-map
+    ()    ; Do not change the keymap if it is already set up.
+  (setq matlab-shell-mode-map (make-sparse-keymap))
+  (define-key matlab-shell-mode-map (kbd "C-c SPC")  'ace-jump-mode)
+  (define-key matlab-shell-mode-map (kbd "C-x SPC")  'ace-jump-mode)
+  (define-key matlab-shell-mode-map (kbd "RET") 'comint-send-input)
+  (define-key matlab-shell-mode-map (kbd "C-c C-c")'comint-interrupt-subjob)
+  )

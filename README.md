@@ -104,6 +104,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)
 * 2014-04-23 v1.5.2 (project name **Ulitcs**, initial release)
 * 2014-04-24 v1.5.3 (add mit/gnu scheme mode)
+* 2014-04-25 v1.5.4 (add buffer-dealing.el in iemacsfun)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

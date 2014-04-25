@@ -25,3 +25,14 @@
   "Insert buffer name at the current point"
   (interactive "p")
   (insert-string (buffer-name)))
+
+(defun insert-current-time (arg)
+  "Insert time to current point"
+  (interactive "P")
+  (insert-string (current-time-string)))
+
+(defun insert-current-buffer-file-name (arg)
+  "Insert current buffer file name (full path)"
+  (interactive "P")
+  (insert-string (buffer-file-name (current-buffer))))
+
