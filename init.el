@@ -363,7 +363,7 @@
 ;; personal information these variables may be used in 
 ;; ~/.emacs.d/site-lisp/iemacsfun/insert-string.el
 ;;------------------------------------------------------------------------------
-(setq email-address "aborn.jiang@foxmail");
+(setq email-address "aborn.jiang@foxmail.com");
 (setq english-name "Aborn Jiang");
 (setq chinese-name "蒋国宝");
 

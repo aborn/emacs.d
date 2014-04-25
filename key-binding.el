@@ -94,5 +94,7 @@
   (define-key matlab-shell-mode-map (kbd "C-c SPC")  'ace-jump-mode)
   (define-key matlab-shell-mode-map (kbd "C-x SPC")  'ace-jump-mode)
   (define-key matlab-shell-mode-map (kbd "RET") 'comint-send-input)
-  (define-key matlab-shell-mode-map (kbd "C-c C-c")'comint-interrupt-subjob)
+  (define-key matlab-shell-mode-map (kbd "C-c C-c") 'comint-interrupt-subjob)
+  (define-key matlab-shell-mode-map (kbd "M-p") 'comint-previous-input)
+  (define-key matlab-shell-mode-map (kbd "M-n") 'comint-next-input)
   )
