@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ulitcs by aborn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ulitcs</h1>
+        <p>emacs light-weight configure files, which can be used in emacs23 and later.</p>
+
+        <p class="view"><a href="https://github.com/aborn/ulitcs">View the Project on GitHub <small>aborn/ulitcs</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/aborn/ulitcs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/aborn/ulitcs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/aborn/ulitcs">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="ulitcs" class="anchor" href="#ulitcs"><span class="octicon octicon-link"></span></a>Ulitcs</h1>
+
+<h2>
+<a name="intro" class="anchor" href="#intro"><span class="octicon octicon-link"></span></a>INTRO</h2>
+
+<p>This project(<strong>Ulitcs</strong>) is a lite configure file for emacs.<br>
+All configure files can be used emacs version 23 or 23+.</p>
+
+<h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>DOWNLOAD</h2>
+
+<p>You can download all history release version from
+<a href="https://github.com/aborn/ulitcs/releases" title="Release Version
+Download">here</a>.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>INSTALL</h2>
+
+<p>You can install this repository configure using one of following
+methods.  </p>
+
+<ol>
+<li>
+<p>Download all file in this project and running configure  </p>
+
+<blockquote>
+<p>wget <a href="https://github.com/aborn/.emacs.d/archive/master.zip">https://github.com/aborn/.emacs.d/archive/master.zip</a><br>
+unzip master.zip<br>
+cd .emacs.d-master/<br>
+./sh/configure  </p>
+</blockquote>
+</li>
+<li>
+<p>Or, you can also use git clone it to you home path</p>
+
+<blockquote>
+<p>cd ~<br>
+git clone <a href="https://github.com/aborn/.emacs.d.git">https://github.com/aborn/.emacs.d.git</a></p>
+</blockquote>
+</li>
+</ol><h2>
+<a name="github" class="anchor" href="#github"><span class="octicon octicon-link"></span></a>GITHUB</h2>
+
+<ol>
+<li>generate the ssh key</li>
+<li>copy the key to github.com</li>
+<li>cp ./doc/config ~/.ssh/</li>
+<li>git clone <a href="mailto:git@github.com">git@github.com</a>:aborn/.emacs.d.git</li>
+</ol><blockquote>
+<p>... more refs to
+  <a href="https://github.com/aborn/.emacs.d/blob/master/sh/github.sh" title="github.com clone setting initial.">github.sh</a> and
+  <a href="https://github.com/aborn/.emacs.d/blob/master/doc/git-usage.md" title="how to use git.">git-usage</a></p>
+</blockquote>
+
+<h2>
+<a name="key-binding" class="anchor" href="#key-binding"><span class="octicon octicon-link"></span></a>KEY-BINDING</h2>
+
+<p>C-control<br>
+M-meta/alt<br>
+Most key bindings are listed in file <strong>key-binding.el</strong>.<br>
+Following list the <strong>most popular hot-key</strong>.   </p>
+
+<ul>
+<li>C-x C-n  switch to next buffer  [default C-.]</li>
+<li>C-x C-p  switch to previous buffer [default C-,]</li>
+<li>C-x C-l  copy a whole line</li>
+<li>C-i      just one space</li>
+<li>C-o      switch to other window</li>
+<li>C-x C-m  indent-region</li>
+<li>C-x k    kill-buffer</li>
+<li>M-w C-s  search and highlight all the matched content</li>
+<li>C-x C-y  open sr-speedbar</li>
+<li>C-'      move point to middle of line</li>
+<li>C-;      move forward by five line</li>
+<li>C-:      move backward by fine line</li>
+<li>C-x C-e  eval-current-buffer</li>
+<li>SHIFT-SPC  active chinese wubi input method</li>
+<li>M-$      ispell-word. Check and correct spelling of the word at point.</li>
+<li>C-c C-k  start-kbd-macro</li>
+<li>C-c C-l  end-kbd-macro</li>
+<li>C-c SPC  ace-jump-mode [also C-x SPC]</li>
+<li>C-j      swith-to-buffer</li>
+<li>M-j      find-file (open a file in a new buffer)</li>
+<li>
+<p>M-m      switch to <strong>shell</strong> buffer</p>
+
+<p>Note: for more detail key-binding, please refs to the file</p>
+
+<blockquote>
+<p><a href="https://github.com/aborn/.emacs.d/blob/master/doc/keybinding.md" title="all hot-key instructions in this repo">keybinding.md</a></p>
+</blockquote>
+</li>
+</ul><h2>
+<a name="other-open-source-code" class="anchor" href="#other-open-source-code"><span class="octicon octicon-link"></span></a>OTHER OPEN SOURCE CODE</h2>
+
+<ul>
+<li>all source code illustrations are showed in each module in file init.el</li>
+</ul><h2>
+<a name="depend" class="anchor" href="#depend"><span class="octicon octicon-link"></span></a>DEPEND</h2>
+
+<ul>
+<li>pls install "aspell ispell hunspell" before use checking and<br>
+correcting spelling. ispell-*  M-$</li>
+<li>install following command to install this dependency.<br>
+&gt; sudo apt-get install aspell ispell hunspell -y</li>
+</ul><h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>AUTHOR</h2>
+
+<p>Aborn Jiang (<a href="mailto:aborn.jiang@gmail.com">aborn.jiang@gmail.com</a>)</p>
+
+<h2>
+<a name="version-history" class="anchor" href="#version-history"><span class="octicon octicon-link"></span></a>VERSION HISTORY</h2>
+
+<ul>
+<li>2013-10-06 v0.1</li>
+<li>2013-10-26 v0.2</li>
+<li>2013-11-04 v1.0   (add ./configure for install)</li>
+<li>2013-11-23 v1.1   (add markdown major)</li>
+<li>2014-01-06 v1.2   (add matlab mode)</li>
+<li>2014-01-14 v1.3   (add php mode)</li>
+<li>2014-01-20 v1.3.1 (add % move point to matched bracket)</li>
+<li>2014-01-23 v1.3.2 (add session and desktop mode setting)</li>
+<li>2014-01-25 v1.3.3 (add chinese wubi input method )</li>
+<li>2014-02-14 v1.3.4 (add switch to *shell* buffer)</li>
+<li>2014-02-18 v1.3.5 (add sql mode)</li>
+<li>2014-02-20 v1.3.6 (add switch-swift in iemacsfun)</li>
+<li>2014-03-02 v1.4   (add ace-jump-mode and quick-jump mode)</li>
+<li>2014-03-02 v1.4.1 (add evil, that is, add vim mode)</li>
+<li>2014-03-02 v1.4.2 (add highlight-tail-mode)</li>
+<li>2014-03-04 v1.4.3 (add insert-date function)</li>
+<li>2014-03-16 v1.4.4 (add some basic org-mode settings)</li>
+<li>2014-03-20 v1.4.5 (add dream-theme and change it)</li>
+<li>2014-04-07 v1.4.6 (add key-binding in key-binding.el file)</li>
+<li>2014-04-21 v1.5   (add maxframe.el file)</li>
+<li>2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)</li>
+<li>2014-04-23 v1.5.2 (project name <strong>Ulitcs</strong>, initial release)</li>
+<li>2014-04-24 v1.5.3 (add mit/gnu scheme mode)</li>
+<li>2014-04-25 v1.5.4 (add buffer-dealing.el in iemacsfun)</li>
+</ul><h2>
+<a name="emacs-screenshot" class="anchor" href="#emacs-screenshot"><span class="octicon octicon-link"></span></a>EMACS SCREENSHOT</h2>
+
+<ul>
+<li><p>emacs dream-theme<br><img src="images/emacs-dream.png" alt="" title="my emacs dream-theme screenshot"></p></li>
+<li><p>emacs default-theme<br><img src="images/emacs-default.png" alt="" title="my emacs default-theme screen-shot"></p></li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/aborn">aborn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
