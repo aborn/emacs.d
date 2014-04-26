@@ -14,11 +14,19 @@
   "Get the buffer major mode name."
   (interactive "bBuffer Name:")
   (message (with-current-buffer buffer-or-string
-               major-mode)))
+             major-mode)))
 
 (defun get-current-file-name (arg)
-"Get the current buffer's file name"
-(interactive "P")
-(message (buffer-file-name (current-buffer)))) 
+  "Get the current buffer's file name"
+  (interactive "P")
+  (message (buffer-file-name (current-buffer)))) 
 
+(defun switch-buffer-each-other (arg)
+  "switch current buffer with other window buffer 
+   right-2-left or left-2-right"
+  (interactive "p")
+  (if (windmove-find-other-window 'right)
+      (buf-move-right)
+    (buf-move-left))
+  )
 

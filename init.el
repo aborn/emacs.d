@@ -373,6 +373,12 @@
 ;;------------------------------------------------------------------------------
 (require 'xscheme)
 
+;;------------------------------------------------------------------------------
+;; Add buffer-move.el download from
+;; http://www.emacswiki.org/cgi-bin/wiki/buffer-move.el
+;;------------------------------------------------------------------------------
+(require 'buffer-move)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -384,6 +390,7 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-25
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(put 'erase-buffer 'disabled nil)

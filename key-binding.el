@@ -42,6 +42,7 @@
 (global-set-key "\C-cn" 'insert-name-english)
 (global-set-key "\C-cN" 'insert-name-chinese)
 (global-set-key "\C-cf" 'insert-buffer-name)
+(global-set-key "\C-cl" 'switch-buffer-each-other)
 
 ;; --------------------------------------------------------------------
 ;; each local major-mode key binding 
