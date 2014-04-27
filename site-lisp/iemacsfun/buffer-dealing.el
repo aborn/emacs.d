@@ -28,6 +28,6 @@
   (if (windmove-find-other-window 'right)
       (buf-move-right)
     (buf-move-left))
-    (other-window)
+    (other-window 1)
   )
 
