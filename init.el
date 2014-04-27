@@ -393,4 +393,3 @@
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(put 'erase-buffer 'disabled nil)
