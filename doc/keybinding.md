@@ -23,6 +23,7 @@ keyboarding.MD
 * C-x C-y  open sr-speedbar
 * C-c C-j  toggle input method --chinese wubi (GUI)
 * C-c j    toggle input method --chinese wubi (CLI)
+* C-c l    swap current buffer with left or right buffer
 * C-c C-k  start-kbd-macro
 * C-c C-l  end-kbd-macro
 * M-c      call-last-kbd-macro
