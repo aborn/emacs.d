@@ -31,3 +31,4 @@
     (other-window 1)
   )
 
+(defalias 'swap-buffer 'switch-buffer-each-other)
