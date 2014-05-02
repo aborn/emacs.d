@@ -386,16 +386,27 @@
 ;; add eww Emacs Web Wowser, download from 
 ;; http://bzr.savannah.gnu.org/lh/emacs/trunk/annotate/head:/lisp/net/eww.el
 ;;------------------------------------------------------------------------------
-(setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
-(when (file-directory-p "~/.emacs.d/gnus")
-  (require 'gnus-load)
-  (require 'info)
-  (if (featurep 'xemacs)
-	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
-	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
-  )
+;; (setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
+;; (when (file-directory-p "~/.emacs.d/gnus")
+;;   (require 'gnus-load)
+;;   (require 'info)
+;;   (if (featurep 'xemacs)
+;; 	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
+;; 	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
+;;   )
+
+;; -----------------------------------------------------------------------------
 ;;add eww
 ;; note : eww only supported by emacs 24.4+
+;; download the newest emacs 24.4.50.1
+;;   git clone http://repo.or.cz/r/emacs.git
+;; install http://ergoemacs.org/emacs/building_emacs_from_git_repository.html
+;;   ./autogen.sh
+;;   ./configure
+;;   make bootstrap
+;;   make
+;; -----------------------------------------------------------------------------
+
 (require 'eww)
 
 
