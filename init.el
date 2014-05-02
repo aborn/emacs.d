@@ -7,11 +7,12 @@
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp/wubi")
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/keys-setting/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/old-emacs-package/")
 (add-to-list 'load-path "~/.emacs.d/local/")
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
@@ -183,6 +184,7 @@
 (require 'semantic/sb)
 ;;(require 'semantic/IA)
 (semantic-mode 1)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setting speedbar
@@ -386,29 +388,32 @@
 ;; add eww Emacs Web Wowser, download from 
 ;; http://bzr.savannah.gnu.org/lh/emacs/trunk/annotate/head:/lisp/net/eww.el
 ;;------------------------------------------------------------------------------
-;; (setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
-;; (when (file-directory-p "~/.emacs.d/gnus")
-;;   (require 'gnus-load)
-;;   (require 'info)
-;;   (if (featurep 'xemacs)
-;; 	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
-;; 	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
-;;   )
+(setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
+(when (file-directory-p "~/.emacs.d/gnus")
+  (require 'gnus-load)
+  (require 'info)
+  (if (featurep 'xemacs)
+	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
+	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
+  )
 
 ;; -----------------------------------------------------------------------------
-;;add eww
+;; add eww for emacs 24.4
 ;; note : eww only supported by emacs 24.4+
 ;; download the newest emacs 24.4.50.1
 ;;   git clone http://repo.or.cz/r/emacs.git
 ;; install http://ergoemacs.org/emacs/building_emacs_from_git_repository.html
 ;;   ./autogen.sh
 ;;   ./configure
-;;   make bootstrap
+;;   make bootstrap     # optimal
 ;;   make
 ;; -----------------------------------------------------------------------------
-
-(require 'eww)
-
+(when (string= 
+	   (format "%d.%d" emacs-major-version emacs-minor-version) "24.4")
+  (require 'advice)
+  (require 'eww)
+  (message "emacs version 24.4")
+  )
 
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
