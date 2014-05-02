@@ -379,6 +379,26 @@
 ;;------------------------------------------------------------------------------
 (require 'buffer-move)
 
+;;------------------------------------------------------------------------------
+;; add gnus, download using following command.
+;;      git clone http://git.gnus.org/gnus.git
+;; in ~/.emacs.d/gnus
+;; add eww Emacs Web Wowser, download from 
+;; http://bzr.savannah.gnu.org/lh/emacs/trunk/annotate/head:/lisp/net/eww.el
+;;------------------------------------------------------------------------------
+(setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
+(when (file-directory-p "~/.emacs.d/gnus")
+  (require 'gnus-load)
+  (require 'info)
+  (if (featurep 'xemacs)
+	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
+	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
+  )
+;;add eww
+;; note : eww only supported by emacs 24.4+
+(require 'eww)
+
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -390,6 +410,6 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-04-26
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-02
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
