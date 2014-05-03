@@ -107,6 +107,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-25 v1.5.4 (add buffer-dealing.el in iemacsfun)
 * 2014-04-26 v1.5.5 (add buffer-move.el in custom)
 * 2014-05-02 v1.5.6 (add old-emacs-package and settings for new emacs24.4)
+* 2014-05-03 v1.5.7 (add racket scheme mode and split keys-seting)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

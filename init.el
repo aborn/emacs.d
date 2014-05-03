@@ -17,6 +17,11 @@
 ;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
 ;; --------------------------------------------------------------------
+;; setting exec-path, which like terminal's PATH variable
+;; --------------------------------------------------------------------
+(add-to-list 'exec-path "/usr/local/racket/bin")
+
+;; --------------------------------------------------------------------
 ;; add require features defined by myself
 ;; --------------------------------------------------------------------
 (require 'copy-line)
@@ -415,17 +420,33 @@
   (message "emacs version 24.4")
   )
 
+;; -----------------------------------------------------------------------------
+;; add quack for racket-lang, which download from 
+;;   http://www.neilvandyke.org/quack/
+;; add geiser , download from 
+;;      http://www.nongnu.org/geiser/ using git clone
+;;      git clone http://git.sv.gnu.org/r/geiser.git
+;; -----------------------------------------------------------------------------
+(load "~/.emacs.d/site-lisp/geiser/elisp/geiser-load")
+(require 'geiser-load)
+(require 'quack)
+
+;; -----------------------------------------------------------------------------
+;; key binding, all files are in ~/.emacs.d/keys-setting
+;; -----------------------------------------------------------------------------
+(require 'global-key-binding)            ; global key binding
+(require 'major-mode-binding)            ; local major mode key binding
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
 ;;  ~/.emacs.d/local/local-setting.el
 ;; *****************************************************************************
-(require 'key-binding)            ; all key-binding
 (if (file-exists-p "~/.emacs.d/local/local-setting.el")
 	(require 'local-setting))
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-02
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-03
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
