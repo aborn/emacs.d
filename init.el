@@ -432,6 +432,21 @@
 (require 'quack)
 
 ;; -----------------------------------------------------------------------------
+;; shell completion mode, which download
+;; http://www.emacswiki.org/emacs/download/shell-completion.el
+;; and http://www.namazu.org/~tsuchiya/elisp/shell-command.el
+;; and https://github.com/szermatt/emacs-bash-completion
+;; and https://github.com/mooz/emacs-zlc/     (for zsh)
+;; -----------------------------------------------------------------------------
+(require 'shell-completion)
+(require 'shell-command)
+(shell-command-completion-mode)
+(require 'bash-completion)
+(bash-completion-setup)
+(require 'zlc)
+(zlc-mode t)
+
+;; -----------------------------------------------------------------------------
 ;; key binding, all files are in ~/.emacs.d/keys-setting
 ;; -----------------------------------------------------------------------------
 (require 'global-key-binding)            ; global key binding
