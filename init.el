@@ -13,6 +13,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
+
+
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
@@ -157,7 +159,10 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/ac-dict")
+(setq ac-comphist-file (expand-file-name
+             "~/.emacs.d/ac-comphist.dat"))
 (ac-config-default)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set c/c++ mode
@@ -183,13 +188,29 @@
 ;; install cedet and add speedbar download from 
 ;;     http://www.emacswiki.org/emacs/sr-speedbar.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'cedet)
-(global-ede-mode t)
-;;(global-ede-mode 1)
+(global-ede-mode 1)
+(require 'semantic/analyze)
 (require 'semantic/sb)
-;;(require 'semantic/IA)
 (semantic-mode 1)
+(provide 'semantic-analyze)
+(provide 'semantic-ctxt)
+(provide 'semanticdb)
+(provide 'semanticdb-find)
+(provide 'semanticdb-mode)
+(provide 'semantic-load)
 
+;; Semantic
+(global-semantic-idle-completions-mode t)
+(global-semantic-decoration-mode t)
+(global-semantic-highlight-func-mode t)
+(global-semantic-show-unmatched-syntax-mode t)
+
+;; CC-mode
+(add-hook 'c-mode-hook '(lambda ()
+        (setq ac-sources (append '(ac-source-semantic) ac-sources))
+        (local-set-key (kbd "RET") 'newline-and-indent)
+        (linum-mode t)
+        (semantic-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setting speedbar
@@ -388,19 +409,21 @@
 
 ;;------------------------------------------------------------------------------
 ;; add gnus, download using following command.
+;; supported on begin emacs 24.4
 ;;      git clone http://git.gnus.org/gnus.git
 ;; in ~/.emacs.d/gnus
 ;; add eww Emacs Web Wowser, download from 
 ;; http://bzr.savannah.gnu.org/lh/emacs/trunk/annotate/head:/lisp/net/eww.el
 ;;------------------------------------------------------------------------------
-(setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
-(when (file-directory-p "~/.emacs.d/gnus")
-  (require 'gnus-load)
-  (require 'info)
-  (if (featurep 'xemacs)
-	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
-	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
-  )
+
+;; (setq load-path (cons (expand-file-name "~/.emacs.d/gnus/lisp/") load-path))
+;; (when (file-directory-p "~/.emacs.d/gnus")
+;;   (require 'gnus-load)
+;;   (require 'info)
+;;   (if (featurep 'xemacs)
+;; 	  (add-to-list 'Info-directory-list "~/.emacs.d/gnus/texi/")
+;; 	(add-to-list 'Info-default-directory-list "~/.emacs.d/gnus/texi/"))
+;;   )
 
 ;; -----------------------------------------------------------------------------
 ;; add eww for emacs 24.4
@@ -427,8 +450,12 @@
 ;;      http://www.nongnu.org/geiser/ using git clone
 ;;      git clone http://git.sv.gnu.org/r/geiser.git
 ;; -----------------------------------------------------------------------------
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
 (load "~/.emacs.d/site-lisp/geiser/elisp/geiser-load")
-(require 'geiser-load)
+;;(require 'geiser-load)
 (require 'quack)
 
 ;; -----------------------------------------------------------------------------
@@ -447,6 +474,20 @@
 (zlc-mode t)
 
 ;; -----------------------------------------------------------------------------
+;; add ecb, ecb homepage: ecb.sourceforge.net
+;; -----------------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/site-lisp/ecb-2.40/")
+(require 'ecb)
+(require 'ecb-autoloads)
+
+
+;; -----------------------------------------------------------------------------
+;; add jdee for jave development
+;; -----------------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
+(load "jde")
+
+;; -----------------------------------------------------------------------------
 ;; key binding, all files are in ~/.emacs.d/keys-setting
 ;; -----------------------------------------------------------------------------
 (require 'global-key-binding)            ; global key binding
@@ -462,6 +503,6 @@
 (server-start)                    ; emacs as server mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-03
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

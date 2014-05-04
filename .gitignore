@@ -11,3 +11,6 @@ README.pdf
 missfont.log
 gnus/
 url/
+tmp/
+eshell/
+tmp.*
