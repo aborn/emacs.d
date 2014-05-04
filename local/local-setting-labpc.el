@@ -16,3 +16,5 @@
 (other-window 1)
 (split-window-horizontally)      ; keep horizontally two windows
 
+(setq ecb-auto-activate t
+      ecb-tip-of-the-day nil)

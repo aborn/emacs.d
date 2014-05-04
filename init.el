@@ -56,9 +56,16 @@
 ;; basic setting for emacs and mode turn on or off when boot up
 ;; --------------------------------------------------------------------
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ecb-layout-window-sizes nil)
+ '(ecb-options-version "2.40")
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(session-use-package t nil (session))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 										; max frame when launch emacs GUI
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -479,7 +486,9 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ecb-2.40/")
 (require 'ecb)
 (require 'ecb-autoloads)
-
+(setq stack-trace-on-error t)
+;; (setq ecb-auto-activate t
+;;       ecb-tip-of-the-day nil)
 
 ;; -----------------------------------------------------------------------------
 ;; add jdee for jave development
@@ -506,3 +515,9 @@
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
