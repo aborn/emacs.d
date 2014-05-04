@@ -11,10 +11,13 @@
 ;; (maximize-frame)
 
 ;;(delete-other-windows)             ; keep one window
-(sr-speedbar-open)
+;;(sr-speedbar-open)
 ;;(sr-speedbar-toggle)
-(other-window 1)
-(split-window-horizontally)      ; keep horizontally two windows
+;;(other-window 1)
+;;(split-window-horizontally)      ; keep horizontally two windows
 
+;; open ecb windows
 (setq ecb-auto-activate t
       ecb-tip-of-the-day nil)
+
+

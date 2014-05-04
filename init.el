@@ -14,7 +14,6 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
 
-
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
 
@@ -60,13 +59,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ecb-compilation-buffer-names (quote (("*Calculator*") ("*vc*") ("*vc-diff*") ("*Apropos*") ("*Occur*") ("*shell*") ("\\*[cC]ompilation.*\\*" . t) ("\\*i?grep.*\\*" . t) ("*JDEE Compile Server*") ("*Help*") ("*Completions*" . t) ("*Backtrace*") ("*Compile-log*") ("*bsh*") ("*Messages*"))))
+ '(ecb-layout-name "left8")
  '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
+ '(ecb-prescan-directories-for-emptyness t)
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
+ '(ecb-sources-menu-user-extension-function (quote ignore))
+ '(ecb-tip-of-the-day nil)
+ '(ecb-windows-width 0.16)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(session-use-package t nil (session))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 
-										; max frame when launch emacs GUI
+;; max frame when launch emacs GUI
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
@@ -482,13 +488,42 @@
 
 ;; -----------------------------------------------------------------------------
 ;; add ecb, ecb homepage: ecb.sourceforge.net
+;; ecb byte-compile using M-x ecb-byte-complie
 ;; -----------------------------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ecb-2.40/")
 (require 'ecb)
-(require 'ecb-autoloads)
+;; (require 'ecb-autoloads)
 (setq stack-trace-on-error t)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; ---- this has added in local-setting.el 
 ;; (setq ecb-auto-activate t
 ;;       ecb-tip-of-the-day nil)
+;; -----------------------------------------
+
+;; switch window between ecb all windows
+(global-set-key [M-left] 'windmove-left)
+(global-set-key [M-right] 'windmove-right)
+(global-set-key [M-up] 'windmove-up)
+(global-set-key [M-down] 'windmove-down)
+ 
+;; hide or show ecb window
+(define-key global-map [(control f1)] 'ecb-hide-ecb-windows)
+(define-key global-map [(control f2)] 'ecb-show-ecb-windows)
+ 
+;; maximize specific window
+(define-key global-map "\C-c1" 'ecb-maximize-window-directories)
+(define-key global-map "\C-c2" 'ecb-maximize-window-sources)
+(define-key global-map "\C-c3" 'ecb-maximize-window-methods)
+(define-key global-map "\C-c4" 'ecb-maximize-window-history)
+
+;; restore-default
+(define-key global-map "\C-c`" 'ecb-restore-default-window-sizes)
 
 ;; -----------------------------------------------------------------------------
 ;; add jdee for jave development
@@ -502,6 +537,23 @@
 (require 'global-key-binding)            ; global key binding
 (require 'major-mode-binding)            ; local major mode key binding
 
+;; -----------------------------------------------------------------------------
+;; icomplete+.el   http://www.emacswiki.org/emacs/icomplete+.el
+;; mcomplete.el
+;; http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
+;; -----------------------------------------------------------------------------
+(require 'icomplete+)
+(require 'mcomplete)
+(autoload 'mcomplete-mode "mcomplete"
+  "Toggle minibuffer completion with prefix and substring matching."
+  t nil)
+(autoload 'turn-on-mcomplete-mode "mcomplete"
+  "Turn on minibuffer completion with prefix and substring matching."
+  t nil)
+(autoload 'turn-off-mcomplete-mode "mcomplete"
+  "Turn off minibuffer completion with prefix and substring matching."
+  t nil)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -511,13 +563,24 @@
 	(require 'local-setting))
 (server-start)                    ; emacs as server mode
 
+;; -----------------------------------------------------------------------------
+;;Remove/kill completion buffer when done-----
+;;could use ido-find-file instead, since it never uses *Completions*
+;;Note that ido-mode affects both buffer switch, &  find file.
+;; -----------------------------------------------------------------------------
+(add-hook 'minibuffer-exit-hook
+          '(lambda ()
+             (let ((buffer "*Completions*"))
+               (and (get-buffer buffer)
+                    (kill-buffer buffer)))
+             ))
+
+;; -----------------------------------------------------------------------------
+;;only show auto-completions buffer on second Tab-press
+;;if no match is found
+;; -----------------------------------------------------------------------------
+(setq completion-auto-help 1)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
