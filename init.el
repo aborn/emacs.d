@@ -407,6 +407,8 @@
 (setq email-address "aborn.jiang@foxmail.com");
 (setq english-name "Aborn Jiang");
 (setq chinese-name "蒋国宝");
+(setq shell-name "eshell")        ;; default for shell
+;; (setq shell-name "shell")      ;; default value
 
 ;;------------------------------------------------------------------------------
 ;; Add MIT/GNU scheme xscheme.el, which download from
@@ -470,6 +472,10 @@
 (load "~/.emacs.d/site-lisp/geiser/elisp/geiser-load")
 ;;(require 'geiser-load)
 (require 'quack)
+(add-hook 'geiser-repl-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer) 
+            ))
 
 ;; -----------------------------------------------------------------------------
 ;; shell completion mode, which download
@@ -580,6 +586,18 @@
 ;;if no match is found
 ;; -----------------------------------------------------------------------------
 (setq completion-auto-help 1)
+
+;; -----------------------------------------------------------------------------
+;; eshell setting
+;; -----------------------------------------------------------------------------
+(setq eshell-save-history-on-exit t)
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-j") 'switch-to-buffer)
+	    (local-set-key (kbd "C-a") 'eshell-bol)
+	    (local-set-key (kbd "<up>") 'previous-line)
+	    (local-set-key (kbd "<down>") 'next-line)))
+(eshell)                         ; open eshell at boot
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
