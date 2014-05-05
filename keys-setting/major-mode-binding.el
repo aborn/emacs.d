@@ -60,7 +60,10 @@
 ;; (setq inferior-emacs-lisp-mode-map (make-sparse-keymap))
 ;; )
 
+;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
+
+
 

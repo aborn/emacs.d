@@ -523,7 +523,7 @@
 (define-key global-map "\C-c3" 'ecb-maximize-window-methods)
 (define-key global-map "\C-c4" 'ecb-maximize-window-history)
 (define-key global-map "\C-c0" 'ecb-deactivate)
-(define-key global-map "\C-c9" 'ecb-activation)
+(define-key global-map "\C-c9" 'ecb-activate)
 
 ;; restore-default
 (define-key global-map "\C-c`" 'ecb-restore-default-window-sizes)
@@ -591,17 +591,21 @@
 
 ;; -----------------------------------------------------------------------------
 ;; eshell settings
+;; this setting must be put before eshell bootup
 ;; -----------------------------------------------------------------------------
 (setq eshell-save-history-on-exit t)
+(load-file "~/.emacs.d/utils/eshell-utils.el")
 (add-hook 'eshell-mode-hook
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)
             (local-set-key (kbd "C-a") 'eshell-bol)
             (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
-            ;; (local-set-key (kbd "M-p") 'comint-previous-input)
-            ;; (local-set-key (kbd "M-n") 'comint-next-input)
+            (local-set-key (kbd "M-p") 'eshell-previous-matching-input-from-input)
+            (local-set-key (kbd "M-n") 'eshell-next-matching-input-from-input)
             (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
+            (local-set-key (kbd "C-x C-j") 'eshell/clear)
             (local-set-key (kbd "<down>") 'eshell-next-matching-input-from-input)))
+
 
 ;; -----------------------------------------------------------------------------
 ;; edit-server.el  for chrome edit with emacs, this 
@@ -675,7 +679,6 @@
 ;; --------------------------------------------------------------------
 (eshell)                         ; open eshell at boot
 (ielm)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-05
