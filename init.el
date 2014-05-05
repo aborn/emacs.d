@@ -72,6 +72,7 @@
  '(session-use-package t nil (session))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
 
+(put 'erase-buffer 'disabled nil)
 ;; max frame when launch emacs GUI
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -94,8 +95,7 @@
 
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file 
-(if (get-buffer "*shell*")
-	()                              ; if *shell* buffer exists, do nothing
+(unless (get-buffer "*shell*")
   (shell))                          ; open shell when boot up 
 
 ;; --------------------------------------------------------------------
@@ -608,13 +608,31 @@
 (eshell)                         ; open eshell at boot
 
 ;; -----------------------------------------------------------------------------
-;; edit-server.el  for chrome edit with emacs.
+;; edit-server.el  for chrome edit with emacs, this 
+;; is a chrome extension 
 ;; -----------------------------------------------------------------------------
 (when (locate-library "edit-server")
   (require 'edit-server)
   (setq edit-server-new-frame nil)
   (edit-server-start))
 
+;; -----------------------------------------------------------------------------
+;; timeclock-x.el  http://www.emacswiki.org/emacs/timeclock-x.el
+;; -----------------------------------------------------------------------------
+(require 'timeclock-x)
+(timeclock-modeline-display 1) ;; if you want modline display
+(timeclock-initialize)
+
+;; -----------------------------------------------------------------------------
+;; cursor change automatically based the file mode
+;; http://www.emacswiki.org/emacs-en/ChangingCursorDynamically
+;; only can be used when you are not use OneOneOneEmacs
+;; -----------------------------------------------------------------------------
+(require 'cursor-chg)  ; Load the library
+(toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
+(change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
+;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-05
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+

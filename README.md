@@ -109,6 +109,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-05-02 v1.5.6 (add old-emacs-package and settings for new emacs24.4)
 * 2014-05-03 v1.5.7 (add racket scheme mode and split keys-setting)
 * 2014-05-04 v1.6   (add ecb2.4 and jdee2.4.1)
+* 2014-05-05 v1.6.1 (add timeclock and rerange the path modules/utils)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  
