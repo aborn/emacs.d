@@ -3,16 +3,17 @@
 (defun insert-email-address (arg)
   "Insert email address at the current ponit"
   (interactive "p")
-  (unless (boundp 'email-address)   ;; check variable defined.
-    (setq email-address "aborn.jiang@foxmail.com"))
-  (insert-string email-address))
+  (unless (boundp 'user-mail-address)   ;; check variable defined.
+    (setq user-mail-address "aborn.jiang@foxmail.com"))
+  (insert-string user-mail-address))
+;;  (insert-string email-address))
 
 (defun insert-name-english (arg)
   "Insert english name at the current ponit"
   (interactive "p")
-  (unless (boundp 'english-name)
-    (setq english-name  "Aborn Jiang"))
-  (insert-string english-name))
+  (unless (boundp 'user-full-name)
+    (setq user-full-name  "Aborn Jiang"))
+  (insert-string user-full-name))
 
 (defun insert-name-chinese (arg)
   "Insert english name at the current ponit"

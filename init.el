@@ -2,6 +2,7 @@
 ;; emacs basic setting only for version 23 and later version
 ;; put this file (init.el) in ~/.emacs.d/
 ;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
+;; You are recommanded to used emacs 24.3
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
@@ -13,7 +14,6 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/modules/")
 (add-to-list 'load-path "~/.emacs.d/utils/")
-
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/utils/")
 
@@ -42,8 +42,6 @@
 ;;(setq max-lisp-eval-depth 3000)      ;; default 500
 ;;(setq max-specpdl-size 3000)         ;; default 1000
 
-;; (customize-variable (quote tab-stop-list))
-
 ;; --------------------------------------------------------------------;
 ;; add follwing code to keep *shell* in middle using
 ;;    C-l C-l
@@ -51,9 +49,9 @@
 (remove-hook 'comint-output-filter-functions 
 			 'comint-postoutput-scroll-to-bottom)
 
-;; --------------------------------------------------------------------
-;; basic setting for emacs and mode turn on or off when boot up
-;; --------------------------------------------------------------------
+;; --------------------------------------------------------------------;
+;; custom-set-variables, which are produced by system.
+;; --------------------------------------------------------------------;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -71,8 +69,11 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(session-use-package t nil (session))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
-
 (put 'erase-buffer 'disabled nil)
+
+;; --------------------------------------------------------------------
+;; basic setting for emacs and mode turn on or off when boot up
+;; --------------------------------------------------------------------
 ;; max frame when launch emacs GUI
 (setq inhibit-startup-message t)
 (require 'hl-line)                  ; highlight current line
@@ -119,6 +120,7 @@
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
+;; The hot-key binding to %
 ;; --------------------------------------------------------------------
 (global-set-key "%" 'match-paren)
 (defun match-paren (arg)				
@@ -137,7 +139,7 @@
 (setq color-theme-is-global t)			
 
 (if (file-exists-p "~/.emacs.d/local/local-setting.el")
-	(message "use local-setting.el configure")            ;; using the local setting
+	(message "use local-setting.el configure")       ;; using the local setting
   (color-theme-robin-hood)
   (eval-after-load "color-theme" 
 	(if window-system  
@@ -152,11 +154,11 @@
 
 ;; --------------------------------------------------------------------
 ;; column-marker.el and fill-column-indicator.el setting
+;; hot key: C-x m      unset C-u C-x m
 ;; --------------------------------------------------------------------
 (require 'column-marker)
 (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))    
 (global-set-key [?\C-x ?m] 'column-marker-3)
-;; un-marker  C-uu column-marker-3
 (require 'fill-column-indicator)  
 (setq fci-rule-width 2)  
 (setq fci-rule-color "yellow")  
@@ -402,9 +404,9 @@
 ;; personal information these variables may be used in 
 ;; ~/.emacs.d/utils/insert-string.el
 ;;------------------------------------------------------------------------------
-(setq email-address "aborn.jiang@foxmail.com");
-(setq english-name "Aborn Jiang");
-(setq chinese-name "蒋国宝");
+(setq user-full-name "Aborn Jiang"
+      user-mail-address "aborn.jiang@foxmail.com")
+(setq chinese-name "蒋国宝")
 (setq shell-name "eshell")        ;; default for shell
 ;; (setq shell-name "shell")      ;; default value
 
@@ -449,7 +451,7 @@
 ;;   make bootstrap     # optimal
 ;;   make
 ;; -----------------------------------------------------------------------------
-(when (string= 
+(when (string=        ;; when emacs version = "24.4" (now 24.3)
 	   (format "%d.%d" emacs-major-version emacs-minor-version) "24.4")
   (require 'advice)
   (require 'eww)
@@ -505,11 +507,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; ---- this has added in local-setting.el 
-;; (setq ecb-auto-activate t
-;;       ecb-tip-of-the-day nil)
-;; -----------------------------------------
-
 ;; switch window between ecb all windows
 (global-set-key [M-left] 'windmove-left)
 (global-set-key [M-right] 'windmove-right)
@@ -525,9 +522,17 @@
 (define-key global-map "\C-c2" 'ecb-maximize-window-sources)
 (define-key global-map "\C-c3" 'ecb-maximize-window-methods)
 (define-key global-map "\C-c4" 'ecb-maximize-window-history)
+(define-key global-map "\C-c0" 'ecb-deactivate)
+(define-key global-map "\C-c9" 'ecb-activation)
 
 ;; restore-default
 (define-key global-map "\C-c`" 'ecb-restore-default-window-sizes)
+
+;; -----------------------------------------------------------------------------
+;; ---- following tow has added in local-setting.el 
+;; (setq ecb-auto-activate t
+;;       ecb-tip-of-the-day nil)
+;; -----------------------------------------------------------------------------
 
 ;; -----------------------------------------------------------------------------
 ;; add jdee for jave development
@@ -558,14 +563,6 @@
   "Turn off minibuffer completion with prefix and substring matching."
   t nil)
 
-;; *****************************************************************************
-;; !! NOTE: local machine file setting.
-;; this machine's local setting in
-;;  ~/.emacs.d/local/local-setting.el
-;; *****************************************************************************
-(if (file-exists-p "~/.emacs.d/local/local-setting.el")
-	(require 'local-setting))
-(server-start)                    ; emacs as server mode
 
 ;; -----------------------------------------------------------------------------
 ;;Remove/kill completion buffer when done-----
@@ -601,9 +598,10 @@
             (local-set-key (kbd "C-j") 'switch-to-buffer)
             (local-set-key (kbd "C-a") 'eshell-bol)
             (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
+            ;; (local-set-key (kbd "M-p") 'comint-previous-input)
+            ;; (local-set-key (kbd "M-n") 'comint-next-input)
             (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "<down>") 'eshell-next-matching-input-from-input)))
-(eshell)                         ; open eshell at boot
 
 ;; -----------------------------------------------------------------------------
 ;; edit-server.el  for chrome edit with emacs, this 
@@ -631,17 +629,54 @@
 (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
 
 ;; -----------------------------------------------------------------------------
+;; browse-kill-ring 
+;; 1) https://github.com/browse-kill-ring/browse-kill-ring (exist bugs)
+;; 2) http://www.emacswiki.org/emacs/browse-kill-ring.el (need modify, default)
+;; -----------------------------------------------------------------------------
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
+;; -----------------------------------------------------------------------------
 ;; some configure from Sacha Chua
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html
 ;; -----------------------------------------------------------------------------
-;; for backups.
+;; for backups files 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list" t)))
+;; lazy people uses y represent yes
+(fset 'yes-or-no-p 'y-or-n-p)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-05
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Smartscan
+(require 'smartscan)
+(global-smartscan-mode t)
+(define-key smartscan-map (kbd "M-o") 'smartscan-symbol-go-forward)
+(define-key smartscan-map (kbd "M-l") 'smartscan-symbol-go-backward)
 
+;; Searching based on the current word
+(load-file "~/.emacs.d/utils/sacha-search.el")
+(global-set-key '[C-up] 'sacha/search-word-backward)
+(global-set-key '[C-down] 'sacha/search-word-forward)
+;; !!NOTE: smartscan and sacha/search take similar actions.
+
+;; *****************************************************************************
+;; !! NOTE: local machine file setting.
+;; this machine's local setting in
+;;  ~/.emacs.d/local/local-setting.el
+;; *****************************************************************************
+(if (file-exists-p "~/.emacs.d/local/local-setting.el")
+	(require 'local-setting))
+(server-start)                    ; emacs as server mode
+
+;; --------------------------------------------------------------------
+;; start some modules when bootup.
+;; --------------------------------------------------------------------
+(eshell)                         ; open eshell at boot
+(ielm)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-05
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

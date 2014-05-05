@@ -32,3 +32,11 @@
   )
 
 (defalias 'swap-buffer 'switch-buffer-each-other)
+
+(defun ab-kill-buff (arg)
+  "my defined kill-buff related with ecb"
+  (interactive "P")
+  (ecb-deactivate)
+  (kill-buffer)
+  (ecb-activate))
+

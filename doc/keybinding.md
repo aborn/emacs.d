@@ -10,6 +10,7 @@ keyboarding.MD
 * C-h k    help key binding
 * M-n      mark set (like C+@) or CapsLock
 * M-w C-s  search and highlight all the matched content
+* C-s C-w  appends the rest of the word under the cursor to the search pattern
 
 * C-x u    shows undo-tree graph
 * C-c C-s  run matlab code (matlab-shell-save-and-go)
@@ -49,6 +50,8 @@ keyboarding.MD
 * C-*      fly-spell auto correct previous word
 * M-a      backward-sentence
 * M-e      forward-sentence
+* M-p      smartscan-symbol-go-backward
+* M-o      smartscan-symbol-go-forward
 
 ## swift jump in files
 * C-<          quick-jump-go-back
@@ -62,3 +65,12 @@ keyboarding.MD
 
 ## IN SHELL MODE
 * M-r      search previous command.
+
+## ECB related
+C-c 1   ecb-maximize-window-directories
+C-c 2   ecb-maximize-window-sources
+C-c 3   ecb-maximize-window-methods
+C-c 4   ecb-maximize-window-history
+C-c 0   ecb-deactivate
+C-c 9   ecb-activation
+C-c `   ecb-restore-default-window-sizes

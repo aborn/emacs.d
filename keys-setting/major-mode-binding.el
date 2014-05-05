@@ -43,8 +43,7 @@
 ;; define matlab-shell--mode-map
 ;; (require 'matlab-shell-mode)
 ;; NOTE, the initial matlab-shell-mode-map can't be nil (empty)
-(if matlab-shell-mode-map
-    ()    ; Do not change the keymap if it is already set up.
+(unless matlab-shell-mode-map
   (setq matlab-shell-mode-map (make-sparse-keymap))
   (define-key matlab-shell-mode-map (kbd "C-c SPC")  'ace-jump-mode)
   (define-key matlab-shell-mode-map (kbd "C-x SPC")  'ace-jump-mode)
@@ -56,4 +55,12 @@
 
 ;; define geiser-repl-mode-map
 ;;(define-key geiser-repl-mode-map (kbd "C-j") 'switch-to-buffer)
+
+;; (unless inferior-emacs-lisp-mode-map
+;; (setq inferior-emacs-lisp-mode-map (make-sparse-keymap))
+;; )
+
+(add-hook 'inferior-emacs-lisp-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
