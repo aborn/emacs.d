@@ -74,3 +74,9 @@ C-c 4   ecb-maximize-window-history
 C-c 0   ecb-deactivate
 C-c 9   ecb-activation
 C-c `   ecb-restore-default-window-sizes
+
+## search based on current word
+C-up    sacha/search-word-backward
+C-down  sacha/search-word-forward
+M-o  smartscan-symbol-go-forward
+M-l  smartscan-symbol-go-backward

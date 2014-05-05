@@ -2,7 +2,7 @@
 ;; emacs basic setting only for version 23 and later version
 ;; put this file (init.el) in ~/.emacs.d/
 ;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
-;; You are recommanded to used emacs 24.3
+;; You are advised to use emacs 24.3
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
