@@ -165,7 +165,6 @@
   global-fci-mode fci-mode (lambda () (fci-mode 1)))  
 (global-fci-mode 1)  
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emace auto-complete version 1.3.1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -173,9 +172,8 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/ac-dict")
 (setq ac-comphist-file (expand-file-name
-             "~/.emacs.d/ac-comphist.dat"))
+                        "~/.emacs.d/ac-comphist.dat"))
 (ac-config-default)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set c/c++ mode
@@ -220,10 +218,10 @@
 
 ;; CC-mode
 (add-hook 'c-mode-hook '(lambda ()
-        (setq ac-sources (append '(ac-source-semantic) ac-sources))
-        (local-set-key (kbd "RET") 'newline-and-indent)
-        (linum-mode t)
-        (semantic-mode t)))
+                          (setq ac-sources (append '(ac-source-semantic) ac-sources))
+                          (local-set-key (kbd "RET") 'newline-and-indent)
+                          (linum-mode t)
+                          (semantic-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setting speedbar
@@ -517,11 +515,11 @@
 (global-set-key [M-right] 'windmove-right)
 (global-set-key [M-up] 'windmove-up)
 (global-set-key [M-down] 'windmove-down)
- 
+
 ;; hide or show ecb window
 (define-key global-map [(control f1)] 'ecb-hide-ecb-windows)
 (define-key global-map [(control f2)] 'ecb-show-ecb-windows)
- 
+
 ;; maximize specific window
 (define-key global-map "\C-c1" 'ecb-maximize-window-directories)
 (define-key global-map "\C-c2" 'ecb-maximize-window-sources)
@@ -591,8 +589,8 @@
 ;;TAB cyckles if fewer than 5 completions. Else show *Completions*
 ;;buffer.
 ;; -----------------------------------------------------------------------------
-  (if (>= emacs-major-version 24)
-      (setq completion-cycle-threshold 5))
+(if (>= emacs-major-version 24)
+    (setq completion-cycle-threshold 5))
 
 ;; -----------------------------------------------------------------------------
 ;; eshell settings
@@ -631,6 +629,17 @@
 (require 'cursor-chg)  ; Load the library
 (toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
 (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
+
+;; -----------------------------------------------------------------------------
+;; some configure from Sacha Chua
+;; http://pages.sachachua.com/.emacs.d/Sacha.html
+;; -----------------------------------------------------------------------------
+;; for backups.
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list" t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-05
