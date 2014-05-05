@@ -11,11 +11,11 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/old-emacs-package/")
 (add-to-list 'load-path "~/.emacs.d/local/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/custom/")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/iemacsfun/")
+(add-to-list 'load-path "~/.emacs.d/modules/")
+(add-to-list 'load-path "~/.emacs.d/utils/")
 
 ;; (require 'load-directory)
-;; (load-directory "~/.emacs.d/site-lisp/iemacsfun/")
+;; (load-directory "~/.emacs.d/utils/")
 
 ;; --------------------------------------------------------------------
 ;; setting exec-path, which like terminal's PATH variable
@@ -190,7 +190,7 @@
 ;; set markdown-mode download from 
 ;;                    http://jblevins.org/projects/markdown-mode/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-file "~/.emacs.d/site-lisp/custom/markdown-mode.el")
+(load-file "~/.emacs.d/modules/markdown-mode.el")
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -388,7 +388,7 @@
   (message "highlight-mode-mode already opened."))             
 
 ;;------------------------------------------------------------------------------
-;; change to dream-theme, this theme file in site-lisp/custom/dream-theme.el
+;; change to dream-theme, this theme file in modules/dream-theme.el
 ;; download from https://github.com/djcb/dream-theme
 ;;------------------------------------------------------------------------------
 ;; (require 'dream-theme)
@@ -402,7 +402,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; personal information these variables may be used in 
-;; ~/.emacs.d/site-lisp/iemacsfun/insert-string.el
+;; ~/.emacs.d/utils/insert-string.el
 ;;------------------------------------------------------------------------------
 (setq email-address "aborn.jiang@foxmail.com");
 (setq english-name "Aborn Jiang");
@@ -588,16 +588,32 @@
 (setq completion-auto-help 1)
 
 ;; -----------------------------------------------------------------------------
-;; eshell setting
+;;TAB cyckles if fewer than 5 completions. Else show *Completions*
+;;buffer.
+;; -----------------------------------------------------------------------------
+  (if (>= emacs-major-version 24)
+      (setq completion-cycle-threshold 5))
+
+;; -----------------------------------------------------------------------------
+;; eshell settings
 ;; -----------------------------------------------------------------------------
 (setq eshell-save-history-on-exit t)
 (add-hook 'eshell-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "C-j") 'switch-to-buffer)
-	    (local-set-key (kbd "C-a") 'eshell-bol)
-	    (local-set-key (kbd "<up>") 'previous-line)
-	    (local-set-key (kbd "<down>") 'next-line)))
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)
+            (local-set-key (kbd "C-a") 'eshell-bol)
+            (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
+            (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
+            (local-set-key (kbd "<down>") 'eshell-next-matching-input-from-input)))
 (eshell)                         ; open eshell at boot
+
+;; -----------------------------------------------------------------------------
+;; edit-server.el  for chrome edit with emacs.
+;; -----------------------------------------------------------------------------
+(when (locate-library "edit-server")
+  (require 'edit-server)
+  (setq edit-server-new-frame nil)
+  (edit-server-start))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@gmail.com) at 2014-05-04
