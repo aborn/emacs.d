@@ -4,9 +4,4 @@
 (defun switch-to-shell-buffer (arg)
   "Swith to *shell* buff"
   (interactive "p")
-  (unless (boundp 'shell-name)
-    (setq shell-name "shell"))
-  (cond ((string= shell-name "shell")
-         (switch-to-buffer "*shell*"))
-        ((string= shell-name "eshell")
-         (switch-to-buffer "*eshell*"))))
+  (switch-to-buffer (ab/get-default-shell-buffer-name)))

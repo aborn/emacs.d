@@ -44,5 +44,11 @@
 (global-set-key "\C-cf" 'insert-buffer-name)
 (global-set-key "\C-cl" 'switch-buffer-each-other)
 
+;; window-dealing related.
+(global-set-key "\C-ch" 'ab/window-normal)
+(global-set-key "\C-cH" 'ab/window-two-views)
+
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+
+

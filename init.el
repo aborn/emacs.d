@@ -31,6 +31,7 @@
 (require 'emacs-nifty-tricks)
 (require 'insert-string)
 (require 'buffer-dealing)
+(require 'window-dealing)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -679,6 +680,7 @@
 ;; --------------------------------------------------------------------
 (eshell)                         ; open eshell at boot
 (ielm)
+;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-05
