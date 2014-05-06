@@ -70,6 +70,3 @@
         (make-bshell name)
         (message "make default shell."))
        ))
-
-
-
