@@ -408,7 +408,7 @@
       user-mail-address "aborn.jiang@foxmail.com")
 (setq chinese-name "蒋国宝")
 (setq shell-name "eshell")        ;; default for shell
-;; (setq shell-name "shell")      ;; default value
+;;(setq shell-name "shell")      ;; default value
 
 ;;------------------------------------------------------------------------------
 ;; Add MIT/GNU scheme xscheme.el, which download from

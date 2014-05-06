@@ -2,6 +2,7 @@
 
 (defun buffer-mode (buffer-or-string)
   "Returns the major mode associated with a buffer."
+
   (with-current-buffer buffer-or-string
     major-mode))
 
@@ -39,4 +40,36 @@
   (ecb-deactivate)
   (kill-buffer)
   (ecb-activate))
+
+(defun buffer-exists (bufname)   
+  (not (eq nil (get-buffer bufname))))
+
+(defun make-eshell (name)
+  "Create a new eshell buffer named NAME."
+  (interactive "sName: ")
+  (if (buffer-exists "*eshell*")
+      (setq eshell-buffer-name name)
+    (message "eshell doesnot exists, use the default name: *eshell*"))
+  (eshell))
+
+(defun make-bshell (name)
+  "Create a default shell buffer named NAME"
+  (interactive "sName: ")
+  (unless (buffer-exists "*shell*")
+    (message "eshell doesnot exists, use the default name: *eshell*")
+    (setq name "*shell*"))
+  (shell name))
+
+(defun make-shell (name)
+  "Create a shell(or eshell) buffer named NAME"
+  (interactive "sName: ")
+  (cond ((string= shell-name "eshell")
+        (make-eshell name)
+        (message "make eshell."))
+       ((string= shell-name "shell")
+        (make-bshell name)
+        (message "make default shell."))
+       ))
+
+
 
