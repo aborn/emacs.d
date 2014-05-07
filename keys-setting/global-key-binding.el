@@ -24,7 +24,7 @@
 (global-set-key (kbd "C-;") 'move-forward-by-five)
 (global-set-key (kbd "C-:") 'move-backward-by-five)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
-(global-set-key (kbd "M-m") 'switch-to-shell-buffer)  ; function in switch-swift
+(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
 (global-set-key (kbd "M-c") 'call-last-kbd-macro)
 (global-set-key (kbd "C-j") 'switch-to-buffer)
 (global-set-key (kbd "M-j") 'find-file)
@@ -45,8 +45,8 @@
 (global-set-key "\C-cl" 'switch-buffer-each-other)
 
 ;; window-dealing related.
-(global-set-key "\C-ch" 'ab/window-normal)
-(global-set-key "\C-cH" 'ab/window-two-views)
+(global-set-key "\C-ch" 'ab/window-layout-default)
+(global-set-key "\C-cH" 'ab/window-layout-codeview)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)

@@ -87,7 +87,7 @@
   :prefix "ecb-")
 
 (defcustom ecb-speedbar-before-activate-hook nil
-  "*Hook running directly before ECB activates the integrated speedbar.
+  "*Hook running directly before ECB activates the integrated speedbar.        
 
 For example this hook can be used to change the expansion-mode of the
 integrated speedbar via `speedbar-change-initial-expansion-list'.

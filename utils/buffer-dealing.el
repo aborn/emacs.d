@@ -64,3 +64,14 @@
         (make-bshell name)
         (message "make default shell."))
        ))
+
+
+(defun ab/switch-to-shell-buffer (arg)
+  "Swith to *shell* buff"
+  (interactive "p")
+  (select-window (ab/get-window-at-right-botton))
+  (unless (get-buffer (ab/get-default-shell-buffer-name))
+    (make-shell (ab/get-default-shell-buffer-name)))
+  (switch-to-buffer (ab/get-default-shell-buffer-name)))
+
+(defalias 'ab/buffer-exists 'buffer-exists)

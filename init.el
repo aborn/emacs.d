@@ -3,7 +3,7 @@
 ;; put this file (init.el) in ~/.emacs.d/
 ;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
 ;; You are advised to use emacs 24.3
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -----------------+---
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -27,7 +27,6 @@
 ;; --------------------------------------------------------------------
 (require 'copy-line)
 (require 'move-swift)
-(require 'switch-swift)
 (require 'emacs-nifty-tricks)
 (require 'insert-string)
 (require 'buffer-dealing)
@@ -60,13 +59,15 @@
  ;; If there is more than one, they won't work right.
  '(ecb-compilation-buffer-names (quote (("*Calculator*") ("*vc*") ("*vc-diff*") ("*Apropos*") ("*Occur*") ("*shell*") ("\\*[cC]ompilation.*\\*" . t) ("\\*i?grep.*\\*" . t) ("*JDEE Compile Server*") ("*Help*") ("*Completions*" . t) ("*Backtrace*") ("*Compile-log*") ("*bsh*") ("*Messages*"))))
  '(ecb-layout-name "left8")
- '(ecb-layout-window-sizes nil)
+ '(ecb-layout-window-sizes (quote (("left8" (0.8 . 1.0)))))
+ ;; '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
  '(ecb-prescan-directories-for-emptyness t)
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-sources-menu-user-extension-function (quote ignore))
  '(ecb-tip-of-the-day nil)
- '(ecb-windows-width 0.16)
+ '(ecb-windows-width 0.175)
+ '(ecb-non-semantic-exclude-modes (quote (scheme-mode fundamental-mode text-mode)))
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(session-use-package t nil (session))
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
@@ -214,7 +215,9 @@
 (provide 'semantic-load)
 
 ;; Semantic
-(global-semantic-idle-completions-mode t)
+(global-semantic-idle-completions-mode -1)
+(global-semantic-show-unmatched-syntax-mode nil)
+;;(global-semantic-idle-completions-mode t)
 (global-semantic-decoration-mode t)
 (global-semantic-highlight-func-mode t)
 (global-semantic-show-unmatched-syntax-mode t)
@@ -235,7 +238,7 @@
 (setq sr-speedbar-skip-other-window-p t)
 (setq speedbar-show-unknown-files t)
 ;;(setq sr-speedbar-max-width 10)
-;;(setq sr-speedbar-width-x 10)
+;;(setq sr-speedbar-width-x 20)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add undo-tree download from, C-x u to shows undo-tree graph
@@ -523,11 +526,15 @@
 (define-key global-map "\C-c2" 'ecb-maximize-window-sources)
 (define-key global-map "\C-c3" 'ecb-maximize-window-methods)
 (define-key global-map "\C-c4" 'ecb-maximize-window-history)
-(define-key global-map "\C-c0" 'ecb-deactivate)
-(define-key global-map "\C-c9" 'ecb-activate)
+(define-key global-map "\C-c0" 'ab/ecb-deactivate)
+(define-key global-map "\C-c9" 'ab/ecb-activate)
 
 ;; restore-default
 (define-key global-map "\C-c`" 'ecb-restore-default-window-sizes)
+
+;; to prevent the automatic parsing of other files in idle time, you can set
+;;(setq semantic-idle-work-parse-neighboring-files-flag nil)
+;;(setq semantic-idle-work-update-headers-flag nil)
 
 ;; -----------------------------------------------------------------------------
 ;; ---- following tow has added in local-setting.el 
@@ -654,7 +661,7 @@
 ;; lazy people uses y represent yes
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; Smartscan
+                                        ; Smartscan
 (require 'smartscan)
 (global-smartscan-mode t)
 (define-key smartscan-map (kbd "M-o") 'smartscan-symbol-go-forward)
@@ -683,5 +690,5 @@
 ;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-05
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-07
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

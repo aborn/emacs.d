@@ -110,6 +110,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-05-03 v1.5.7 (add racket scheme mode and split keys-setting)
 * 2014-05-04 v1.6   (add ecb2.4 and jdee2.4.1)
 * 2014-05-05 v1.6.1 (add timeclock and rerange the path modules/utils)
+* 2014-05-07 v1.6.1 (add window-dealing and big switch layout)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  
