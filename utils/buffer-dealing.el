@@ -77,7 +77,7 @@
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; -----------------------------------------------------------------
-(defun ab/rename (new-name)
+(defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
@@ -94,3 +94,4 @@
 
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
+(defalias 'ab/rename 'rename-file-and-buffer)
