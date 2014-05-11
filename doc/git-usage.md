@@ -30,7 +30,8 @@ example: git reset --hard d9362e9c839d186351b439059d3f99755bc5de6d
 note: only for local  
 * git push <repo_name> -f  
 example: git push -f  
-note:  remote repository also points to rolled back, [ref][ref1]
+note:  remote repository also points to rolled back,
+[ref](http://stackoverflow.com/questions/1616957/how-do-you-roll-back-reset-a-git-repository-to-a-particular-commit)
 
 ## HOW TO FORK
 * fork mysql2redis
@@ -61,4 +62,3 @@ edit file ~/.gitignore_global with follow contents
 and using follow command to active
 >$git config --global core.excludesfile ~/.gitignore_global
 
-[ref1] http://stackoverflow.com/questions/1616957/how-do-you-roll-back-reset-a-git-repository-to-a-particular-commit
