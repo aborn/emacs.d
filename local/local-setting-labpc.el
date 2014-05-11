@@ -6,18 +6,22 @@
 							  ("#bc2525" . 25)
 							  ("black" . 66)))
 
-;;setting frame/window
+;; setting frame/window
 ;; (require 'frame-cmds)   ;; frame-cmds packages has some problem
 ;; (maximize-frame)
-
-;;(delete-other-windows)             ; keep one window
-;;(sr-speedbar-open)
-;;(sr-speedbar-toggle)
-;;(other-window 1)
-;;(split-window-horizontally)      ; keep horizontally two windows
 
 ;; open ecb windows
 (setq ecb-auto-activate t
       ecb-tip-of-the-day nil)
 
-
+;; setting emacsclient remote open file
+(defun server-start-and-copy ()
+  "start server and copy auth files"
+  (when (and (fboundp 'server-running-p)   ; function exists.
+             (not (server-running-p)))
+    (server-start)                       ; emacs as server mode
+    (when (file-exists-p "/lisp@yoks:~/.emacs.d/server/server")
+      (delete-file "/lisp@yoks:~/.emacs.d/server/server"))
+    (copy-file "~/.emacs.d/server/server" "/lisp@yoks:~/.emacs.d/server/server")
+    ))
+(add-hook 'emacs-startup-hook 'server-start-and-copy)

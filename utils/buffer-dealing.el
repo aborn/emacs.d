@@ -65,14 +65,22 @@
         (message "make default shell."))
        ))
 
+(defun ab/shell-buffer? ()
+  "return t if the current buffer is shell buffer"
+  (setq bfname (ab/get-current-window-buffer-name))
+  (if (string-match "shell" bfname)
+      (message bfname)      ;; show shell name if it is a shell
+    nil                     ;; or return nil
+    ))
 
 (defun ab/switch-to-shell-buffer (arg)
   "Swith to *shell* buff"
   (interactive "p")
   (select-window (ab/get-window-at-right-botton))
-  (unless (get-buffer (ab/get-default-shell-buffer-name))
-    (make-shell (ab/get-default-shell-buffer-name)))
-  (switch-to-buffer (ab/get-default-shell-buffer-name)))
+  (unless (ab/shell-buffer?)
+    (unless (get-buffer (ab/get-default-shell-buffer-name))
+      (make-shell (ab/get-default-shell-buffer-name)))
+    (switch-to-buffer (ab/get-default-shell-buffer-name))))
 
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
