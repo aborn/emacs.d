@@ -24,6 +24,14 @@ This file content tells your how to use git when you forget it!!
 * git merge upstream/master
 * git remote set-url origin git@github.com:aborn/.emacs.d.git 
 
+## [HOW TO ROLLBACK][ref1]
+* git reset --hard <tag/branch/commit id>  
+example: git reset --hard d9362e9c839d186351b439059d3f99755bc5de6d  
+note: only for local  
+* git push <repo_name> -f  
+example: git push -f  
+note:  remote repository also points to rolled back
+
 ## HOW TO FORK
 * fork mysql2redis
 * git clone git@github.com:aborn/mysql2redis.git
@@ -53,3 +61,4 @@ edit file ~/.gitignore_global with follow contents
 and using follow command to active
 >$git config --global core.excludesfile ~/.gitignore_global
 
+[ref1] http://stackoverflow.com/questions/1616957/how-do-you-roll-back-reset-a-git-repository-to-a-particular-commit
