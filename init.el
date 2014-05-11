@@ -680,7 +680,13 @@
 ;; *****************************************************************************
 (if (file-exists-p "~/.emacs.d/local/local-setting.el")
 	(require 'local-setting))
-(server-start)                    ; emacs as server mode
+
+;; now that the ipv4 advice is in place, restart the server.
+;; (custom-set-variables '(server-use-tcp t))
+(require 'server)
+(when (and (fboundp 'server-running-p)   ; function exists.
+         (not (server-running-p)))
+    (server-start))             ; emacs as server mode
 
 ;; --------------------------------------------------------------------
 ;; start some modules when bootup.
