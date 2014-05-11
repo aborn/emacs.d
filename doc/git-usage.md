@@ -24,13 +24,13 @@ This file content tells your how to use git when you forget it!!
 * git merge upstream/master
 * git remote set-url origin git@github.com:aborn/.emacs.d.git 
 
-## [HOW TO ROLLBACK][ref1]
+## HOW TO ROLLBACK]
 * git reset --hard <tag/branch/commit id>  
 example: git reset --hard d9362e9c839d186351b439059d3f99755bc5de6d  
 note: only for local  
 * git push <repo_name> -f  
 example: git push -f  
-note:  remote repository also points to rolled back
+note:  remote repository also points to rolled back, [ref][ref1]
 
 ## HOW TO FORK
 * fork mysql2redis
