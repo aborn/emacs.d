@@ -346,7 +346,7 @@
 ;;(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-x SPC") 'ace-jump-mode)
-
+(global-set-key (kbd "M-z") 'ace-jump-mode)
 (define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
 ;; If you also use viper mode:
 ;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
@@ -687,6 +687,7 @@
 ;; --------------------------------------------------------------------
 (eshell)                         ; open eshell at boot
 (ielm)
+(ab/shell "2shell")              ; open another shell
 ;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
