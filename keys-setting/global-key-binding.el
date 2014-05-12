@@ -2,6 +2,8 @@
 ;; --------------------------------------------------------------------
 ;; provide all global key bindings 
 ;; global hot key (key binding) setting all together 
+;; common key
+;; "\C-" "\M-" TAB, RET, ESC, DEL "\t" "\r" "\e"
 ;; --------------------------------------------------------------------
 
 ;; M-s .. is unused, used for future.

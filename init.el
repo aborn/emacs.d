@@ -365,10 +365,11 @@
 ;;------------------------------------------------------------------------------
 ;; add vim mode
 ;;  download from git clone git://gitorious.org/evil/evil.git
+;; you are not advised to use vim mode in emacs
 ;;------------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
-(require 'evil)
-(global-set-key (kbd "C-x C-SPC") 'evil-mode)
+;; (add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
+;; (require 'evil)
+;;(global-set-key (kbd "C-x C-SPC") 'evil-mode)
 
 ;;------------------------------------------------------------------------------
 ;; highlight-tail, which is download from 
@@ -672,6 +673,18 @@
 (global-set-key '[C-up] 'sacha/search-word-backward)
 (global-set-key '[C-down] 'sacha/search-word-forward)
 ;; !!NOTE: smartscan and sacha/search take similar actions.
+
+;; -----------------------------------------------------------------------------
+;; automatic and manual symbol highlighting for Emacs
+;; link: https://github.com/nschum/highlight-symbol.el
+;; -----------------------------------------------------------------------------
+(require 'highlight-symbol)
+(global-set-key (kbd "<C-return>") 'highlight-symbol-at-point)
+(global-set-key (kbd "C-x C-SPC") 'highlight-symbol-mode)
+;; (global-set-key (kbd "C-x RET") 'highlight-symbol-at-point)
+;; (global-set-key [f3] 'highlight-symbol-next)
+;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
+;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
