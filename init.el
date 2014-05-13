@@ -2,7 +2,8 @@
 ;; emacs basic setting only for version 23 and later version
 ;; put this file (init.el) in ~/.emacs.d/
 ;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
-;; You are advised to use emacs 24.3
+;; You are advised to use emacs 24.3+
+;; More detail information refers to README.md
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -----------------+---
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
@@ -31,6 +32,7 @@
 (require 'insert-string)
 (require 'buffer-dealing)
 (require 'window-dealing)
+(require 'quick-file-jump)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -711,5 +713,5 @@
 ;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-12
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-13
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
