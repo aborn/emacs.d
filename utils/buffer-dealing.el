@@ -31,9 +31,9 @@
 (defun ab-kill-buff (arg)
   "my defined kill-buff related with ecb"
   (interactive "P")
-  (ecb-deactivate)
+  (ab/ecb-deactivate)
   (kill-buffer)
-  (ecb-activate))
+  (ab/ecb-activate))
 
 (defun buffer-exists (bufname)   
   (not (eq nil (get-buffer bufname))))
@@ -103,3 +103,4 @@
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
 (defalias 'ab/rename 'rename-file-and-buffer)
+(defalias 'ab/kill-buff 'ab-kill-buff)

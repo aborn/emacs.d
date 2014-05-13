@@ -615,7 +615,6 @@
             (local-set-key (kbd "C-x C-j") 'eshell/clear)
             (local-set-key (kbd "<down>") 'eshell-next-matching-input-from-input)))
 
-
 ;; -----------------------------------------------------------------------------
 ;; edit-server.el  for chrome edit with emacs, this 
 ;; is a chrome extension 
@@ -659,10 +658,10 @@
 (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list" t)))
-;; lazy people uses y represent yes
+;; lazy people uses y instead of yes
 (fset 'yes-or-no-p 'y-or-n-p)
 
-                                        ; Smartscan
+;; Smartscan
 (require 'smartscan)
 (global-smartscan-mode t)
 (define-key smartscan-map (kbd "M-o") 'smartscan-symbol-go-forward)
