@@ -1,18 +1,22 @@
-; -----------------------------------------------------------------------------
-; Why this modules?
-;     Sometimes, we need to open a file or buffer which name 
-;            began with current word in emacs.
-;     Here is the solution.
-;
-; Install.
-;   add following code into your initial emacs files (.emacs or init.el)
-;   (require 'quick-file-jump)
-;   (global-set-key (kbd "<M-return>") 'ab/quick-buffer-jump)
-;
-; Author:
-;   Aborn Jiang (aborn.jiang@foxmail.com)
-;   2014-05-13
-; -----------------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
+;; quick-file-jump.el
+;; Why this module?
+;;     Sometimes, we need to open a file or buffer which name 
+;;            began with current word in emacs.
+;;     Here is the solution.
+;;
+;; Install.
+;;   put this file (quick-file-jump.el) in your load path and
+;;   add follow codes into your initial emacs files (.emacs or init.el)
+;;   (require 'quick-file-jump)
+;;   (global-set-key (kbd "<M-return>") 'ab/quick-buffer-jump)
+;;
+;; Author:
+;;   Aborn Jiang (aborn.jiang@foxmail.com)
+;; 
+;; Version
+;;   v0.1 2014-05-13
+;; -----------------------------------------------------------------------------
 
 (provide 'quick-file-jump)
 (defun ab/quick-buffer-jump ()
@@ -34,7 +38,7 @@
       ))
   (if status                     ;; success search in buffer list.
       (message "skip to %s buffer" switchedbuffer)
-    (ab/quick-file-jump)))       ;; find in current path files.
+    (ab/quick-file-jump)))       ;; find files in current path.
 
 (defun ab/quick-file-jump ()
   "Quickly open and jump file with name begin with current word"
@@ -54,6 +58,7 @@
     (message "not find file name begin %s" fname)))
 
 (defun ab/get-current-path ()
+  "Get the current path"
   (interactive)
   (message (file-name-directory (buffer-file-name))))
 
