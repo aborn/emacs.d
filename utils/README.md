@@ -1,7 +1,8 @@
-iemacsfun
+utils
 ==========
 
-### All elisp functions in this directory is written by Aborn Jiang.
+### Introduction
+This directory contains lots of modules which depend on some specific need.
 
 #### It includes following files
 
@@ -16,3 +17,18 @@ or .emacs)
 
 #### switch-swift.el
 * switch-to-shell-buffer fast swtich current buffer to \*shell\* buffer
+
+#### buffer-dealing.el
+dealing with buffer content.
+
+#### window-dealing.el
+dealing with window.
+
+#### insert-string.el
+insert some string in buffer.
+
+#### quick-file-jump.el
+quickly jump into another file/buffer.
+
+### Author
+Aborn Jiang (aborn.jiang@foxmail.com)
