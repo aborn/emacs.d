@@ -80,7 +80,8 @@
   (unless (ab/shell-buffer?)
     (unless (get-buffer (ab/get-default-shell-buffer-name))
       (make-shell (ab/get-default-shell-buffer-name)))
-    (switch-to-buffer (ab/get-default-shell-buffer-name))))
+    (switch-to-buffer (ab/get-default-shell-buffer-name)))
+  (end-of-buffer))
 
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
