@@ -1,10 +1,10 @@
-;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; emacs basic setting only for version 23 and later version         
-;; put this file (init.el) in ~/.emacs.d/                            
-;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs                       
-;; You are advised to use emacs 24.3+                                
-;; More detail information refers to README.md                       
-;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; emacs basic setting only for version 23 and later version
+;; put this file (init.el) in ~/.emacs.d/
+;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs
+;; You are advised to use emacs 24.3+
+;; More detail information refers to README.md
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -----------------+---
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -548,8 +548,8 @@
 ;; -----------------------------------------------------------------------------
 ;; add jdee for jave development
 ;; -----------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
-(load "jde")
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
+;; (load "jde")
 
 ;; -----------------------------------------------------------------------------
 ;; key binding, all files are in ~/.emacs.d/keys-setting
@@ -621,10 +621,10 @@
 ;; edit-server.el  for chrome edit with emacs, this 
 ;; is a chrome extension 
 ;; -----------------------------------------------------------------------------
-(when (locate-library "edit-server")
-  (require 'edit-server)
-  (setq edit-server-new-frame nil)
-  (edit-server-start))
+;;(when (locate-library "edit-server")
+;;  (require 'edit-server)
+;;  (setq edit-server-new-frame nil)
+;;  (edit-server-start))
 
 ;; -----------------------------------------------------------------------------
 ;; timeclock-x.el  http://www.emacswiki.org/emacs/timeclock-x.el
@@ -692,17 +692,17 @@
 ;; this machine's local setting in
 ;;  ~/.emacs.d/local/local-setting.el
 ;; *****************************************************************************
-(setq server-use-tcp t
-      server-port 9999)
-(require 'server)
+;; (setq server-use-tcp t
+;;       server-port 9999)
+;; (require 'server)
 
-(if (file-exists-p "~/.emacs.d/local/local-setting.el")
-	(require 'local-setting)
-  (progn
-    (when (and (fboundp 'server-running-p)  ; function exists.
-               (not (server-running-p)))
-      (server-start))                       ; emacs as server mode
-    ))
+;; (if (file-exists-p "~/.emacs.d/local/local-setting.el")
+;; 	(require 'local-setting)
+;;   (progn
+;;     (when (and (fboundp 'server-running-p)  ; function exists.
+;;                (not (server-running-p)))
+;;       (server-start))                       ; emacs as server mode
+;;     ))
 
 ;; --------------------------------------------------------------------
 ;; start some modules when bootup.
