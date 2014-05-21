@@ -38,6 +38,6 @@
   (insert-string (buffer-file-name (current-buffer))))
 
 (defun ab/insert-tab-space (arg)
-  "Insert 4 white space in current ponit"
+  "Insert 4 white space at current ponit"
   (interactive "P")
   (insert-string "    "))
