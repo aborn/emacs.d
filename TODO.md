@@ -14,5 +14,9 @@ Features in emacs may used in the future.
 * Remote file editing and modify.
 * ERC IRC
 
+### Others Record
+* llvm+clang
+* ecb+cscope+yasnnipet+erc
+
 ### UPDATE TIME
 2014-03-20
