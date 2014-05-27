@@ -1,5 +1,6 @@
-keyboarding.MD
+keybinding.md
 =============
+Note: init.el keybinding in keyinit.md  
 
 * C-x C-m  indent-region
 * C-x C-j  erase buffer
@@ -75,11 +76,18 @@ keyboarding.MD
 * C-c 9   ecb-activation
 * C-c `   ecb-restore-default-window-sizes
 
+## highlight symbol
+* C-RET      highlight-symbol-at-point
+* C-x C-SPC  highlight-symbol-mode
+
 ## search based on current word
 * C-up    sacha/search-word-backward
 * C-down  sacha/search-word-forward
 * M-o  smartscan-symbol-go-forward
 * M-l  smartscan-symbol-go-backward
 
-## AUCTEX
+## AUCTEX mode
 * C-c ~ Mathematics
+
+## Others
+init.el keys binding refs to keyinit.md

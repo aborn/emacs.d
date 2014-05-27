@@ -22,6 +22,7 @@
 ;; define markdown-mode-map
 (define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
 (define-key markdown-mode-map (kbd "\C-x SPC") 'ace-jump-mode)
+(define-key markdown-mode-map (kbd "<M-return>") 'ab/quick-file-jump)
 
 
 ;; define lisp-interaction-mode-map
@@ -56,12 +57,11 @@
 ;; define geiser-repl-mode-map
 ;;(define-key geiser-repl-mode-map (kbd "C-j") 'switch-to-buffer)
 
-;; (unless inferior-emacs-lisp-mode-map
-;; (setq inferior-emacs-lisp-mode-map (make-sparse-keymap))
-;; )
-
 ;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+(add-hook 'ielm-mode-hook
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
 

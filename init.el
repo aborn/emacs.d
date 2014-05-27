@@ -34,6 +34,7 @@
 (require 'buffer-dealing)
 (require 'window-dealing)
 (require 'quick-file-jump)
+(require 'ab-help)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -616,6 +617,7 @@
             (local-set-key (kbd "M-n") 'eshell-next-matching-input-from-input)
             (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "C-x C-j") 'eshell/clear)
+            (local-set-key (kbd "M-r") 'eshell-isearch-backward)
             (local-set-key (kbd "<down>") 'eshell-next-matching-input-from-input)))
 
 ;; -----------------------------------------------------------------------------
