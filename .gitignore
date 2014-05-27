@@ -18,3 +18,6 @@ abbrev_defs
 init.el.before_ecb_2.40*
 server/
 *eshell*
+2shell
+.#*
+*#
