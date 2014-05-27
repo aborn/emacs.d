@@ -2,7 +2,7 @@ Ulitcs
 ==========
 
 ## INTRO
-This project(**Ulitcs**) is a lite configure file for emacs.  
+This project(**Ulitcs**) is a useful configure file for emacs.  
 All configure files can be used emacs version 23 or 23+.
 
 ## DOWNLOAD
@@ -114,6 +114,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-05-10 v1.6.3 (add ab/rename command function)
 * 2014-05-12 v1.6.4 (add highlight-symbol.el for highlight occurrences)
 * 2014-05-13 v1.6.5 (add quick-file-jump.el in utils)
+* 2014-05-27 v1.6.6 (add auctex package in site-lisp)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

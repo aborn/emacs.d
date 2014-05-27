@@ -75,4 +75,8 @@
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
+;; add auctex mode
+(add-hook 'text-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)))
 

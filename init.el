@@ -15,6 +15,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (add-to-list 'load-path "~/.emacs.d/modules/")
 (add-to-list 'load-path "~/.emacs.d/utils/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/auctex-11.87")
 ;; (require 'load-directory)
 ;; (load-directory "~/.emacs.d/utils/")
 
@@ -687,6 +688,22 @@
 ;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
+
+;; -----------------------------------------------------------------------------
+;; add auctex package
+;; which download from http://www.gnu.org/software/auctex/download-for-unix.html
+;; you should install it before
+;; ./configure
+;; make && sudo make install
+;; Date: 2014-05-27
+;; -----------------------------------------------------------------------------
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
@@ -713,5 +730,5 @@
 ;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-13
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-27
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

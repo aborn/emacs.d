@@ -80,3 +80,6 @@ keyboarding.MD
 * C-down  sacha/search-word-forward
 * M-o  smartscan-symbol-go-forward
 * M-l  smartscan-symbol-go-backward
+
+## AUCTEX
+* C-c ~ Mathematics
