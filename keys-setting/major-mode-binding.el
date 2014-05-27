@@ -65,5 +65,14 @@
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
+;; define the latex-mode and bibtex-mode
+;;(define-key latex-mode-map (kbd "C-j")  'switch-to-buffer)
+;;(define-key bibtex-mode-map (kbd "C-j") 'switch-to-buffer)
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+(add-hook 'bibtex-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
 
