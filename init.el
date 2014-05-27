@@ -704,6 +704,13 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
+;; -----------------------------------------------------------------------------
+;; emacs slideshow mode
+;; download from https://github.com/eschulte/epresent
+;; -----------------------------------------------------------------------------
+(load-file "~/.emacs.d/site-lisp/epresent/epresent.el")
+(require 'epresent)
+
 ;; *****************************************************************************
 ;; !! NOTE: local machine file setting.
 ;; this machine's local setting in
