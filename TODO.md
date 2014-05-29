@@ -17,6 +17,7 @@ Features in emacs may used in the future.
 ### Others Record
 * llvm+clang
 * ecb+cscope+yasnnipet+erc
+* [helm](http://www.emacswiki.org/emacs/Helm "wiki helm")
 
 ### UPDATE TIME
 2014-03-20
