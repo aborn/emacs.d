@@ -19,5 +19,8 @@ Features in emacs may used in the future.
 * ecb+cscope+yasnnipet+erc
 * [helm](http://www.emacswiki.org/emacs/Helm "wiki helm")
 
+### About shell
+* change to the latest visited shell
+
 ### UPDATE TIME
 2014-03-20

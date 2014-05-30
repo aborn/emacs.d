@@ -3,17 +3,6 @@
 
 (provide 'window-dealing)
 
-(defun ab/get-default-shell-buffer-name ()
-  "get default shell buffer name"
-  (interactive)
-  (unless (boundp 'shell-name)
-    (setq shell-name "shell"))
-  (cond ((string= shell-name "shell") 
-         (message "*shell*"))
-        ((string= shell-name "eshell")
-         (message "*eshell*")))
-  )
-
 (defun ab/get-window-at-right-botton ()
   "get the right botton window"
   (window-at (- (frame-width) 2) (- (frame-height) 6)))
@@ -225,6 +214,4 @@
 (defun ab/get-test-msg ()
   "aborn only for testing "
   (interactive)
-  (if (ab/get-first-content-window)
-      (message "goooooooooooood")
-    (message "baddddddddddddddd")))
+  (message (visited-file-modtime)))

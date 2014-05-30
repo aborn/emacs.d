@@ -27,6 +27,7 @@
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
 ;; --------------------------------------------------------------------
+(require 'shell-dealing)
 (require 'copy-line)
 (require 'move-swift)
 (require 'emacs-nifty-tricks)
@@ -35,6 +36,7 @@
 (require 'window-dealing)
 (require 'quick-file-jump)
 (require 'ab-help)
+(require 'latex-dealing)
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -739,5 +741,5 @@
 ;; (ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-27
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-05-30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

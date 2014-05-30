@@ -115,6 +115,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-05-12 v1.6.4 (add highlight-symbol.el for highlight occurrences)
 * 2014-05-13 v1.6.5 (add quick-file-jump.el in utils)
 * 2014-05-27 v1.6.6 (add auctex package in site-lisp)
+* 2014-05-30 v1.6.7 (add latex-dealing.el and shell-dealing.el)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

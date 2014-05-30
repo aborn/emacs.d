@@ -66,14 +66,21 @@
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
 ;; define the latex-mode and bibtex-mode
+;; define latex-mode-map local binding
 ;;(define-key latex-mode-map (kbd "C-j")  'switch-to-buffer)
-;;(define-key bibtex-mode-map (kbd "C-j") 'switch-to-buffer)
-(add-hook 'latex-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+(eval-after-load 'latex
+  '(define-key LaTeX-mode-map (kbd "C-x j")  'ab/latex-compile-current-file))
+
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda () 
+;;             (local-set-key (kbd "C-j") 'switch-to-buffer)
+;;             (local-set-key (kbd "C-x j") 'ab/latex-compile-current-file)))
+
+;;define bibtex-mode-hook
 (add-hook 'bibtex-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+            (local-set-key (kbd "C-j") 'switch-to-buffer)
+            (local-set-key (kbd "C-x j") 'ab/latex-add-ref)))
 
 ;; add auctex mode
 (add-hook 'text-mode-hook
