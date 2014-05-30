@@ -87,3 +87,7 @@
           (lambda ()
             (local-set-key (kbd "C-j") 'switch-to-buffer)))
 
+;; add shell mode
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-x j") 'ab/run-current-file)))

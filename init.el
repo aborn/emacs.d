@@ -37,6 +37,7 @@
 (require 'quick-file-jump)
 (require 'ab-help)
 (require 'latex-dealing)
+(require 'run-scripts)
 
 ;; --------------------------------------------------------------------
 ;; set indent
