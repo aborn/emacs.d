@@ -68,10 +68,11 @@
   (setq rbwindow (ab/get-window-at-right-botton))
   (when (window-valid-p (window-in-direction 'right main-content-wind))
     (setq name "two"))
-  (when (window-valid-p (window-in-direction 'above rbwindow))
+  (when (and (window-valid-p (window-in-direction 'above rbwindow))
+             (window-valid-p (window-in-direction 'right main-content-wind)))
     (setq name "default"))
-  (select-window cw)
-  (message name))
+    (select-window cw)           ;; restore save window
+    (message name))
 
 (defun ab/window-normal ()
   "display normal window layout (default)"
