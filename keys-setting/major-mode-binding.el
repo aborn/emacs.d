@@ -68,8 +68,14 @@
 ;; define the latex-mode and bibtex-mode
 ;; define latex-mode-map local binding
 ;;(define-key latex-mode-map (kbd "C-j")  'switch-to-buffer)
-(eval-after-load 'latex
-  '(define-key LaTeX-mode-map (kbd "C-x j")  'ab/latex-compile-current-file))
+;; (eval-after-load 'latex
+;;   '(define-key LaTeX-mode-map 
+;;      (kbd "C-x j")  'ab/latex-compile-current-file))
+;;(define-key latex-mode-map (kbd "C-c i")  'ab/latex-insert-marker)
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c i")  'ab/latex-insert-marker)
+            (local-set-key (kbd "C-x j")  'ab/latex-compile-current-file)))
 
 ;; (add-hook 'LaTeX-mode-hook
 ;;           (lambda () 

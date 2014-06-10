@@ -30,3 +30,9 @@
   (insert "---------------------------")
   (when (window-valid-p cw)
     (select-window cw)))
+
+(defun ab/latex-insert-marker (arg)
+  "Insert a marker in current point in latex file (.tex)"
+  (interactive "P")
+  (insert "[\\textcolor[rgb]{1.0, 0.0, 0.0}{MarkerHere}]"))
+
