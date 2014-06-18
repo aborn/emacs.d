@@ -314,13 +314,13 @@
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)
 (require 'desktop)
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
 (defun my-desktop-save ()
   (interactive)
   ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
   (if (eq (desktop-owner) (emacs-pid))
 	  (desktop-save desktop-dirname)))
-(add-hook 'auto-save-hook 'my-desktop-save)
+;(add-hook 'auto-save-hook 'my-desktop-save)
 
 ;;------------------------------------------------------------------------------
 ;; add chinese wubi input method to emacs
@@ -553,8 +553,8 @@
 ;; -----------------------------------------------------------------------------
 ;; add jdee for jave development
 ;; -----------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
-(load "jde")
+                                        ;(add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
+                                        ;(load "jde")
 
 ;; -----------------------------------------------------------------------------
 ;; key binding, all files are in ~/.emacs.d/keys-setting
@@ -693,7 +693,6 @@
 ;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-
 ;; -----------------------------------------------------------------------------
 ;; add auctex package
 ;; which download from http://www.gnu.org/software/auctex/download-for-unix.html
@@ -721,9 +720,9 @@
 ;; this machine's local setting in
 ;;  ~/.emacs.d/local/local-setting.el
 ;; *****************************************************************************
-(setq server-use-tcp t
-      server-port 9999)
-(require 'server)
+;;(setq server-use-tcp t
+;;server-port 9999)
+;;(require 'server)
 
 (if (file-exists-p "~/.emacs.d/local/local-setting.el")
 	(require 'local-setting)
@@ -739,7 +738,7 @@
 (eshell)                         ; open eshell at boot
 (ielm)
 (ab/shell "2shell")              ; open another shell
-;; (ab/window-normal)
+(ab/window-normal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-06-10
