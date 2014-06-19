@@ -38,6 +38,12 @@
 (require 'ab-help)
 (require 'latex-dealing)
 (require 'run-scripts)
+;; -----------------------------------------------------------------------------
+;; key binding, all files are in ~/.emacs.d/keys-setting
+;; -----------------------------------------------------------------------------
+;;(require 'global-key-binding)            ; global key binding
+;;(require 'major-mode-binding)            ; local major mode key binding
+
 
 ;; --------------------------------------------------------------------
 ;; set indent
@@ -235,7 +241,6 @@
                           (local-set-key (kbd "RET") 'newline-and-indent)
                           (linum-mode t)
                           (semantic-mode t)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; setting speedbar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -307,21 +312,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;  add session.el and desptop setting
-;;  download from http://emacs-session.sourceforge.net/
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'session)
-(add-hook 'after-init-hook 'session-initialize)
-(require 'desktop)
-;;(desktop-save-mode 1)
-(defun my-desktop-save ()
-  (interactive)
-  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
-  (if (eq (desktop-owner) (emacs-pid))
-	  (desktop-save desktop-dirname)))
-;(add-hook 'auto-save-hook 'my-desktop-save)
-
 ;;------------------------------------------------------------------------------
 ;; add chinese wubi input method to emacs
 ;; url:daiyuwen.freeshell.org/gb/wubi/wubi.html 
@@ -387,10 +377,10 @@
 ;;------------------------------------------------------------------------------
 (require 'highlight-tail)
 (message "Highlight-tail loaded - now your Emacs will be even more sexy!")
-;;  here some setq of variables - see CONFIGURATION section below 
-;; (setq highlight-tail-colors '(("black" . 0)
-;;							  ("#bc2525" . 25)
-;;							  ("black" . 66)))
+;; here some setq of variables - see CONFIGURATION section below 
+(setq highlight-tail-colors '(("black" . 0)
+							  ("#bc2525" . 25)
+							  ("black" . 66)))
 (setq highlight-tail-steps 14
 	  highlight-tail-timer 1)
 (setq highlight-tail-posterior-type 'const)
@@ -561,7 +551,6 @@
 ;; -----------------------------------------------------------------------------
 (require 'global-key-binding)            ; global key binding
 (require 'major-mode-binding)            ; local major mode key binding
-
 ;; -----------------------------------------------------------------------------
 ;; icomplete+.el   http://www.emacswiki.org/emacs/icomplete+.el
 ;; mcomplete.el
@@ -731,6 +720,22 @@
                (not (server-running-p)))
       (server-start))                       ; emacs as server mode
     ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  add session.el and desptop setting
+;;  download from http://emacs-session.sourceforge.net/
+;;  NOTE:: !!a crach bug exists in dianping labtop
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'session)
+;; (add-hook 'after-init-hook 'session-initialize)
+;; (require 'desktop)
+(desktop-save-mode 1)
+;; (defun my-desktop-save ()
+;;   (interactive)
+;;   ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+;;   (if (eq (desktop-owner) (emacs-pid))
+;; 	  (desktop-save desktop-dirname)))
+;(add-hook 'auto-save-hook 'my-desktop-save)
 
 ;; --------------------------------------------------------------------
 ;; start some modules when bootup.
