@@ -73,8 +73,8 @@
 
 ;; Variables
 (setq eclim-auto-save t
-;;      eclim-executable "/opt/eclipse/eclim"
-;;      eclimd-executable "/opt/eclipse/eclimd"
+      eclim-executable "~/software/eclipse/eclim"
+      eclimd-executable "~/software/eclipse/eclimd"
       eclimd-wait-for-process nil
       eclimd-default-workspace "~/src/workspace-eclim"
       eclim-use-yasnippet nil

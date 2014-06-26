@@ -24,6 +24,7 @@
 ;; setting exec-path, which like terminal's PATH variable
 ;; --------------------------------------------------------------------
 (add-to-list 'exec-path "/usr/local/racket/bin")
+(add-to-list 'exec-path "~/software/eclipse")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
@@ -208,43 +209,15 @@
                         "~/.emacs.d/ac-comphist.dat"))
 (ac-config-default)
 
+;; Smartscan
+(require 'smartscan)
+(global-smartscan-mode t)
+(define-key smartscan-map (kbd "M-o") 'smartscan-symbol-go-forward)
+(define-key smartscan-map (kbd "M-l") 'smartscan-symbol-go-backward)
+
 ;;------------------------------------------------------------------------------
 ;; emacs-eclim setting
 ;;------------------------------------------------------------------------------
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacs-eclim"))
-(require 'eclim)
-(setq eclim-auto-save t)
-(global-eclim-mode)
-;; If you want to control eclimd from emacs, also add:
-(require 'eclimd)
-;; boot the eclimd server by hand run as
-;; ~/software/eclipse/eclimd
-;; or M-x start-eclim/stop-eclim
-
-(custom-set-variables
-  '(eclim-eclipse-dirs '("~/software/eclipse"))    
-  '(eclim-executable "~/software/eclipse/eclim"))
-
-;; Displaying compilation error messages in the echo area
-(setq help-at-pt-display-when-idle t)
-(setq help-at-pt-timer-delay 0.1)
-(help-at-pt-set-timer)
-
-;; If you wish to use auto-complete-mode with emacs-eclim, 
-;;    add the following to your .emacs:
-;; regular auto-complete initialization
-(require 'auto-complete-config)
-(ac-config-default)
-
-;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
-
-;; Configuring company-mode
-(require 'company)
-(require 'company-emacs-eclim)
-(company-emacs-eclim-setup)
-(global-company-mode t)
-(require 's)
-(add-hook 'after-init-hook 'global-company-mode)
+(require 'eclimd) 
 (load-file "/home/aborn/.emacs.d/modules/tkj-java.el")
