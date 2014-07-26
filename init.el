@@ -598,3 +598,7 @@
 (ielm)
 (ab/shell "2shell")              ; open another shell
 ;; (ab/window-normal)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-07-26
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
