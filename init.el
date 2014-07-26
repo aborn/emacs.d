@@ -516,6 +516,7 @@
             (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
             (local-set-key (kbd "M-p") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "M-n") 'eshell-next-matching-input-from-input)
+            (local-set-key (kbd "C-M-n") 'set-mark-command)
             (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "C-x C-j") 'eshell/clear)
             (local-set-key (kbd "M-r") 'eshell-isearch-backward)
