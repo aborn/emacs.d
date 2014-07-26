@@ -376,34 +376,26 @@
 (global-set-key (kbd "C-c C-c") 'quick-jump-clear-all-marker)
 
 ;;------------------------------------------------------------------------------
-;; add vim mode
-;;  download from git clone git://gitorious.org/evil/evil.git
-;; you are not advised to use vim mode in emacs
-;;------------------------------------------------------------------------------
-;; (add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
-;; (require 'evil)
-;;(global-set-key (kbd "C-x C-SPC") 'evil-mode)
-
-;;------------------------------------------------------------------------------
 ;; highlight-tail, which is download from 
 ;;     http://blog.arithm.com/2008/04/12/highlight-tail-for-emacs/
 ;; and the chinese reference is
 ;;     http://emacser.com/highlight-tail.htm
 ;; the file is highlight-tail.el
+;; donot use highlight-tail in mac system
 ;;------------------------------------------------------------------------------
-(require 'highlight-tail)
-(message "Highlight-tail loaded - now your Emacs will be even more sexy!")
+;; (require 'highlight-tail)
+;; (message "Highlight-tail loaded - now your Emacs will be even more sexy!")
 ;;  here some setq of variables - see CONFIGURATION section below 
 ;; (setq highlight-tail-colors '(("black" . 0)
 ;;							  ("#bc2525" . 25)
 ;;							  ("black" . 66)))
-(setq highlight-tail-steps 14
-	  highlight-tail-timer 1)
-(setq highlight-tail-posterior-type 'const)
+;; (setq highlight-tail-steps 14
+;;	  highlight-tail-timer 1)
+;; (setq highlight-tail-posterior-type 'const)
 
-(if (not highlight-tail-mode) 
-	(highlight-tail-mode 1)   ;; open tail mode if it does not open
-  (message "highlight-mode-mode already opened."))             
+;; (if (not highlight-tail-mode) 
+;;	(highlight-tail-mode 1)   ;; open tail mode if it does not open
+;;  (message "highlight-mode-mode already opened."))             
 
 ;;------------------------------------------------------------------------------
 ;; change to dream-theme, this theme file in modules/dream-theme.el
@@ -587,9 +579,9 @@
 
 ;; setting color-theme
 (require 'dream-theme)
-(setq highlight-tail-colors '(("black" . 0)
-							  ("#bc2525" . 25)
-							  ("black" . 66)))
+;; (setq highlight-tail-colors '(("black" . 0)
+;;							  ("#bc2525" . 25)
+;;							  ("black" . 66)))
 
 ;; --------------------------------------------------------------------
 ;; start some modules when bootup.
