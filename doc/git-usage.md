@@ -23,6 +23,8 @@ This file content tells your how to use git when you forget it!!
 * git fetch upstream (fork)
 * git merge upstream/master
 * git remote set-url origin git@github.com:aborn/.emacs.d.git 
+* git config --global core.quotepath false  # for Chinese commit show
+* git checkout --track origin/remotebranch  # set a same branch as remote branch 
 
 ## HOW TO ROLLBACK
 * git reset --hard <tag/branch/commit id>  
