@@ -15,9 +15,9 @@
 (define-key php-mode-map (kbd "M-j") 'find-file)
 
 ;; define flyspell-mode-map
-(define-key flyspell-mode-map (kbd "C-.") 'switch-to-next-buffer)
-(define-key flyspell-mode-map (kbd "C-,") 'switch-to-prev-buffer)
-(define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
+;; (define-key flyspell-mode-map (kbd "C-.") 'switch-to-next-buffer)
+;; (define-key flyspell-mode-map (kbd "C-,") 'switch-to-prev-buffer)
+;; (define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
 
 ;; define markdown-mode-map
 (define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)

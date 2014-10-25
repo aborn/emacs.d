@@ -31,3 +31,7 @@
 (global-set-key (kbd "M-j") 'find-file)
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
+
+;; comment-region and uncomment-region
+(global-set-key (kbd "C-(") 'comment-region)
+(global-set-key (kbd "C-)") 'uncomment-region)
