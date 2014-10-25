@@ -21,3 +21,4 @@ server/
 2shell
 .#*
 *#
+*.elc
