@@ -1,4 +1,4 @@
-;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; emacs basic setting only for version 23 and later version         
 ;; put this file (init.el) in ~/.emacs.d/                            
 ;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs                       
@@ -25,6 +25,8 @@
 ;; --------------------------------------------------------------------
 (add-to-list 'exec-path "/usr/local/racket/bin")
 (add-to-list 'exec-path "~/software/eclipse")
+(add-to-list 'exec-path "/home/aborn/dpcode/sh")
+(add-to-list 'exec-path "/home/aborn/dpcode/eta/sh")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
@@ -201,6 +203,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emace auto-complete version 1.3.1
+;; download from http://cx4a.org/software/auto-complete/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
 (require 'auto-complete-config)
@@ -215,9 +218,40 @@
 (define-key smartscan-map (kbd "M-o") 'smartscan-symbol-go-forward)
 (define-key smartscan-map (kbd "M-l") 'smartscan-symbol-go-backward)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  add session.el and desptop setting
+;;  download from http://emacs-session.sourceforge.net/
+;;  NOTE:: !!a crach bug exists in dianping labtop
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'session)
+;; (add-hook 'after-init-hook 'session-initialize)
+;; (require 'desktop)
+(desktop-save-mode 1)
+;; (defun my-desktop-save ()
+;;   (interactive)
+;;   ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+;;   (if (eq (desktop-owner) (emacs-pid))
+;; 	  (desktop-save desktop-dirname)))
+;(add-hook 'auto-save-hook 'my-desktop-save)
+
 ;;------------------------------------------------------------------------------
 ;; emacs-eclim setting
 ;;------------------------------------------------------------------------------
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/emacs-eclim"))
 (require 'eclimd) 
 (load-file "/home/aborn/.emacs.d/modules/tkj-java.el")
+
+
+;;------------------------------------------------------------------------------
+;; add chinese wubi input method to emacs
+;; url:daiyuwen.freeshell.org/gb/wubi/wubi.html 
+;;------------------------------------------------------------------------------
+(require 'wubi)
+(wubi-load-local-phrases) ;add user's wubi phrases
+(register-input-method "chinese-wubi" "Chinese-GB" 'quail-use-package
+                       "WuBi" "WuBi"
+                       "wubi") 
+(setq default-input-method "chinese-wubi")
+;; (global-set-key "\C-c\C-j" 'toggle-input-method)  ;; other except .md
+;; (global-set-key "\C-cj" 'toggle-input-method)     ;; .md
+(global-set-key [?\S- ] 'toggle-input-method)     ;; .md and other
