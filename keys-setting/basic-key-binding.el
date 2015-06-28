@@ -32,6 +32,10 @@
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
 
+;; user for mac osx systerm only
+(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'meta)
+
 ;; comment-region and uncomment-region
 (global-set-key (kbd "C-(") 'comment-region)
 (global-set-key (kbd "C-)") 'uncomment-region)

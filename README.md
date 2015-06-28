@@ -2,8 +2,9 @@ Ulitcs
 ==========
 
 ## INTRO
-This project(**Ulitcs**) is a useful configure file for emacs.  
-All configure files can be used emacs version 23 or 23+.
+This project is a useful configure file for emacs.  
+All configure files can be used emacs version 23 or 23+.  
+The latest emacs version 24.5 is recommanded!
 
 ## DOWNLOAD
 You can download all history release version from
@@ -23,6 +24,11 @@ methods.
 2. Or, you can also use git clone it to you home path
 > cd ~  
 > git clone https://github.com/aborn/.emacs.d.git
+
+## PLATFORM
+Different platform user different branch:
+* mac branch use only for mac OSX system, this use CMD key as META.
+* linux branch user only for linux system.
 
 ## GITHUB
 1. generate the ssh key
@@ -102,7 +108,6 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-04-07 v1.4.6 (add key-binding in key-binding.el file)
 * 2014-04-21 v1.5   (add maxframe.el file)
 * 2014-04-22 v1.5.1 (add insert-string.el in iemacsfun)
-* 2014-04-23 v1.5.2 (project name **Ulitcs**, initial release)
 * 2014-04-24 v1.5.3 (add mit/gnu scheme mode)
 * 2014-04-25 v1.5.4 (add buffer-dealing.el in iemacsfun)
 * 2014-04-26 v1.5.5 (add buffer-move.el in custom)
@@ -117,6 +122,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2014-05-27 v1.6.6 (add auctex package in site-lisp)
 * 2014-05-30 v1.6.7 (add latex-dealing.el and shell-dealing.el)
 * 2014-07-26 v1.6.8 (add new branches:mac, linux, dp)
+* 2015-06-28 v2.0   (use emacs24.5 for mac)
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  
