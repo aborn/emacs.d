@@ -27,8 +27,8 @@ methods.
 
 ## PLATFORM
 Different platform user different branch:
-* mac branch use only for mac OSX system, this use CMD key as META.
-* linux branch user only for linux system.
+* **mac** branch use only for mac OSX system, this use CMD key as META.
+* **linux** branch user only for linux system.
 
 ## GITHUB
 1. generate the ssh key
