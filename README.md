@@ -1,4 +1,4 @@
-Ulitcs
+emacs.d
 ==========
 
 ## INTRO
