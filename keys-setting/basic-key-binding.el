@@ -25,7 +25,8 @@
 (global-set-key (kbd "C-;") 'move-forward-by-five)
 (global-set-key (kbd "C-:") 'move-backward-by-five)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
-(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
+;;(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
+(global-set-key (kbd "M-m") 'get-term)
 (global-set-key (kbd "M-c") 'call-last-kbd-macro)
 (global-set-key (kbd "C-j") 'switch-to-buffer)
 (global-set-key (kbd "M-j") 'find-file)
