@@ -14,6 +14,7 @@
 ;; insert-string related
 (global-set-key "\C-cd" 'insert-date)
 (global-set-key "\C-cD" 'insert-current-time)
+(global-set-key "\C-ct" 'insert-current-date-time)
 (global-set-key "\C-cm" 'insert-email-address)
 (global-set-key "\C-cn" 'insert-name-english)
 (global-set-key "\C-cN" 'insert-name-chinese)
