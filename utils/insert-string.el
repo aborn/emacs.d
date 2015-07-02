@@ -55,7 +55,7 @@ Note the weekly scope of the command's precision.")
 Uses `current-date-time-format' for the formatting the date/time."
   (interactive)
   (insert (format-time-string current-date-time-format (current-time)))
-  (insert "\n")
+  (insert "guobao\n")
   )
 
 (defun insert-current-time ()
