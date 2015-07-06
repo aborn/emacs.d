@@ -1,4 +1,7 @@
 #! /usr/bin/env racket
+;; this from http://docs.racket-lang.org/web-server/index.html
+;; see blog: http://docs.racket-lang.org/continue/index.html
+
 #lang racket
 (require web-server/servlet
          web-server/servlet-env)
