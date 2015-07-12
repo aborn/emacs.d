@@ -16,6 +16,22 @@
 (add-to-list 'term-bind-key-alist '("C-e"))
 (add-to-list 'term-bind-key-alist '("C-f"))
 (add-to-list 'term-bind-key-alist '("C-k"))
+
+(defun ab/is-at-end-line ()
+  "判断是否在最后一行"
+  (equal (line-number-at-pos) (count-lines (point-min) (point-max))))
+
+(defun ab/is-term-mode ()
+  "判断是否为 term 模式"
+  (string= major-mode "term-mode"))
+
+(defun ab/debug ()
+  "debug时用"
+  (interactive)
+  (if (ab/is-term-mode)
+      (message "是term mode")
+    (message "不是term mode")))
+
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
   (when l
@@ -53,6 +69,15 @@
         (beginning-of-line)
       (term-send-raw))))
 
+;; 像intellij那样快速选择
+(defun ab/extend-selection ()
+  (interactive)
+  (if (not (ab/is-term-mode))
+      (extend-selection)
+    (progn (if (ab/is-at-end-line)
+               (term-send-raw)
+             (extend-selection)))))
+
 ;; TODO 暂时没用
 (defun ab/move-end-of-line ()
   "move end of line"
@@ -62,21 +87,6 @@
   (when (and (ab/is-at-end-line) (ab/is-term-mode))
     (progn (term-char-mode)
            (message "change to char mode"))))
-
-(defun ab/is-at-end-line ()
-  "判断是否在最后一行"
-  (equal (line-number-at-pos) (count-lines (point-min) (point-max))))
-
-(defun ab/is-term-mode ()
-  "判断是否为 term 模式"
-  (string= major-mode "term-mode"))
-
-(defun ab/debug ()
-  "debug时用"
-  (interactive)
-  (if (ab/is-term-mode)
-      (message "是term mode")
-    (message "不是term mode")))
 
 ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
 (setq system-uses-terminfo nil)
@@ -93,5 +103,7 @@
             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
 			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
+            (add-to-list 'term-bind-key-alist '("C-l" . ab/extend-selection))
 			(setq show-trailing-whitespace nil)))
 
+(get-term)
