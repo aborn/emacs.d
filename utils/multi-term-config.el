@@ -7,7 +7,7 @@
 ;;(add-to-list 'term-bind-key-alist '("C-a"))
 (add-to-list 'term-bind-key-alist '("C-e"))
 (add-to-list 'term-bind-key-alist '("C-f"))
-(add-to-list 'term-bind-key-alist '("C-b"))
+;;(add-to-list 'term-bind-key-alist '("C-b"))
 (add-to-list 'term-bind-key-alist '("C-k"))
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -15,6 +15,7 @@
 	(if (eq 'term-mode (with-current-buffer (car l) major-mode))
 		(car l) (last-term-buffer (cdr l)))))
 
+;; 获得multi-term
 (defun get-term ()
   "Switch to the term buffer last used, or create a new one if
     none exists, or if the current buffer is already a term."
@@ -24,16 +25,18 @@
 		(multi-term)
 	  (switch-to-buffer b))))
 
+;; 只后当是term-mode并且是最后一行时才采用 (term-send-left)
 (defun ab/backward-char ()
   "Custom "
   (interactive)
-  (if (not (string= major-mode "term-mode"))
+  (if (not (ab/is-term-mode))
 	  (backward-char)
-	(progn (backward-char)
-           (when (ab/is-at-end-line)
-             (term-line-mode)
-             (message "change to line mode")))))
+	(progn (if (not (ab/is-at-end-line))
+               (backward-char)
+             (progn (term-send-left)
+                    (message "term-send-left"))))))
 
+;; 当处于最后一行时 "C-a" 将光标移动到 terminal开始处而不是这个行的头
 (defun ab/move-beginning-of-line ()
   "move begin"
   (interactive)
@@ -43,29 +46,25 @@
         (beginning-of-line)
       (term-send-raw))))
 
-    ;; (unless (and (ab/is-at-end-line) (string= major-mode "term-mode"))
-    ;;   (message "good move to begin")
-    ;;   (move-beginning-of-line)))
-
+;; TODO 暂时没用
 (defun ab/move-end-of-line ()
   "move end of line"
   (interactive)
-    (message "here")
+  (message "here")
   (end-of-line)
   (when (and (ab/is-at-end-line) (ab/is-term-mode))
     (progn (term-char-mode)
            (message "change to char mode"))))
 
 (defun ab/is-at-end-line ()
-  ""
-  ;;(message "line number:%d  %d %d" (line-number-at-pos) (point) (point-max))
+  "判断是否在最后一行"
   (equal (line-number-at-pos) (count-lines (point-min) (point-max))))
 
 (defun ab/is-term-mode ()
-  ""
+  "判断是否为 term 模式"
   (string= major-mode "term-mode"))
 
-(defun ab/msg ()
+(defun ab/debug ()
   ""
   (interactive)
   (if (ab/is-term-mode)
@@ -84,7 +83,6 @@
 			(add-to-list 'term-bind-key-alist '("C-d" . delete-char))
             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
-;;			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
-;;            (add-to-list 'term-bind-key-alist '("C-e" . ab/move-end-of-line))
+			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
 			(setq show-trailing-whitespace nil)))
 
