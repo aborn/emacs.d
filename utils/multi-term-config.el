@@ -1,13 +1,20 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; multi-term emacs terminal config
+;; emacs terminal 终端配置，在multi-term.el的基础上进行了优化
+;;   注：multi-term 采用的是 term-mode 这种模式有两种子模式
+;;     一种是 (term-char-mode) 像普通的shell
+;;     另一种是 (term-line-mode) 像普通的buffer
+;; 见： http://www.gnu.org/software/emacs/manual/html_node/emacs/Term-Mode.html
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'multi-term-config)
-
 (require 'multi-term)
+
+;; 一些基本配置
 (setq multi-term-program "/bin/zsh")
 (add-to-list 'term-bind-key-alist '("C-j"))
 (add-to-list 'term-bind-key-alist '("C-o"))
-;;(add-to-list 'term-bind-key-alist '("C-a"))
 (add-to-list 'term-bind-key-alist '("C-e"))
 (add-to-list 'term-bind-key-alist '("C-f"))
-;;(add-to-list 'term-bind-key-alist '("C-b"))
 (add-to-list 'term-bind-key-alist '("C-k"))
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
@@ -65,7 +72,7 @@
   (string= major-mode "term-mode"))
 
 (defun ab/debug ()
-  ""
+  "debug时用"
   (interactive)
   (if (ab/is-term-mode)
       (message "是term mode")
@@ -77,6 +84,8 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (setq term-buffer-maximum-size 0)))
+
+;; 下面设置一些快捷键
 (add-hook 'term-mode-hook
           (lambda ()
             (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
