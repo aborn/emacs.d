@@ -49,7 +49,7 @@
 	  (switch-to-buffer b))))
 
 ;; 只后当是term-mode并且是最后一行时才采用 (term-send-left)
-(defun ab/backward-char ()
+(defun ab/backword-char ()
   "Custom "
   (interactive)
   (if (not (ab/is-term-mode))
@@ -102,7 +102,7 @@
 			(add-to-list 'term-bind-key-alist '("C-d" . delete-char))
             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
-			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
+			(add-to-list 'term-bind-key-alist '("C-b" . ab/backword-char))
             (add-to-list 'term-bind-key-alist '("C-l" . ab/extend-selection))
 			(setq show-trailing-whitespace nil)))
 
