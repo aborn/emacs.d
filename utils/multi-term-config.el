@@ -43,6 +43,7 @@
   "Switch to the term buffer last used, or create a new one if
     none exists, or if the current buffer is already a term."
   (interactive)
+  (select-window (ab/get-window-at-right-botton))
   (let ((b (last-term-buffer (buffer-list))))
 	(if (or (not b) (eq 'term-mode major-mode))
 		(multi-term)
