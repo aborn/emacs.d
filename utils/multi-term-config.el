@@ -43,6 +43,7 @@
   "Switch to the term buffer last used, or create a new one if
     none exists, or if the current buffer is already a term."
   (interactive)
+  (select-window (ab/get-window-at-right-botton))   ;; 先切换到右边的窗口
   (let ((b (last-term-buffer (buffer-list))))
 	(if (or (not b) (eq 'term-mode major-mode))
 		(multi-term)
