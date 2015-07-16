@@ -83,7 +83,9 @@
 (defun ab/delete-char ()
   "delete char"
   (interactive)
-  (term-send-raw))
+  (if (ab/is-at-end-line)
+      (term-send-raw)
+    (delete-char 1)))
 
 ;; 像intellij那样快速选择
 (defun ab/extend-selection ()
@@ -115,7 +117,7 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
-;			(add-to-list 'term-bind-key-alist '("C-d" . delete-char))
+                                        ;			(add-to-list 'term-bind-key-alist '("C-d" . delete-char))
             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
             (add-to-list 'term-bind-key-alist '("C-k" . ab/kill-line))
