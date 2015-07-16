@@ -70,6 +70,21 @@
         (beginning-of-line)
       (term-send-raw))))
 
+(defun ab/kill-line ()
+  "move begin"
+  (interactive)
+  (if (ab/is-at-end-line)
+      (term-send-raw-string "\C-k")
+    (beginning-of-line)
+    ))
+
+(defun ab/delete-char ()
+  "delete char"
+  (interactive)
+  (if (ab/is-at-end-line)
+      (term-send-raw)
+    (delete-char 1)))
+
 ;; 像intellij那样快速选择
 (defun ab/extend-selection ()
   (interactive)
@@ -100,9 +115,10 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
-			(add-to-list 'term-bind-key-alist '("C-d" . delete-char))
-            (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
+             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
+            (add-to-list 'term-bind-key-alist '("C-k" . ab/kill-line))
+            (add-to-list 'term-bind-key-alist '("C-d" . ab/delete-char))
 			(add-to-list 'term-bind-key-alist '("C-b" . ab/backword-char))
             (add-to-list 'term-bind-key-alist '("C-l" . ab/extend-selection))
 			(setq show-trailing-whitespace nil)))
