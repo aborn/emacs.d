@@ -70,13 +70,18 @@
         (beginning-of-line)
       (term-send-raw))))
 
+;; (defun ab/kill-line ()
+;;   "move begin"
+;;   (interactive)
+;;   (if (ab/is-at-end-line)
+;;       (term-send-raw-string "\C-k")
+;;     (beginning-of-line)
+;;     ))
+
 (defun ab/kill-line ()
-  "move begin"
+  "Search history reverse."
   (interactive)
-  (if (ab/is-at-end-line)
-      (term-send-raw-string "\C-k")
-    (beginning-of-line)
-    ))
+  (term-send-raw-string "\C-k"))
 
 (defun ab/delete-char ()
   "delete char"
@@ -86,13 +91,18 @@
     (delete-char 1)))
 
 ;; 像intellij那样快速选择
+;; (defun ab/extend-selection ()
+;;   (interactive)
+;;   (if (not (ab/is-term-mode))
+;;       (extend-selection)
+;;     (progn (if (ab/is-at-end-line)
+;;                (term-send-raw)
+;;              (extend-selection)))))
+
+
 (defun ab/extend-selection ()
   (interactive)
-  (if (not (ab/is-term-mode))
-      (extend-selection)
-    (progn (if (ab/is-at-end-line)
-               (term-send-raw)
-             (extend-selection)))))
+  (term-send-raw-string "\C-l"))
 
 ;; TODO 暂时没用
 (defun ab/move-end-of-line ()
@@ -117,10 +127,10 @@
             (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
              (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
-            (add-to-list 'term-bind-key-alist '("C-k" . ab/kill-line))
+            (add-to-list 'term-bind-key-alist '("M-k" . ab/kill-line))
             (add-to-list 'term-bind-key-alist '("C-d" . ab/delete-char))
 			(add-to-list 'term-bind-key-alist '("C-b" . ab/backword-char))
-            (add-to-list 'term-bind-key-alist '("C-l" . ab/extend-selection))
+            (add-to-list 'term-bind-key-alist '("M-l" . ab/extend-selection)) ;; error
 			(setq show-trailing-whitespace nil)))
 
 (get-term)
