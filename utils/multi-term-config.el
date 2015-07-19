@@ -70,14 +70,7 @@
         (beginning-of-line)
       (term-send-raw))))
 
-;; (defun ab/kill-line ()
-;;   "move begin"
-;;   (interactive)
-;;   (if (ab/is-at-end-line)
-;;       (term-send-raw-string "\C-k")
-;;     (beginning-of-line)
-;;     ))
-
+;; 这样只能将 M-k 绑定到C-k的快捷键？？
 (defun ab/kill-line ()
   "Search history reverse."
   (interactive)
