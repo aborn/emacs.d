@@ -14,7 +14,8 @@
 (add-to-list 'term-bind-key-alist '("C-j"))
 (add-to-list 'term-bind-key-alist '("C-o"))
 (add-to-list 'term-bind-key-alist '("C-e"))
-(add-to-list 'term-bind-key-alist '("C-f"))
+;;(add-to-list 'term-bind-key-alist '("M-f"))
+;;(add-to-list 'term-bind-key-alist '("M-b"))
 (add-to-list 'term-bind-key-alist '("C-k"))
 
 (defun ab/is-at-end-line ()
