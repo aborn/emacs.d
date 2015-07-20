@@ -50,7 +50,7 @@
 	  (switch-to-buffer b))))
 
 ;; 只后当是term-mode并且是最后一行时才采用 (term-send-left)
-(defun ab/backword-char ()
+(defun ab/backward-char ()
   "Custom "
   (interactive)
   (if (not (ab/is-term-mode))
@@ -59,6 +59,18 @@
                (backward-char)
              (progn (term-send-left)
                     (message "term-send-left"))))))
+
+;; 只后当是term-mode并且是最后一行时才采用 (term-send-left)
+(defun ab/forward-char ()
+  "Custom "
+  (interactive)
+  (if (not (ab/is-term-mode))
+	  (forward-char)
+	(progn (if (not (ab/is-at-end-line))
+               (forward-char)
+             (progn (term-send-right)
+                    (message "term-send-right"))))))
+
 
 ;; 当处于最后一行时 "C-a" 将光标移动到 terminal开始处而不是这个行的头
 (defun ab/move-beginning-of-line ()
@@ -122,7 +134,8 @@
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
             (add-to-list 'term-bind-key-alist '("M-k" . ab/kill-line))
             (add-to-list 'term-bind-key-alist '("C-d" . ab/delete-char))
-			(add-to-list 'term-bind-key-alist '("C-b" . ab/backword-char))
+			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
+            (add-to-list 'term-bind-key-alist '("C-f" . ab/forward-char))
             (add-to-list 'term-bind-key-alist '("M-l" . ab/extend-selection)) ;; error
 			(setq show-trailing-whitespace nil)))
 
