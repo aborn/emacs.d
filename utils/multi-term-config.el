@@ -72,7 +72,6 @@
              (progn (term-send-right)
                     (message "term-send-right"))))))
 
-
 ;; 当处于最后一行时 "C-a" 将光标移动到 terminal开始处而不是这个行的头
 (defun ab/move-beginning-of-line ()
   "move begin"
@@ -110,28 +109,16 @@
   (interactive)
   (term-send-raw-string "\C-l"))
 
-;; TODO 暂时没用
-(defun ab/move-end-of-line ()
-  "move end of line"
-  (interactive)
-  (message "here")
-  (end-of-line)
-  (when (and (ab/is-at-end-line) (ab/is-term-mode))
-    (progn (term-char-mode)
-           (message "change to char mode"))))
-
 ;; Use Emacs terminfo, not system terminfo, mac系统出现了4m
 (setq system-uses-terminfo nil)
-;; 下面设置multi-term buffer的长度无限
-(add-hook 'term-mode-hook
-          (lambda ()
-            (setq term-buffer-maximum-size 0)))
 
 ;; 下面设置一些快捷键
 (add-hook 'term-mode-hook
           (lambda ()
+            ;; 下面设置multi-term buffer的长度无限
+            (setq term-buffer-maximum-size 0)
             (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
-             (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
+            (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next))
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
             (add-to-list 'term-bind-key-alist '("M-k" . ab/kill-line))
             (add-to-list 'term-bind-key-alist '("C-d" . ab/delete-char))
@@ -140,4 +127,5 @@
             (add-to-list 'term-bind-key-alist '("M-l" . ab/extend-selection)) ;; error
 			(setq show-trailing-whitespace nil)))
 
+;; 初始化启动的时候打开一个terminal
 (get-term)

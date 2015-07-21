@@ -14,7 +14,13 @@
 (global-set-key "\C-x\C-j" 'erase-buffer)
 ;; (global-set-key "\C-xk" 'kill-buffer)            ; emacs built-in key
 (global-set-key "\C-x\C-r" 'revert-buffer)
-(global-set-key "\C-x\C-m" 'indent-region)
+;; (global-set-key "\C-x\C-m" 'indent-region)
+;; 格式化当前buffer所有内容
+(defun ab/indent-regin ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+(global-set-key "\C-x\C-m" 'ab/indent-regin)
+
 (global-set-key (kbd "M-n") 'set-mark-command)
 (global-set-key "\C-x\C-l" 'copy-one-line)
 (global-set-key "\C-i" 'just-one-space)
