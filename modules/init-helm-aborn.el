@@ -1,3 +1,4 @@
+
 ;; --------------------------------------------------------------------
 ;; init-helm-thierry.el --- My startup file for helm. -*- lexical-binding: t -*- 
 ;; fork 于https://github.com/thierryvolpiatto/emacs-tv-config/blob/master/init-helm-thierry.el
@@ -78,7 +79,7 @@
 (global-set-key (kbd "C-c <SPC>")                    'helm-all-mark-rings)
 (global-set-key (kbd "C-x r b")                      'helm-filtered-bookmarks)
 (global-set-key (kbd "C-h r")                        'helm-info-emacs)
-(global-set-key (kbd "C-:")                          'helm-eval-expression-with-eldoc)
+;;(global-set-key (kbd "C-:")                          'helm-eval-expression-with-eldoc)
 (global-set-key (kbd "C-,")                          'helm-calcul-expression)
 (global-set-key (kbd "C-h i")                        'helm-info-at-point)
 (global-set-key (kbd "C-x C-d")                      'helm-browse-project)
