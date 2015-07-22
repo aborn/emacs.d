@@ -30,9 +30,9 @@
 (defun ab/debug ()
   "debug时用"
   (interactive)
-  (if (ab/is-term-mode)
-      (message "是term mode")
-    (message "不是term mode")))
+  (if (string= system-type "darwin")
+      (message "操作系统为%s." system-type)
+    (message "操作系统为%s." system-type)))
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
