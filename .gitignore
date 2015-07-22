@@ -23,3 +23,6 @@ server/
 *#
 *.elc
 semanticdb/
+site-lisp/helm
+helm-adaptive-history
+recentf

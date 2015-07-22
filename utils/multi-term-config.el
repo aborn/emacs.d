@@ -10,7 +10,8 @@
 (require 'multi-term)
 
 ;; 一些基本配置
-(setq multi-term-program "/bin/zsh")
+(setq multi-term-program "/bin/zsh")   ;; 设置shell
+(setq multi-term-buffer-name "mterm")  ;; 设置buffer名字ls
 (add-to-list 'term-bind-key-alist '("C-j"))
 (add-to-list 'term-bind-key-alist '("C-o"))
 (add-to-list 'term-bind-key-alist '("C-e"))
