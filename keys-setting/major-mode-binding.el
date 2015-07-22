@@ -26,7 +26,8 @@
 
 
 ;; define lisp-interaction-mode-map
-(define-key lisp-interaction-mode-map (kbd "C-j") 'switch-to-buffer)
+;; (define-key lisp-interaction-mode-map (kbd "C-j") 'switch-to-buffer)
+(define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)
 (define-key lisp-interaction-mode-map (kbd "C-x j") 'eval-print-last-sexp)
 
 ;; define emacs-lisp-mode-map
