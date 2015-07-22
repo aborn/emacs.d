@@ -123,13 +123,13 @@ First call indent, second complete symbol, third complete fname."
       ;; lisp complete. (Rebind M-<tab>)
       (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
       (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
-    
-    (define-key lisp-interaction-mode-map [remap indent-for-tab-command] 'helm-multi-lisp-complete-at-point)
-    (define-key emacs-lisp-mode-map [remap indent-for-tab-command] 'helm-multi-lisp-complete-at-point)
-    
-    ;; lisp complete. (Rebind M-<tab>)
-    (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
-    (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
+  
+  (define-key lisp-interaction-mode-map [remap indent-for-tab-command] 'helm-multi-lisp-complete-at-point)
+  (define-key emacs-lisp-mode-map [remap indent-for-tab-command] 'helm-multi-lisp-complete-at-point)
+  
+  ;; lisp complete. (Rebind M-<tab>)
+  (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
+  (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
 
 (unless (boundp 'completion-in-region-function)
   (add-hook 'ielm-mode-hook
@@ -158,19 +158,19 @@ First call indent, second complete symbol, third complete fname."
 ;;
 ;;
 (setq helm-google-suggest-use-curl-p             t
-      ;helm-kill-ring-threshold                   1
+                                        ;helm-kill-ring-threshold                   1
       helm-raise-command                         "wmctrl -xa %s"
       helm-scroll-amount                         4
-      ;helm-quick-update                          t
+                                        ;helm-quick-update                          t
       helm-idle-delay                            0.01
       helm-input-idle-delay                      0.01
-      ;helm-completion-window-scroll-margin       0
-      ;helm-display-source-at-screen-top          nil
+                                        ;helm-completion-window-scroll-margin       0
+                                        ;helm-display-source-at-screen-top          nil
       helm-ff-search-library-in-sexp             t
-      ;helm-kill-ring-max-lines-number            5
+                                        ;helm-kill-ring-max-lines-number            5
       helm-default-external-file-browser         "thunar"
       helm-pdfgrep-default-read-command          "evince --page-label=%p '%f'"
-      ;helm-ff-transformer-show-only-basename     t
+                                        ;helm-ff-transformer-show-only-basename     t
       helm-ff-auto-update-initial-value          t
       helm-grep-default-command                  "ack-grep -Hn --smart-case --no-group %e %p %f"
       helm-grep-default-recurse-command          "ack-grep -H --smart-case --no-group %e %p %f"
@@ -178,33 +178,33 @@ First call indent, second complete symbol, third complete fname."
       ;; Added in my .gitconfig with "git config --global core.excludesfile ~/.gitignore_global"
       helm-ls-git-grep-command                   "git grep -n%cH --color=always --exclude-standard --no-index --full-name -e %p %f"
       helm-default-zgrep-command                 "zgrep --color=always -a -n%cH -e %p %f"
-      ;helm-pdfgrep-default-command               "pdfgrep --color always -niH %s %s"
+                                        ;helm-pdfgrep-default-command               "pdfgrep --color always -niH %s %s"
       helm-reuse-last-window-split-state         t
-      ;helm-split-window-default-side             'below
-      ;helm-split-window-in-side-p                t
-      ;helm-echo-input-in-header-line             t
+                                        ;helm-split-window-default-side             'below
+                                        ;helm-split-window-in-side-p                t
+                                        ;helm-echo-input-in-header-line             t
       helm-always-two-windows                    t
-      ;helm-persistent-action-use-special-display t
+                                        ;helm-persistent-action-use-special-display t
       helm-buffers-favorite-modes                (append helm-buffers-favorite-modes
                                                          '(picture-mode artist-mode))
       helm-ls-git-status-command                 'magit-status
-      ;helm-never-delay-on-input                  nil
-      ;helm-candidate-number-limit                200
+                                        ;helm-never-delay-on-input                  nil
+                                        ;helm-candidate-number-limit                200
       helm-M-x-requires-pattern                  0
       helm-dabbrev-cycle-threshold                5
       helm-surfraw-duckduckgo-url                "https://duckduckgo.com/?q=%s&ke=-1&kf=fw&kl=fr-fr&kr=b&k1=-1&k4=-1"
-      ;helm-surfraw-default-browser-function      'w3m-browse-url
+                                        ;helm-surfraw-default-browser-function      'w3m-browse-url
       helm-boring-file-regexp-list               '("\\.git$" "\\.hg$" "\\.svn$" "\\.CVS$" "\\._darcs$" "\\.la$" "\\.o$" "\\.i$")
-      ;helm-mode-handle-completion-in-region      t
-      ;helm-moccur-always-search-in-current        t
-      ;helm-tramp-verbose                         6
+                                        ;helm-mode-handle-completion-in-region      t
+                                        ;helm-moccur-always-search-in-current        t
+                                        ;helm-tramp-verbose                         6
       helm-buffer-skip-remote-checking            t
-      ;helm-ff-file-name-history-use-recentf      t
-      ;helm-follow-mode-persistent                t
+                                        ;helm-ff-file-name-history-use-recentf      t
+                                        ;helm-follow-mode-persistent                t
       helm-apropos-fuzzy-match                    t
       helm-M-x-fuzzy-match                        t
       helm-lisp-fuzzy-completion                  t
-      ;helm-locate-fuzzy-match                     t
+                                        ;helm-locate-fuzzy-match                     t
       helm-completion-in-region-fuzzy-match       t
       helm-move-to-line-cycle-in-source           t
       ido-use-virtual-buffers                     t             ; Needed in helm-buffers-list
@@ -248,10 +248,10 @@ First call indent, second complete symbol, third complete fname."
               "grep --color=always -d skip %e -n%cH -e %p %f"
               helm-grep-default-recurse-command
               "grep --color=always -d recurse %e -n%cH -e %p %f")
-        (setq helm-grep-default-command
-              "ack-grep -Hn --smart-case --no-group %e %p %f"
-              helm-grep-default-recurse-command
-              "ack-grep -H --smart-case --no-group %e %p %f"))
+      (setq helm-grep-default-command
+            "ack-grep -Hn --smart-case --no-group %e %p %f"
+            helm-grep-default-recurse-command
+            "ack-grep -H --smart-case --no-group %e %p %f"))
     (message "Switched to %s" (helm-grep-command))))
 
 ;;; Debugging
