@@ -30,8 +30,8 @@
 (defun ab/debug ()
   "debug时用"
   (interactive)
-  (if (equal (display-pixel-width) 1092)
-      (message "操作系统为%s. 1092 %d" system-type (display-pixel-width))
+  (if (equal (display-pixel-width) 1920)
+      (message "屏幕宽度为%s" (display-pixel-width))
     (message "操作系统为%s. %d" system-type (display-pixel-width))))
 
 (defun last-term-buffer (l)
