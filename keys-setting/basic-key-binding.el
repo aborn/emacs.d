@@ -21,7 +21,7 @@
   (indent-region (point-min) (point-max)))
 (global-set-key "\C-x\C-m" 'ab/indent-regin)
 
-(global-set-key (kbd "M-n") 'set-mark-command)
+;; (global-set-key (kbd "M-n") 'set-mark-command)
 (global-set-key "\C-x\C-l" 'copy-one-line)
 (global-set-key "\C-i" 'just-one-space)
 (global-set-key "\C-o" 'other-window)
