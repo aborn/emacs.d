@@ -7,6 +7,7 @@
 ;; --------------------------------------------------------------------
 ;;(tv-require 'helm-config)
 (require 'helm-config)
+(require 'helm-ls-git)
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 ;;; Enable Modes (This is loading nearly everything).
 ;;
