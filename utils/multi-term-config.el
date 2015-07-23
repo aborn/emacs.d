@@ -30,9 +30,9 @@
 (defun ab/debug ()
   "debug时用"
   (interactive)
-  (if (string= system-type "darwin")
-      (message "操作系统为%s." system-type)
-    (message "操作系统为%s." system-type)))
+  (if (equal (display-pixel-width) 1092)
+      (message "操作系统为%s. 1092 %d" system-type (display-pixel-width))
+    (message "操作系统为%s. %d" system-type (display-pixel-width))))
 
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
