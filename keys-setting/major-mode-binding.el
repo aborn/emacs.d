@@ -61,10 +61,10 @@
 ;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+            (local-set-key (kbd "C-j") 'helm-buffers-list)))
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-j") 'switch-to-buffer)))
+            (local-set-key (kbd "C-j") 'helm-buffers-list)))
 
 ;; define the latex-mode and bibtex-mode
 ;; define latex-mode-map local binding
