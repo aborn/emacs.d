@@ -31,19 +31,26 @@
 (global-set-key (kbd "C-;") 'move-forward-by-five)
 (global-set-key (kbd "C-:") 'move-backward-by-five)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
+
 ;;(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
 (global-set-key (kbd "M-m") 'get-term)
+
 (global-set-key (kbd "M-c") 'call-last-kbd-macro)
+
 ;; (global-set-key (kbd "C-j") 'switch-to-buffer)
 (global-set-key (kbd "C-j") 'helm-buffers-list)
+
 ;; (global-set-key (kbd "M-j") 'find-file)
 (global-set-key (kbd "M-j") 'helm-find-files)
+
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)
 
 ;; user for mac osx systerm only
-(setq mac-option-modifier 'super)
-(setq mac-command-modifier 'meta)
+;; mac系统用command代替alter作为键
+(when (string= system-type "darwin")
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta))
 
 ;; comment-region and uncomment-region
 (global-set-key (kbd "C-(") 'comment-region)
