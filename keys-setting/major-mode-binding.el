@@ -33,6 +33,7 @@
 ;; define emacs-lisp-mode-map
 (define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
 (define-key emacs-lisp-mode-map (kbd "C-x SPC")  'ace-jump-mode)
+;;(add-hook emacs-lisp-mode-hook 'yas-minor-mode)
 
 ;; define scheme-mode-map 
 (define-key scheme-mode-map (kbd "C-x j") 'xscheme-send-buffer)
@@ -99,3 +100,6 @@
 (add-hook 'sh-mode-hook
           (lambda ()
             (local-set-key (kbd "C-x j") 'ab/run-current-file)))
+
+;; add racket mode
+;;(add-hook 'racket-mode-hook 'yas-minor-mode)
