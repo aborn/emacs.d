@@ -19,12 +19,6 @@
 ;; (define-key flyspell-mode-map (kbd "C-,") 'switch-to-prev-buffer)
 ;; (define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
 
-;; define markdown-mode-map
-(define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
-(define-key markdown-mode-map (kbd "\C-x SPC") 'ace-jump-mode)
-(define-key markdown-mode-map (kbd "<M-return>") 'ab/quick-file-jump)
-
-
 ;; define lisp-interaction-mode-map
 ;; (define-key lisp-interaction-mode-map (kbd "C-j") 'switch-to-buffer)
 (define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)

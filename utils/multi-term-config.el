@@ -18,6 +18,7 @@
 ;;(add-to-list 'term-bind-key-alist '("M-f"))
 ;;(add-to-list 'term-bind-key-alist '("M-b"))
 (add-to-list 'term-bind-key-alist '("C-k"))
+(add-to-list 'term-bind-key-alist '("M-n"))
 
 (defun ab/is-at-end-line ()
   "判断是否在最后一行"
