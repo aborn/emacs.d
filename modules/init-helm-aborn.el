@@ -303,6 +303,7 @@ First call indent, second complete symbol, third complete fname."
                                       "http://translate.reference.com/translate?query=%s&src=fr&dst=en")))
 ;; --------------------------------------------------------------------
 ;; 下面配置helm-swoop.el,快速搜索
+;; https://github.com/ShingoFukuyama/helm-swoop
 ;; --------------------------------------------------------------------
 ;; helm from https://github.com/emacs-helm/helm
 (require 'helm)
