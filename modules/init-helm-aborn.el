@@ -378,6 +378,10 @@ First call indent, second complete symbol, third complete fname."
               helm-swoop-pattern ;; this variable keeps the last used words
             $pre-input))))
 
+;; -----------------------------------------------------------------------------
+;; helm-dash这个文档插件，可以有时间看看，很有用
+;; https://github.com/areina/helm-dash
+;; -----------------------------------------------------------------------------
 (provide 'init-helm-aborn)
 
 ;;; init-helm-thierry.el ends here
