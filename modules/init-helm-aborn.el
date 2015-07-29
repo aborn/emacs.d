@@ -303,6 +303,7 @@ First call indent, second complete symbol, third complete fname."
                                       "http://translate.reference.com/translate?query=%s&src=fr&dst=en")))
 ;; --------------------------------------------------------------------
 ;; 下面配置helm-swoop.el,快速搜索
+;; https://github.com/ShingoFukuyama/helm-swoop
 ;; --------------------------------------------------------------------
 ;; helm from https://github.com/emacs-helm/helm
 (require 'helm)
@@ -377,6 +378,10 @@ First call indent, second complete symbol, third complete fname."
               helm-swoop-pattern ;; this variable keeps the last used words
             $pre-input))))
 
+;; -----------------------------------------------------------------------------
+;; helm-dash这个文档插件，可以有时间看看，很有用
+;; https://github.com/areina/helm-dash
+;; -----------------------------------------------------------------------------
 (provide 'init-helm-aborn)
 
 ;;; init-helm-thierry.el ends here
