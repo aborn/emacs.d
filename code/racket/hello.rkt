@@ -7,6 +7,9 @@
 
 (extract "the cat out of the bag")
 
-(file-exists? "~/dpcode/eta/indextabicon/category.txt")
+(if (file-exists? "~/dpcode/eta/indextabicon/category.txt")
+    "category.txt exist!"
+    "category.txt not find")
+
 (directory-exists? "/Users/aborn/dpcode")
 
