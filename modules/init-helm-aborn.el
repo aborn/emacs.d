@@ -3,7 +3,9 @@
 ;; init-helm-thierry.el --- My startup file for helm. -*- lexical-binding: t -*- 
 ;; fork 于https://github.com/thierryvolpiatto/emacs-tv-config/blob/master/init-helm-thierry.el
 ;; helm https://github.com/emacs-helm/helm
-;; 
+;; install first:
+;; git clone https://github.com/emacs-helm/helm.git ~/.emacs.d/site-lisp
+;; git clone https://github.com/jwiegley/emacs-async.git ~/.emacs.d/site-lisp
 ;; --------------------------------------------------------------------
 ;;(tv-require 'helm-config)
 (require 'helm-config)
