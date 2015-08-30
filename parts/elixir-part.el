@@ -1,6 +1,9 @@
 ;; -----------------------------------------------------------------------------
 ;; install elixir-mode
 ;; from https://github.com/tonini/alchemist.el
+;; 最常用的快捷键
+;;   M-.  函数定义处
+;;   M-,  back
 ;; -----------------------------------------------------------------------------
 (unless (package-installed-p 'elixir-mode)
   (package-install 'elixir-mode))
@@ -31,5 +34,7 @@
 (setq alchemist-goto-elixir-source-dir "/Users/aborn/github/elixir")
 (setq alchemist-goto-erlang-source-dir "/Users/aborn/github/otp")
 
-
+;;(defun custom-elixir-mode-hook ()
+;;  (define-key alchemist-mode-keymap (kbd "M-i") 'alchemist-goto-definition-at-point))
+;;(add-hook 'elixir-mode-hook 'custom-elixir-mode-hook)
 (provide 'elixir-part)
