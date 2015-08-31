@@ -19,6 +19,7 @@
 (add-to-list 'load-path "~/.emacs.d/utils/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/auctex-11.87")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")
+(add-to-list 'load-path "~/.emacs.d/parts/")
 
 ;; --------------------------------------------------------------------
 ;; setting exec-path, which like terminal's PATH variable
@@ -689,9 +690,10 @@
 ;; roman 写的这个golden-ration会引起crash
 ;; 使用thierryvolpiatto写的这个golden
 ;; https://github.com/thierryvolpiatto/golden-ratio.el
+;; 无论怎样都有bug,还是暂时关了吧
 ;; -----------------------------------------------------------------------------
-(require 'golden-ratio)
-(golden-ratio-mode 1)
+;; (require 'golden-ratio)
+;; (golden-ratio-mode 1)
 
 ;; -----------------------------------------------------------------------------
 ;; request.el http request模式
@@ -724,10 +726,9 @@
    (lisp-interaction-mode))
 
 ;; -----------------------------------------------------------------------------
-;; install elixir-mode
+;; some config-part
 ;; -----------------------------------------------------------------------------
-(unless (package-installed-p 'elixir-mode)
-  (package-install 'elixir-mode))
+(require 'elixir-part)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-08-06
