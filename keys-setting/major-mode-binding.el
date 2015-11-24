@@ -97,3 +97,9 @@
 
 ;; add racket mode
 ;;(add-hook 'racket-mode-hook 'yas-minor-mode)
+
+;; for javasscript mode
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-j") 'helm-buffers-list)
+            (local-set-key (kbd "M-j") 'helm-find-files)))

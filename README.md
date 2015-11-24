@@ -87,8 +87,6 @@ correcting spelling. ispell-*  M-$
 Aborn Jiang (aborn.jiang@gmail.com)
 
 ## VERSION HISTORY
-* 2013-10-06 v0.1
-* 2013-10-26 v0.2
 * 2013-11-04 v1.0   (add ./configure for install)
 * 2013-11-23 v1.1   (add markdown major)
 * 2014-01-06 v1.2   (add matlab mode)
