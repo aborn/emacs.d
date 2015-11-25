@@ -13,7 +13,6 @@
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
 
-
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -116,8 +115,8 @@
 
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file 
-(unless (get-buffer "*shell*")
-  (shell))                          ; open shell when boot up
+;;(unless (get-buffer "*shell*")
+;;  (shell))                          ; open shell when boot up
 
 ;; coffee-mode for coffeescript programming
 ;; automatically clean up bad whitespace
@@ -372,7 +371,7 @@
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)
 (require 'desktop)
-(desktop-save-mode 1)
+(desktop-save-mode 0)     ;; 暂时关闭自动保存功能，太消耗启动时间 1 为打开
 (defun my-desktop-save ()
   (interactive)
   ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
@@ -660,13 +659,13 @@
 ;; -----------------------------------------------------------------------------
 ;; start some modules when bootup.
 ;; -----------------------------------------------------------------------------
-(eshell)                         ; open eshell at boot
-(ielm)
-(ab/shell "2shell")              ; open another shell
+;; (eshell)                         ;; open eshell at boot
+;;(ielm)
+;; (ab/shell "2shell")              ;; open another shell
 
-;; --------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; js2-mode for javascript
-;; --------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
 ;;(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
