@@ -13,6 +13,7 @@ Features in emacs may used in the future.
 * Org-mode learning.
 * Remote file editing and modify.
 * ERC IRC
+* [auto compile](http://www.emacswiki.org/emacs/AutoRecompile)
 
 ### Others Record
 * llvm+clang
@@ -23,4 +24,4 @@ Features in emacs may used in the future.
 * change to the latest visited shell
 
 ### UPDATE TIME
-2014-03-20
+2015-11-25
