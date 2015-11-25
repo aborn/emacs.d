@@ -14,6 +14,7 @@ Features in emacs may used in the future.
 * Remote file editing and modify.
 * ERC IRC
 * [auto compile](http://www.emacswiki.org/emacs/AutoRecompile)
+* [indent guide](https://github.com/antonj/Highlight-Indentation-for-Emacs/)
 
 ### Others Record
 * llvm+clang
