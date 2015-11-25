@@ -1,10 +1,10 @@
-;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; emacs basic setting only for version 23 and later version         
-;; put this file (init.el) in ~/.emacs.d/                            
-;; NOTE: ~/.emacs.d/init.el equals to ~/.emacs                       
-;; You are advised to use emacs 24.3+                                
-;; More detail information refers to README.md                       
-;;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; emacs initial config for version 23 and later version
+;; put this file (init.el) in ~/.emacs.d/
+;; You are advised to use emacs 24.5+
+;; emacs的配置，建议使用最新版本的emacs (version 24.5)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -16,16 +16,19 @@
 (add-to-list 'load-path "~/.emacs.d/modules/")
 (add-to-list 'load-path "~/.emacs.d/utils/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/auctex-11.87")
-;; (require 'load-directory)
-;; (load-directory "~/.emacs.d/utils/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")
+(add-to-list 'load-path "~/.emacs.d/parts/")
 
 ;; --------------------------------------------------------------------
 ;; setting exec-path, which like terminal's PATH variable
+;; emacs的可执行文件路径，相当于PATH
 ;; --------------------------------------------------------------------
 (add-to-list 'exec-path "/usr/local/racket/bin")
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
+;; 自己写的一些modue或config
 ;; --------------------------------------------------------------------
 (require 'shell-dealing)
 (require 'copy-line)
@@ -38,75 +41,82 @@
 (require 'ab-help)
 (require 'latex-dealing)
 (require 'run-scripts)
+(require 'basic-key-binding)           ;; 基本的快捷键设置
+(require 'os-utils)
+(require 'extend-selection)
+(require 'init-helm-aborn)
+(require 'multi-term-config)
+(require 'csv-mode)
+(require 'rich-minority)
 
 ;; --------------------------------------------------------------------
-;; set indent
+;; emacs package manager
+;; Emacs is not a package manager, and here we load its package manager!
+;; 设置包管理源
+;; --------------------------------------------------------------------
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/")
+             t)
+(package-initialize)
+
+;; --------------------------------------------------------------------
+;; set code indent
+;; 设置代码格式化
 ;; --------------------------------------------------------------------
 (setq-default indent-tabs-mode nil)
 (setq indent-tabs-mode nil)
-(setq default-tab-width 4)
+;; (setq default-tab-width 4)   ;; 这个变量已经被废弃了!
 (setq tab-width 4)
 ;;(setq max-lisp-eval-depth 3000)      ;; default 500
 ;;(setq max-specpdl-size 3000)         ;; default 1000
 
 ;; --------------------------------------------------------------------;
 ;; add follwing code to keep *shell* in middle using
-;;    C-l C-l
+;;    C-l C-l  使得*shell* buffer处于中间
 ;; --------------------------------------------------------------------;
 (remove-hook 'comint-output-filter-functions 
 			 'comint-postoutput-scroll-to-bottom)
 
-;; --------------------------------------------------------------------;
-;; custom-set-variables, which are produced by system.
-;; --------------------------------------------------------------------;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ecb-compilation-buffer-names (quote (("*Calculator*") ("*vc*") ("*vc-diff*") ("*Apropos*") ("*Occur*") ("*shell*") ("\\*[cC]ompilation.*\\*" . t) ("\\*i?grep.*\\*" . t) ("*JDEE Compile Server*") ("*Help*") ("*Completions*" . t) ("*Backtrace*") ("*Compile-log*") ("*bsh*") ("*Messages*"))))
- '(ecb-layout-name "left8")
- '(ecb-layout-window-sizes (quote (("left8" (0.8 . 1.0)))))
- ;; '(ecb-layout-window-sizes nil)
- '(ecb-options-version "2.40")
- '(ecb-prescan-directories-for-emptyness t)
- '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
- '(ecb-sources-menu-user-extension-function (quote ignore))
- '(ecb-tip-of-the-day nil)
- '(ecb-windows-width 0.175)
- '(ecb-non-semantic-exclude-modes (quote (scheme-mode fundamental-mode text-mode)))
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(session-use-package t nil (session))
- '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64))))
-(put 'erase-buffer 'disabled nil)
-
 ;; --------------------------------------------------------------------
 ;; basic setting for emacs and mode turn on or off when boot up
+;; emacs的一些最基本的设置
 ;; --------------------------------------------------------------------
-;; max frame when launch emacs GUI
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message t)    ; 打下*Message* buffer
 (require 'hl-line)                  ; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
 (setq x-select-enable-clipboard t)  ; copy and paste with other program
-
 (show-paren-mode t)                 ; paren match show
 (column-number-mode t)              ; show column number
-(global-auto-revert-mode t) 
+(global-auto-revert-mode t)         ; 恢复与还原
 (global-linum-mode t)               ; show line number
 (setq linum-format "%4d \u2502")    ; for GUI and command line emacs 24
-;; (setq linum-format "%4d |")      ; for command line emacs 23
 (setq frame-title-format '("%b (%f) &aborn love cld&  [%s] emacs" emacs-version))   
-(require 'uniquify)
+(require 'uniquify)                 ; 文件名相同时buffer采用路径逆序
 (setq uniquify-buffer-name-style 'reverse)
+(setq visible-bell 1)
+(setq ring-bell-function 'ignore)
+(fset 'yes-or-no-p 'y-or-n-p)       ; 用y/n代替yes/no
+(rich-minority-mode 1)
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'flyspell-mode)
-(flyspell-prog-mode)                ; flyspell mode for comments & strings only
+;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'text-mode-hook 'flyspell-mode)
+;; (flyspell-prog-mode)                ; flyspell mode for comments & strings only
 
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file 
 (unless (get-buffer "*shell*")
-  (shell))                          ; open shell when boot up 
+  (shell))                          ; open shell when boot up
+
+;; coffee-mode for coffeescript programming
+;; automatically clean up bad whitespace
+(setq whitespace-action '(auto-cleanup))
+;; only show bad whitespace
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+;; This gives you a tab of 2 spaces
+(custom-set-variables '(coffee-tab-width 2))
 
 ;; --------------------------------------------------------------------
 ;;  mode line setting
@@ -115,6 +125,52 @@
 (setq display-time-24hr-format t)
 (setq display-time-use-mail-icon t)
 (setq display-time-day-and-date t)
+
+;; --------------------------------------------------------------------
+;; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
+;; then unzip this file into ~/.emacs.d/site-lisp/
+;; 设置颜色模式 modules/dream-theme.el
+;; 这里使用dream-theme颜色 https://github.com/djcb/dream-theme
+;; --------------------------------------------------------------------
+(require 'color-theme)
+(color-theme-initialize)
+(setq color-theme-is-global t)			
+
+(if (file-exists-p "~/.emacs.d/local/local-setting.el")
+	(message "use local-setting.el configure")       ;; using the local setting
+  (color-theme-robin-hood))
+(color-theme-tty-dark)
+(require 'dream-theme)
+;; (setq highlight-tail-colors '(("black" . 0)
+;;							  ("#bc2525" . 25)
+;;							  ("black" . 66)))
+;;(color-theme-dark-green)          ;; other options
+;;(color-theme-billw)               ;; other options
+;;(Color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
+;;(color-theme-tty-dark)            ;; this for command line mode
+
+
+;; --------------------------------------------------------------------
+;; 下面这些pkg是通过melpa的包管理进行安装
+;; --------------------------------------------------------------------
+(require 'expand-region)   ;; 跟 extend-selection 类似
+(global-set-key (kbd "C-l") 'er/expand-region)
+;;(require 'yasnippet)
+;;(yas-reload-all)
+;;(yas-global-mode 1)      ;; 不要在所有mode里打开
+
+;; ********************************************
+;; install smart-mode-line
+;; https://github.com/Malabarba/smart-mode-line
+;; install smart-mode-line-powerline-theme
+;; https://github.com/milkypostman/powerline
+;; ********************************************
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+(require 'powerline)
+(powerline-default-theme)
+
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; --------------------------------------------------------------------
 ;; setting org-mode
@@ -140,30 +196,9 @@
         (t (self-insert-command (or arg 1)))))
 
 ;; --------------------------------------------------------------------
-;; from http://nongnu.askapache.com//color-theme/color-theme-6.6.0.zip
-;; then unzip this file into ~/.emacs.d/site-lisp/
-;; --------------------------------------------------------------------
-(require 'color-theme)
-(color-theme-initialize)
-(setq color-theme-is-global t)			
-
-(if (file-exists-p "~/.emacs.d/local/local-setting.el")
-	(message "use local-setting.el configure")       ;; using the local setting
-  (color-theme-robin-hood)
-  (eval-after-load "color-theme" 
-	(if window-system  
-		'(color-theme-subtle-hacker)  ;; GUI mode
-	  '(color-theme-tty-dark)))       ;; Command line mode
-  )
-
-;;(color-theme-dark-green)          ;; other options
-;;(color-theme-billw)               ;; other options
-;;(Color-theme-subtle-hacker)       ;; this for GUI, or color-theme-select
-;;(color-theme-tty-dark)            ;; this for command line mode
-
-;; --------------------------------------------------------------------
 ;; column-marker.el and fill-column-indicator.el setting
 ;; hot key: C-x m      unset C-u C-x m
+;; 列标记模式
 ;; --------------------------------------------------------------------
 (require 'column-marker)
 (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))    
@@ -177,14 +212,24 @@
 (global-fci-mode 1)  
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; emace auto-complete version 1.3.1
+;; emace auto-complete version 1.5
+;; 自动补全,最新版本下载
+;; 见: https://github.com/auto-complete/auto-complete/releases
+;; now use company-mode as default
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/ac-dict")
-(setq ac-comphist-file (expand-file-name
-                        "~/.emacs.d/ac-comphist.dat"))
-(ac-config-default)
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/ac-dict")
+;; ;;(setq ac-comphist-file (expand-file-name
+;; ;;                        "~/.emacs.d/ac-comphist.dat"))
+;; (ac-config-default)
+
+;; ;; 采用helm的框架进行补全操作
+;; (require 'ac-helm)  ;; Not necessary if using ELPA package
+;; (global-set-key (kbd "C-\"") 'ac-complete-with-helm)
+;; ;;(global-set-key (kbd "TAB") 'ac-complete-with-helm)
+;; (define-key ac-complete-mode-map (kbd "C-\"") 'ac-complete-with-helm)
+;; ;;(define-key ac-complete-mode-map (kbd "TAB") 'ac-complete-with-helm)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set c/c++ mode
@@ -205,29 +250,33 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; define markdown-mode-map
+(define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
+(define-key markdown-mode-map (kbd "\C-x SPC") 'ace-jump-mode)
+(define-key markdown-mode-map (kbd "<M-return>") 'ab/quick-file-jump)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; install cedet and add speedbar download from 
 ;;     http://www.emacswiki.org/emacs/sr-speedbar.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-ede-mode 1)
-(require 'semantic/analyze)
-(require 'semantic/sb)
-(semantic-mode 1)
-(provide 'semantic-analyze)
-(provide 'semantic-ctxt)
-(provide 'semanticdb)
-(provide 'semanticdb-find)
-(provide 'semanticdb-mode)
-(provide 'semantic-load)
+;;(global-ede-mode 1)
+;;(require 'semantic/analyze)
+;;(require 'semantic/sb)
+;; (semantic-mode 1)
+;; (provide 'semantic-analyze)
+;; (provide 'semantic-ctxt)
+;; (provide 'semanticdb)
+;; (provide 'semanticdb-find)
+;; (provide 'semanticdb-mode)
+;; (provide 'semantic-load)
 
 ;; Semantic
-(global-semantic-idle-completions-mode -1)
-(global-semantic-show-unmatched-syntax-mode nil)
-;;(global-semantic-idle-completions-mode t)
-(global-semantic-decoration-mode t)
-(global-semantic-highlight-func-mode t)
-(global-semantic-show-unmatched-syntax-mode t)
+;; (global-semantic-idle-completions-mode -1)
+;; (global-semantic-show-unmatched-syntax-mode nil)
+;; (global-semantic-idle-completions-mode t)
+;; (global-semantic-decoration-mode t)
+;; (global-semantic-highlight-func-mode t)
+;; (global-semantic-show-unmatched-syntax-mode t)
 
 ;; CC-mode
 (add-hook 'c-mode-hook '(lambda ()
@@ -347,15 +396,21 @@
 ;; add ace-jump mode for quick jump http://www.emacswiki.org/emacs/AceJump
 ;; download from 
 ;;     https://github.com/winterTTr/ace-jump-mode/blob/master/ace-jump-mode.el
+;; 感觉avy.el要比ace更新  ace-jump-helm-line 需要avy mode
+;;     https://github.com/abo-abo/avy
 ;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
-;;(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-;;(define-key global-map (kbd "C-x SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x SPC") 'ace-jump-mode)
+;;(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+;;(global-set-key (kbd "C-x SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-z") 'ace-jump-mode)
+(global-set-key (kbd "M-n") 'ace-jump-mode)
 (define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
-;; If you also use viper mode:
+
+(require 'ace-jump-helm-line)
+(eval-after-load "helm"
+  '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
+(setq ace-jump-helm-line-use-avy-style nil)
+;; If you also use viper mode: (vim的一个模式)
 ;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
 
 ;;------------------------------------------------------------------------------
@@ -370,46 +425,39 @@
 (global-set-key (kbd "C-c C-c") 'quick-jump-clear-all-marker)
 
 ;;------------------------------------------------------------------------------
-;; add vim mode
-;;  download from git clone git://gitorious.org/evil/evil.git
-;; you are not advised to use vim mode in emacs
-;;------------------------------------------------------------------------------
-;; (add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
-;; (require 'evil)
-;;(global-set-key (kbd "C-x C-SPC") 'evil-mode)
-
-;;------------------------------------------------------------------------------
 ;; highlight-tail, which is download from 
 ;;     http://blog.arithm.com/2008/04/12/highlight-tail-for-emacs/
 ;; and the chinese reference is
 ;;     http://emacser.com/highlight-tail.htm
 ;; the file is highlight-tail.el
+;; donot use highlight-tail in mac system
 ;;------------------------------------------------------------------------------
-(require 'highlight-tail)
-(message "Highlight-tail loaded - now your Emacs will be even more sexy!")
+;; (require 'highlight-tail)
+;; (message "Highlight-tail loaded - now your Emacs will be even more sexy!")
 ;;  here some setq of variables - see CONFIGURATION section below 
 ;; (setq highlight-tail-colors '(("black" . 0)
 ;;							  ("#bc2525" . 25)
 ;;							  ("black" . 66)))
-(setq highlight-tail-steps 14
-	  highlight-tail-timer 1)
-(setq highlight-tail-posterior-type 'const)
+;; (setq highlight-tail-steps 14
+;;	  highlight-tail-timer 1)
+;; (setq highlight-tail-posterior-type 'const)
 
-(if (not highlight-tail-mode) 
-	(highlight-tail-mode 1)   ;; open tail mode if it does not open
-  (message "highlight-mode-mode already opened."))             
-
-;;------------------------------------------------------------------------------
-;; change to dream-theme, this theme file in modules/dream-theme.el
-;; download from https://github.com/djcb/dream-theme
-;;------------------------------------------------------------------------------
-;; (require 'dream-theme)
+;; (if (not highlight-tail-mode) 
+;;	(highlight-tail-mode 1)   ;; open tail mode if it does not open
+;;  (message "highlight-mode-mode already opened."))             
 
 ;;------------------------------------------------------------------------------
 ;; add maxframe package.
 ;; https://github.com/rmm5t/maxframe.el
+;;   in mac system, do not use to max the current frame
 ;;------------------------------------------------------------------------------
 (require 'maxframe)
+;; mac系统下,最大化时留出左边50px显示panel
+(when (string= system-type "darwin")
+  (if (equal (display-pixel-width) 1920)
+      (setq mf-offset-x 65)
+    (setq mf-offset-x 50))
+  (setq mf-max-width (- (display-pixel-width) mf-offset-x)))
 (add-hook 'window-setup-hook 'maximize-frame t)
 
 ;;------------------------------------------------------------------------------
@@ -418,7 +466,7 @@
 ;;------------------------------------------------------------------------------
 (setq user-full-name "Aborn Jiang"
       user-mail-address "aborn.jiang@foxmail.com")
-(setq chinese-name "蒋国宝")
+(setq chinese-name "Guobao Jiang")             ;
 (setq shell-name "eshell")        ;; default for shell
 ;;(setq shell-name "shell")      ;; default value
 
@@ -433,7 +481,6 @@
 ;; http://www.emacswiki.org/cgi-bin/wiki/buffer-move.el
 ;;------------------------------------------------------------------------------
 (require 'buffer-move)
-
 ;;------------------------------------------------------------------------------
 ;; add gnus, download using following command.
 ;; supported on begin emacs 24.4
@@ -453,41 +500,35 @@
 ;;   )
 
 ;; -----------------------------------------------------------------------------
-;; add eww for emacs 24.4
-;; note : eww only supported by emacs 24.4+
-;; download the newest emacs 24.4.50.1
-;;   git clone http://repo.or.cz/r/emacs.git
-;; install http://ergoemacs.org/emacs/building_emacs_from_git_repository.html
-;;   ./autogen.sh
-;;   ./configure
-;;   make bootstrap     # optimal
-;;   make
-;; -----------------------------------------------------------------------------
-(when (string=        ;; when emacs version = "24.4" (now 24.3)
-	   (format "%d.%d" emacs-major-version emacs-minor-version) "24.4")
-  (require 'advice)
-  (require 'eww)
-  (message "emacs version 24.4")
-  )
-
-;; -----------------------------------------------------------------------------
 ;; add quack for racket-lang, which download from 
 ;;   http://www.neilvandyke.org/quack/
 ;; add geiser , download from 
 ;;      http://www.nongnu.org/geiser/ using git clone
 ;;      git clone http://git.sv.gnu.org/r/geiser.git
+;; now use racket-mode as default
+;;    https://github.com/greghendershott/racket-mode
 ;; -----------------------------------------------------------------------------
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-(load "~/.emacs.d/site-lisp/geiser/elisp/geiser-load")
-;;(require 'geiser-load)
-(require 'quack)
-(add-hook 'geiser-repl-mode-hook
+(require 'racket-mode)
+(require 'racket-complete)
+(setq tab-always-indent 'complete)
+
+;; (load "~/.emacs.d/site-lisp/geiser/elisp/geiser-load")
+;; (require 'geiser-load)
+;; (require 'quack)
+;; (add-hook 'geiser-repl-mode-hook
+;;           (lambda ()
+;;             (local-set-key (kbd "C-j") 'switch-to-buffer) 
+;;             ))
+;; (setq racket-racket-program "/usr/local/bin/racket")
+;; (setq racket-raco-program "/usr/local/bin/raco")
+;; (setq geiser-scheme-dir "~/.emacs.d/code")
+;; (setq scheme-program-name "racket")
+
+(setq racket-racket-program "racket")
+(setq racket-raco-program "raco")
+(add-hook 'racket-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-j") 'switch-to-buffer) 
-            ))
+            (define-key racket-mode-map (kbd "C-x C-j") 'racket-run)))
 
 ;; -----------------------------------------------------------------------------
 ;; shell completion mode, which download
@@ -496,89 +537,13 @@
 ;; and https://github.com/szermatt/emacs-bash-completion
 ;; and https://github.com/mooz/emacs-zlc/     (for zsh)
 ;; -----------------------------------------------------------------------------
-(require 'shell-completion)
-(require 'shell-command)
-(shell-command-completion-mode)
-(require 'bash-completion)
-(bash-completion-setup)
-(require 'zlc)
-(zlc-mode t)
-
-;; -----------------------------------------------------------------------------
-;; add ecb, ecb homepage: ecb.sourceforge.net
-;; ecb byte-compile using M-x ecb-byte-complie
-;; -----------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/site-lisp/ecb-2.40/")
-(require 'ecb)
-;; (require 'ecb-autoloads)
-(setq stack-trace-on-error t)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;; switch window between ecb all windows
-(global-set-key [M-left] 'windmove-left)
-(global-set-key [M-right] 'windmove-right)
-(global-set-key [M-up] 'windmove-up)
-(global-set-key [M-down] 'windmove-down)
-
-;; hide or show ecb window
-(define-key global-map [(control f1)] 'ecb-hide-ecb-windows)
-(define-key global-map [(control f2)] 'ecb-show-ecb-windows)
-
-;; maximize specific window
-(define-key global-map "\C-c1" 'ecb-maximize-window-directories)
-(define-key global-map "\C-c2" 'ecb-maximize-window-sources)
-(define-key global-map "\C-c3" 'ecb-maximize-window-methods)
-(define-key global-map "\C-c4" 'ecb-maximize-window-history)
-(define-key global-map "\C-c0" 'ab/ecb-deactivate)
-(define-key global-map "\C-c9" 'ab/ecb-activate)
-
-;; restore-default
-(define-key global-map "\C-c`" 'ecb-restore-default-window-sizes)
-
-;; to prevent the automatic parsing of other files in idle time, you can set
-;;(setq semantic-idle-work-parse-neighboring-files-flag nil)
-;;(setq semantic-idle-work-update-headers-flag nil)
-
-;; -----------------------------------------------------------------------------
-;; ---- following tow has added in local-setting.el 
-;; (setq ecb-auto-activate t
-;;       ecb-tip-of-the-day nil)
-;; -----------------------------------------------------------------------------
-
-;; -----------------------------------------------------------------------------
-;; add jdee for jave development
-;; -----------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/site-lisp/jdee-2.4.1/lisp/")
-(load "jde")
-
-;; -----------------------------------------------------------------------------
-;; key binding, all files are in ~/.emacs.d/keys-setting
-;; -----------------------------------------------------------------------------
-(require 'global-key-binding)            ; global key binding
-(require 'major-mode-binding)            ; local major mode key binding
-
-;; -----------------------------------------------------------------------------
-;; icomplete+.el   http://www.emacswiki.org/emacs/icomplete+.el
-;; mcomplete.el
-;; http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
-;; -----------------------------------------------------------------------------
-(require 'icomplete+)
-(require 'mcomplete)
-(autoload 'mcomplete-mode "mcomplete"
-  "Toggle minibuffer completion with prefix and substring matching."
-  t nil)
-(autoload 'turn-on-mcomplete-mode "mcomplete"
-  "Turn on minibuffer completion with prefix and substring matching."
-  t nil)
-(autoload 'turn-off-mcomplete-mode "mcomplete"
-  "Turn off minibuffer completion with prefix and substring matching."
-  t nil)
-
+;; (require 'shell-completion)
+;; (require 'shell-command)
+;; (shell-command-completion-mode)
+;; (require 'bash-completion)
+;; (bash-completion-setup)
+;; (require 'zlc)
+;; (zlc-mode t)
 
 ;; -----------------------------------------------------------------------------
 ;;Remove/kill completion buffer when done-----
@@ -593,21 +558,14 @@
              ))
 
 ;; -----------------------------------------------------------------------------
-;;only show auto-completions buffer on second Tab-press
-;;if no match is found
+;; 默认启动ido模式，它用于快速切换buffer，这个被helm替换，helm更好
 ;; -----------------------------------------------------------------------------
-(setq completion-auto-help 1)
-
-;; -----------------------------------------------------------------------------
-;;TAB cyckles if fewer than 5 completions. Else show *Completions*
-;;buffer.
-;; -----------------------------------------------------------------------------
-(if (>= emacs-major-version 24)
-    (setq completion-cycle-threshold 5))
+(require 'ido)
+(ido-mode t)
 
 ;; -----------------------------------------------------------------------------
 ;; eshell settings
-;; this setting must be put before eshell bootup
+;; this setting must be put before eshell startup
 ;; -----------------------------------------------------------------------------
 (setq eshell-save-history-on-exit t)
 (load-file "~/.emacs.d/utils/eshell-utils.el")
@@ -618,6 +576,7 @@
             (local-set-key (kbd "C-c SPC") 'ace-jump-mode)
             (local-set-key (kbd "M-p") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "M-n") 'eshell-next-matching-input-from-input)
+            (local-set-key (kbd "C-M-n") 'set-mark-command)
             (local-set-key (kbd "<up>") 'eshell-previous-matching-input-from-input)
             (local-set-key (kbd "C-x C-j") 'eshell/clear)
             (local-set-key (kbd "M-r") 'eshell-isearch-backward)
@@ -633,28 +592,13 @@
   (edit-server-start))
 
 ;; -----------------------------------------------------------------------------
-;; timeclock-x.el  http://www.emacswiki.org/emacs/timeclock-x.el
-;; -----------------------------------------------------------------------------
-(require 'timeclock-x)
-(timeclock-modeline-display 1) ;; if you want modline display
-(timeclock-initialize)
-
-;; -----------------------------------------------------------------------------
 ;; cursor change automatically based the file mode
 ;; http://www.emacswiki.org/emacs-en/ChangingCursorDynamically
 ;; only can be used when you are not use OneOneOneEmacs
 ;; -----------------------------------------------------------------------------
-(require 'cursor-chg)  ; Load the library
+(require 'cursor-chg)            ; Load the library
 (toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
-(change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
-
-;; -----------------------------------------------------------------------------
-;; browse-kill-ring 
-;; 1) https://github.com/browse-kill-ring/browse-kill-ring (exist bugs)
-;; 2) http://www.emacswiki.org/emacs/browse-kill-ring.el (need modify, default)
-;; -----------------------------------------------------------------------------
-(require 'browse-kill-ring)
-(browse-kill-ring-default-keybindings)
+(change-cursor-mode 1)           ; Turn on change for overwrite, read-only, and input mode
 
 ;; -----------------------------------------------------------------------------
 ;; some configure from Sacha Chua
@@ -666,8 +610,6 @@
 (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list" t)))
-;; lazy people uses y instead of yes
-(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Smartscan
 (require 'smartscan)
@@ -693,54 +635,166 @@
 ;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
+;; -----------------------------------------------------------------------------
+;; setting font for mac system
+;; -----------------------------------------------------------------------------
+;; Setting English Font 
+(set-face-attribute
+ 'default nil :font "Monaco 14")
+;; Chinese Font 配制中文字体
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset
+                    (font-spec :family "Kaiti SC" :size 15)))
+;; Note: you can chang "Kaiti SC" to "Microsoft YaHei" or other fonts
 
 ;; -----------------------------------------------------------------------------
-;; add auctex package
-;; which download from http://www.gnu.org/software/auctex/download-for-unix.html
-;; you should install it before
-;; ./configure
-;; make && sudo make install
-;; Date: 2014-05-27
-;; -----------------------------------------------------------------------------
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
-(load "preview-latex.el" nil t t)
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
-;; -----------------------------------------------------------------------------
-;; emacs slideshow mode
-;; download from https://github.com/eschulte/epresent
-;; -----------------------------------------------------------------------------
-(load-file "~/.emacs.d/site-lisp/epresent/epresent.el")
-(require 'epresent)
-
-;; *****************************************************************************
-;; !! NOTE: local machine file setting.
-;; this machine's local setting in
-;;  ~/.emacs.d/local/local-setting.el
-;; *****************************************************************************
-(setq server-use-tcp t
-      server-port 9999)
-(require 'server)
-
-(if (file-exists-p "~/.emacs.d/local/local-setting.el")
-	(require 'local-setting)
-  (progn
-    (when (and (fboundp 'server-running-p)  ; function exists.
-               (not (server-running-p)))
-      (server-start))                       ; emacs as server mode
-    ))
-
-;; --------------------------------------------------------------------
 ;; start some modules when bootup.
-;; --------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 (eshell)                         ; open eshell at boot
 (ielm)
 (ab/shell "2shell")              ; open another shell
-;; (ab/window-normal)
+
+;; --------------------------------------------------------------------
+;; js2-mode for javascript
+;; --------------------------------------------------------------------
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
+;;(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+(require 'flymake-jslint)
+(add-hook 'js-mode-hook 'flymake-jslint-load)
+
+;; -----------------------------------------------------------------------------
+;; 用emacs远程打开文件
+;; https://andy.wordpress.com/2013/01/03/automatic-emacsclient/
+;; setting emacsclient remote open file
+;; -----------------------------------------------------------------------------
+;;(defun server-start-and-copy ()
+;;  "start server and copy auth files"
+;;  (when (and (fboundp 'server-running-p)   ; function exists.
+;;             (not (server-running-p)))
+;;    (server-start)                       ; emacs as server mode
+;;    (when (file-exists-p "/lisp@yoks:~/.emacs.d/server/server")
+;;      (delete-file "/lisp@yoks:~/.emacs.d/server/server"))
+;;    (copy-file "~/.emacs.d/server/server" "/lisp@yoks:~/.emacs.d/server/server")
+;;    ))
+;;(add-hook 'emacs-startup-hook 'server-start-and-copy)
+;;(server-start-and-copy)
+
+(require 'server)
+(setq server-use-tcp t
+      server-socket-dir "~/.emacs.d/server")
+(unless (server-running-p)
+  (server-start))
+
+;; -----------------------------------------------------------------------------
+;; setting golden-ratio.el (in ~/.emacs.d/modules/)
+;; see more detail https://github.com/roman/golden-ratio.el
+;; roman 写的这个golden-ration会引起crash
+;; 使用thierryvolpiatto写的这个golden
+;; https://github.com/thierryvolpiatto/golden-ratio.el
+;; 无论怎样都有bug,还是暂时关了吧
+;; -----------------------------------------------------------------------------
+;; (require 'golden-ratio)
+;; (golden-ratio-mode 1)
+
+;; -----------------------------------------------------------------------------
+;; request.el http request模式
+;; get http://appkit.popkit.org/demo/getJSON.html for example!
+;; -----------------------------------------------------------------------------
+(require 'request)
+
+;; 下面是一个简单的例子
+;; (request
+;;  "http://httpbin.org/get"
+;;  :params '(("key" . "value") ("key2" . "value2"))
+;;  :parser 'json-read
+;;  :success (function*
+;;            (lambda (&key data &allow-other-keys)
+;;              (message "I sent: %S" (assoc-default 'args data)))))
+
+;; -----------------------------------------------------------------------------
+;; key binding, all files are in ~/.emacs.d/keys-setting
+;; 全局的key-setting，这个配置放在最后
+;; global-key-binding是全局的按键绑定
+;; major-mode-binding是加一些hook修改一些主mode的快捷键
+;; -----------------------------------------------------------------------------
+(require 'global-key-binding)            ; global key binding
+(require 'major-mode-binding)            ; local major mode key binding
+
+(defun create-scratch-buffer nil
+  "create a scratch buffer"
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
+;; -----------------------------------------------------------------------------
+;; recent files
+;; (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+;; -----------------------------------------------------------------------------
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 25)
+(recentf-mode 1)
+
+;; -----------------------------------------------------------------------------
+;; 自动编译 auto-compile  依赖 packed.el 和 dash.el
+;; https://github.com/tarsius/auto-compile
+;;  deps:
+;;    https://github.com/tarsius/packed
+;;    https://github.com/magnars/dash.el
+;; -----------------------------------------------------------------------------
+;;; init.el --- user init file      -*- no-byte-compile: t -*-
+(setq load-prefer-newer t)
+(require 'auto-compile)
+(auto-compile-on-load-mode)
+(auto-compile-on-save-mode)
+
+;; 初始化编译 init.el
+;; (defconst dot-emacs (concat (getenv "HOME") "/.emacs.d/" "init.el")
+;;     "My dot emacs file")
+;; (require 'bytecomp)
+;; (setq compiled-dot-emacs (byte-compile-dest-file dot-emacs))
+;; (if (or (not (file-exists-p compiled-dot-emacs))
+;; 	(file-newer-than-file-p dot-emacs compiled-dot-emacs)
+;;         (equal (nth 4 (file-attributes dot-emacs)) (list 0 0)))
+;;     (load dot-emacs)
+;;   (load compiled-dot-emacs))
+ 
+;; (add-hook 'kill-emacs-hook
+;;           '(lambda () (and (file-newer-than-file-p dot-emacs compiled-dot-emacs)
+;;                            (byte-compile-file dot-emacs))))
+
+;; -----------------------------------------------------------------------------
+;; some config-part
+;; 需要通过elpa安装alchemist和alchemist
+;; -----------------------------------------------------------------------------
+(require 'elixir-part)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2014-06-10
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(popup-face ((t (:background "gray94" :foreground "dark cyan"))))
+ '(popup-tip-face ((t (:background "dark red" :foreground "light green")))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(session-use-package t nil (session)))
+
+
+

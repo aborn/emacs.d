@@ -1,7 +1,7 @@
 (provide 'major-mode-binding)
 ;; --------------------------------------------------------------------
 ;; provide local each major mode key binding
-;; each local major-mode key binding 
+;; each local major-mode key binding 主mode下的键绑定
 ;; --------------------------------------------------------------------
 ;; define matlab-mode key-binding
 (require 'matlab)
@@ -103,3 +103,7 @@
           (lambda ()
             (local-set-key (kbd "C-j") 'helm-buffers-list)
             (local-set-key (kbd "M-j") 'helm-find-files)))
+
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-o") 'other-window)))
