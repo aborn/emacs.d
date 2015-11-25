@@ -103,3 +103,7 @@
           (lambda ()
             (local-set-key (kbd "C-j") 'helm-buffers-list)
             (local-set-key (kbd "M-j") 'helm-find-files)))
+
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-o") 'other-window)))
