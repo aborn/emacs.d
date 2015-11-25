@@ -5,6 +5,15 @@
 ;; emacs的配置，建议使用最新版本的emacs (version 24.5)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; --------------------------------------------------------------------
+;; benchmark-init, 测试加载速度
+;; https://github.com/dholm/benchmark-init-el
+;; --------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/benchmark-init")
+(require 'benchmark-init-loaddefs)
+(benchmark-init/activate)
+
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -160,7 +169,7 @@
 ;;(yas-global-mode 1)      ;; 不要在所有mode里打开
 
 ;; ********************************************
-;; install smart-mode-line
+;; install smart-mode-line  使得mode-line更好看
 ;; https://github.com/Malabarba/smart-mode-line
 ;; install smart-mode-line-powerline-theme
 ;; https://github.com/milkypostman/powerline
