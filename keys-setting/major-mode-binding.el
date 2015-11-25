@@ -1,7 +1,7 @@
 (provide 'major-mode-binding)
 ;; --------------------------------------------------------------------
 ;; provide local each major mode key binding
-;; each local major-mode key binding 
+;; each local major-mode key binding 主mode下的键绑定
 ;; --------------------------------------------------------------------
 ;; define matlab-mode key-binding
 (require 'matlab)
