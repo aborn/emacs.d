@@ -1,6 +1,6 @@
 (provide 'insert-string)
 
-(defun insert-email-address (arg)
+(defun ab/insert-email-address (arg)
   "Insert email address at the current ponit"
   (interactive "p")
   (unless (boundp 'user-mail-address)   ;; check variable defined.
@@ -8,21 +8,21 @@
   (insert-string user-mail-address))
 ;;  (insert-string email-address))
 
-(defun insert-name-english (arg)
+(defun ab/insert-name-english (arg)
   "Insert english name at the current ponit"
   (interactive "p")
   (unless (boundp 'user-full-name)
     (setq user-full-name  "Aborn Jiang"))
   (insert-string user-full-name))
 
-(defun insert-name-chinese (arg)
+(defun ab/insert-name-chinese (arg)
   "Insert english name at the current ponit"
   (interactive "p")
   (unless (boundp 'chinese-name)
     (setq chinese-name  "蒋国宝"))
   (insert-string chinese-name))
 
-(defun insert-buffer-name (arg)
+(defun ab/insert-buffer-name (arg)
   "Insert buffer name at the current point"
   (interactive "p")
   (insert-string (buffer-name)))

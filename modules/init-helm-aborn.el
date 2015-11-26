@@ -90,7 +90,9 @@
 (global-set-key (kbd "C-h C-f")                      'helm-apropos)
 (global-set-key (kbd "<f5> s")                       'helm-find)
 (global-set-key (kbd "<f2>")                         'helm-execute-kmacro)
-(global-set-key (kbd "C-c g")                        'helm-gid)
+;;(global-set-key (kbd "C-c g")                        'helm-gid)
+(global-set-key (kbd "C-c g")                        'helm-ls-git-ls)
+
 (global-set-key (kbd "C-c i")                        'helm-imenu-in-all-buffers)
 (define-key global-map [remap jump-to-register]      'helm-register)
 (define-key global-map [remap list-buffers]          'helm-buffers-list)
@@ -175,8 +177,8 @@ First call indent, second complete symbol, third complete fname."
       helm-pdfgrep-default-read-command          "evince --page-label=%p '%f'"
                                         ;helm-ff-transformer-show-only-basename     t
       helm-ff-auto-update-initial-value          t
-      helm-grep-default-command                  "ack-grep -Hn --smart-case --no-group %e %p %f"
-      helm-grep-default-recurse-command          "ack-grep -H --smart-case --no-group %e %p %f"
+      helm-grep-default-command                  "grep -rHn %e %p %f"
+      helm-grep-default-recurse-command          "grep -H --smart-case --no-group %e %p %f"
       ;; Allow skipping unwanted files specified in ~/.gitignore_global
       ;; Added in my .gitconfig with "git config --global core.excludesfile ~/.gitignore_global"
       helm-ls-git-grep-command                   "git grep -n%cH --color=always --exclude-standard --no-index --full-name -e %p %f"

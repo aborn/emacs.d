@@ -16,10 +16,9 @@
 (global-set-key "\C-cD" 'insert-current-time)
 (global-set-key "\C-ct" 'insert-current-date-time)
 (global-set-key "\C-xt" 'insert-current-date-time)
-(global-set-key "\C-cm" 'insert-email-address)
-(global-set-key "\C-cn" 'insert-name-english)
-(global-set-key "\C-cN" 'insert-name-chinese)
-(global-set-key "\C-cf" 'insert-buffer-name)
+(global-set-key "\C-cm" 'ab/insert-email-address)
+(global-set-key "\C-cn" 'ab/insert-name-english)
+(global-set-key "\C-cN" 'ab/insert-name-chinese)
 (global-set-key "\C-cl" 'switch-buffer-each-other)
 
 ;; window-dealing related.
@@ -28,5 +27,4 @@
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-
 

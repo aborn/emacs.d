@@ -2,7 +2,9 @@
 ;; emacs initial config for version 23 and later version
 ;; put this file (init.el) in ~/.emacs.d/
 ;; You are advised to use emacs 24.5+
+;; some softwares are recommanded to install(sw.md).
 ;; emacs的配置，建议使用最新版本的emacs (version 24.5)
+;; 为了更好的使用，需要安装一些软件, 见sw.md
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; --------------------------------------------------------------------
@@ -33,6 +35,7 @@
 ;; --------------------------------------------------------------------
 (add-to-list 'exec-path "/usr/local/racket/bin")
 (add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "/usr/local/Cellar/grep/2.22/bin")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
@@ -784,7 +787,7 @@
 (require 'elixir-part)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-25
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces

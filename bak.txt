@@ -1,0 +1,2 @@
+helm-grep-default-command                  "ack-grep -Hn --smart-case --no-group %e %p %f"
+helm-grep-default-recurse-command          "ack-grep -H --smart-case --no-group %e %p %f"
