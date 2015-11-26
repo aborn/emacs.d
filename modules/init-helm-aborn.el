@@ -90,7 +90,9 @@
 (global-set-key (kbd "C-h C-f")                      'helm-apropos)
 (global-set-key (kbd "<f5> s")                       'helm-find)
 (global-set-key (kbd "<f2>")                         'helm-execute-kmacro)
-(global-set-key (kbd "C-c g")                        'helm-gid)
+;;(global-set-key (kbd "C-c g")                        'helm-gid)
+(global-set-key (kbd "C-c g")                        'helm-ls-git-ls)
+
 (global-set-key (kbd "C-c i")                        'helm-imenu-in-all-buffers)
 (define-key global-map [remap jump-to-register]      'helm-register)
 (define-key global-map [remap list-buffers]          'helm-buffers-list)
