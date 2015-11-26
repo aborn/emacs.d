@@ -15,6 +15,7 @@ Features in emacs may used in the future.
 * ERC IRC
 * [auto compile](http://www.emacswiki.org/emacs/AutoRecompile)
 * [indent guide](https://github.com/antonj/Highlight-Indentation-for-Emacs/)
+* [helm-swoop](https://github.com/yasuyk/helm-git-grep)
 
 ### Others Record
 * llvm+clang
