@@ -111,6 +111,7 @@
 (setq ring-bell-function 'ignore)
 (fset 'yes-or-no-p 'y-or-n-p)       ; 用y/n代替yes/no
 (rich-minority-mode 1)
+(tool-bar-mode -1)                  ; 关闭toobar
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
