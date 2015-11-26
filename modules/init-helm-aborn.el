@@ -162,6 +162,11 @@ First call indent, second complete symbol, third complete fname."
 ;;; Helm-variables
 ;;
 ;;
+;; (when (executable-find "ack")
+;;   (message "ack program exists!")
+;;   (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
+;;         helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
+
 (setq helm-google-suggest-use-curl-p             t
                                         ;helm-kill-ring-threshold                   1
       helm-raise-command                         "wmctrl -xa %s"
@@ -177,8 +182,8 @@ First call indent, second complete symbol, third complete fname."
       helm-pdfgrep-default-read-command          "evince --page-label=%p '%f'"
                                         ;helm-ff-transformer-show-only-basename     t
       helm-ff-auto-update-initial-value          t
-      helm-grep-default-command                  "grep -rHn %e %p %f"
-      helm-grep-default-recurse-command          "grep -H --smart-case --no-group %e %p %f"
+      ;;helm-grep-default-command                  "grep %e %p %f"
+      ;;helm-grep-default-recurse-command          "grep -r %e %p %f"
       ;; Allow skipping unwanted files specified in ~/.gitignore_global
       ;; Added in my .gitconfig with "git config --global core.excludesfile ~/.gitignore_global"
       helm-ls-git-grep-command                   "git grep -n%cH --color=always --exclude-standard --no-index --full-name -e %p %f"

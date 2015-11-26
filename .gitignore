@@ -26,3 +26,4 @@ semanticdb/
 site-lisp/helm
 helm-adaptive-history
 recentf
+test.el

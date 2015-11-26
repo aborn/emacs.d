@@ -36,6 +36,7 @@
 (add-to-list 'exec-path "/usr/local/racket/bin")
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/local/Cellar/grep/2.22/bin")
+(add-to-list 'exec-path "/usr/local/Cellar/ack/2.14/bin")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
