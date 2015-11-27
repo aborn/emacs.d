@@ -124,6 +124,7 @@
 (rich-minority-mode 1)
 (tool-bar-mode -1)                  ; 关闭toobar
 (electric-pair-mode 1)              ; 自动插入右括号{}()[]等
+(setq gc-cons-threshold 100000000)  ; 100MB
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)

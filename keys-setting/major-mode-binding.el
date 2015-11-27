@@ -111,3 +111,7 @@
 (add-hook 'markdown-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") 'ace-jump-mode)))
+
+(add-hook 'term-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") 'ace-jump-mode)))
