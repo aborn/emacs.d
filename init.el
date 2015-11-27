@@ -38,15 +38,13 @@
 ;;    同时在执行 helm-do-grep 时产生
 ;;     zsh: command not found: ack
 ;; 详情请看: http://ergoemacs.org/emacs/emacs_env_var_paths.html
+;;    见package-part.el里的  exec-path-from-shell
 ;; --------------------------------------------------------------------
-(add-to-list 'exec-path "/usr/local/racket/bin")
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "/usr/local/Cellar/grep/2.22/bin")
-(add-to-list 'exec-path "/usr/local/Cellar/ack/2.14/bin")
-(setenv "PATH" (concat "/usr/local/bin:/usr/local/Cellar/ack/2.14/bin:" (getenv "PATH")))
-
-;;(add-to-list 'desktop-path "/usr/local/bin")
-;;(add-to-list 'desktop-path "/usr/local/Cellar/ack/2.14/bin")
+;; (add-to-list 'exec-path "/usr/local/racket/bin")
+;; (add-to-list 'exec-path "/usr/local/bin")
+;; (add-to-list 'exec-path "/usr/local/Cellar/grep/2.22/bin")
+;; (add-to-list 'exec-path "/usr/local/Cellar/ack/2.14/bin")
+;; (setenv "PATH" (concat "/usr/local/bin:/usr/local/Cellar/ack/2.14/bin:" (getenv "PATH")))
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
@@ -95,10 +93,10 @@
 ;;(setq max-lisp-eval-depth 3000)      ;; default 500
 ;;(setq max-specpdl-size 3000)         ;; default 1000
 
-;; --------------------------------------------------------------------;
+;; --------------------------------------------------------------------
 ;; add follwing code to keep *shell* in middle using
 ;;    C-l C-l  使得*shell* buffer处于中间
-;; --------------------------------------------------------------------;
+;; --------------------------------------------------------------------
 (remove-hook 'comint-output-filter-functions 
 			 'comint-postoutput-scroll-to-bottom)
 
@@ -837,9 +835,10 @@
 ;; 需要通过elpa安装alchemist和alchemist
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
+(require 'package-part)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-26
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-27
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
