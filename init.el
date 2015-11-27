@@ -32,11 +32,21 @@
 ;; --------------------------------------------------------------------
 ;; setting exec-path, which like terminal's PATH variable
 ;; emacs的可执行文件路径，相当于PATH
+;; 我发现 setenv "PATH" 和 exec-path并不相等，
+;;    如果没有做setenv操作，会产生
+;;    node: No such file or directory 这样的错误
+;;    同时在执行 helm-do-grep 时产生
+;;     zsh: command not found: ack
+;; 详情请看: http://ergoemacs.org/emacs/emacs_env_var_paths.html
 ;; --------------------------------------------------------------------
 (add-to-list 'exec-path "/usr/local/racket/bin")
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/local/Cellar/grep/2.22/bin")
 (add-to-list 'exec-path "/usr/local/Cellar/ack/2.14/bin")
+(setenv "PATH" (concat "/usr/local/bin:/usr/local/Cellar/ack/2.14/bin:" (getenv "PATH")))
+
+;;(add-to-list 'desktop-path "/usr/local/bin")
+;;(add-to-list 'desktop-path "/usr/local/Cellar/ack/2.14/bin")
 
 ;; --------------------------------------------------------------------
 ;; add require features defined by myself
@@ -780,6 +790,25 @@
 ;; (add-hook 'kill-emacs-hook
 ;;           '(lambda () (and (file-newer-than-file-p dot-emacs compiled-dot-emacs)
 ;;                            (byte-compile-file dot-emacs))))
+
+
+;; -----------------------------------------------------------------------------
+;; web-beautify
+;; install npm -g install js-beautify
+;; https://github.com/yasuyk/web-beautify
+;; -----------------------------------------------------------------------------
+(require 'web-beautify) ;; Not necessary if using ELPA package
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+;; (eval-after-load 'js
+;;   '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
+;; (eval-after-load 'json-mode
+;;   '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+;; (eval-after-load 'sgml-mode
+;;   '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+;; (eval-after-load 'css-mode
+;;   '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
 
 ;; -----------------------------------------------------------------------------
 ;; some config-part
