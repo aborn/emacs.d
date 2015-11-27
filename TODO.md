@@ -13,9 +13,9 @@ Features in emacs may used in the future.
 * Org-mode learning.
 * Remote file editing and modify.
 * ERC IRC
-* [auto compile](http://www.emacswiki.org/emacs/AutoRecompile)
-* [indent guide](https://github.com/antonj/Highlight-Indentation-for-Emacs/)
-* [helm-swoop](https://github.com/yasuyk/helm-git-grep)
+* [auto compile](http://www.emacswiki.org/emacs/AutoRecompile) done
+* [indent guide](https://github.com/antonj/Highlight-Indentation-for-Emacs/) done
+* [helm-swoop](https://github.com/yasuyk/helm-git-grep) done
 
 ### Others Record
 * llvm+clang

@@ -107,3 +107,7 @@
 (add-hook 'compilation-mode-hook
           (lambda ()
             (local-set-key (kbd "C-o") 'other-window)))
+
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") 'ace-jump-mode)))
