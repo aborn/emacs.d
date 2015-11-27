@@ -2,3 +2,12 @@ helm-grep-default-command                  "ack-grep -Hn --smart-case --no-group
 helm-grep-default-recurse-command          "ack-grep -H --smart-case --no-group %e %p %f"
 
 grep -rHn %e %p %f
+
+
+And you should increase memory to be used before garbage collecting, by setting this:
+
+(setq gc-cons-threshold 100000000)
+
+You set the threshold to 100MB and try again if it still crashes.
+
+http://tuhdo.github.io/emacs-tutor.html
