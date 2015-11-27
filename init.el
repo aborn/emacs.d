@@ -812,6 +812,25 @@
 ;;   '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
 
 ;; -----------------------------------------------------------------------------
+;; https://github.com/antonj/Highlight-Indentation-for-Emacs
+;; -----------------------------------------------------------------------------
+(require 'highlight-indentation)
+;; (highlight-indentation-mode)
+;; (highlight-indentation-current-column-mode)
+(set-face-background 'highlight-indentation-face "#e3e3d3")
+(set-face-background 'highlight-indentation-current-column-face "#c3b3b3")
+(defun aj-toggle-fold ()
+  "Toggle fold all lines larger than indentation on current line"
+  (interactive)
+  (let ((col 1))
+    (save-excursion
+      (back-to-indentation)
+      (setq col (+ 1 (current-column)))
+      (set-selective-display
+       (if selective-display nil (or col 1))))))
+(global-set-key (kbd "C-c a") 'aj-toggle-fold)
+
+;; -----------------------------------------------------------------------------
 ;; some config-part
 ;; elixir语言mode
 ;; 需要通过elpa安装alchemist和alchemist
