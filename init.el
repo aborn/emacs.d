@@ -123,6 +123,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)       ; 用y/n代替yes/no
 (rich-minority-mode 1)
 (tool-bar-mode -1)                  ; 关闭toobar
+(electric-pair-mode 1)              ; 自动插入右括号{}()[]等
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
