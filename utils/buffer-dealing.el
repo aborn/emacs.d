@@ -16,15 +16,16 @@
   (interactive "P")
   (message (buffer-file-name (current-buffer)))) 
 
-(defun switch-buffer-each-other (arg)
+(defun ab/switch-buffer-each-other (arg)
   "switch current buffer with other window buffer 
-   right-2-left or left-2-right"
+   right-2-left and up-2-down"
   (interactive "p")
-  (if (windmove-find-other-window 'right)
-      (buf-move-right)
-    (buf-move-left))
-    (other-window 1)
-  )
+  (cond
+   ((windmove-find-other-window 'right) (buf-move-right))
+   ((windmove-find-other-window 'left) (buf-move-left))
+   ((windmove-find-other-window 'up) (buf-move-up))
+   ((windmove-find-other-window 'down) (buf-move-down)))
+  (message "switch buffer done"))
 
 (defun ab-kill-buff (arg)
   "my defined kill-buff related with ecb"

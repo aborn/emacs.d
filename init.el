@@ -123,6 +123,8 @@
 (tool-bar-mode -1)                  ; 关闭toobar
 (electric-pair-mode 1)              ; 自动插入右括号{}()[]等
 (setq gc-cons-threshold 100000000)  ; 100MB
+(delete-selection-mode 1)           ; yank into selected region
+(winner-mode 1)                     ; winner-undo and winner-redo 
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
