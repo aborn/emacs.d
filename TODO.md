@@ -16,6 +16,8 @@ Features in emacs may used in the future.
 * [auto compile](http://www.emacswiki.org/emacs/AutoRecompile) done
 * [indent guide](https://github.com/antonj/Highlight-Indentation-for-Emacs/) done
 * [helm-swoop](https://github.com/yasuyk/helm-git-grep) done
+* [helm-dired-history](https://github.com/jixiuf/helm-dired-history)
+* [helm-git-grep](https://github.com/yasuyk/helm-git-grep)
 
 ### Others Record
 * llvm+clang
