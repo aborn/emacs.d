@@ -836,6 +836,7 @@
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
 (require 'package-part)
+(ab/list-packages)             ;; 异步打开下软件源
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-27
