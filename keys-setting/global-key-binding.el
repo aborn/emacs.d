@@ -28,3 +28,21 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; split window的时候，打开新的buffer
+(global-set-key (kbd "C-x 3")
+                (lambda ()
+                  (interactive)
+                  (setq cw (selected-window))
+                  (split-window-right)
+                  (select-window (next-window))
+                  (bury-buffer)
+                  (select-window cw)))
+
+(global-set-key (kbd "C-x 2")
+                (lambda ()
+                  (interactive)
+                  (setq cw (selected-window))
+                  (split-window-below)
+                  (select-window (next-window))
+                  (bury-buffer)
+                  (select-window cw)))
