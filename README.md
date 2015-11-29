@@ -115,5 +115,5 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * emacs ecb layout  
 ![](images/ecb.png "my emacs dream-theme with ecb screen-shot")
 
-* helm search
+* helm search  
 ![](images/helm.gif "powerful helm")
