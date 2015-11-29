@@ -23,7 +23,7 @@
 (add-hook 'java-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
-;; key bindings
+;; basic key bindings
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 ;; (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
@@ -35,7 +35,8 @@
       c-basic-offset 4
       tab-width 4
       indent-tabs-mode t)
-(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
+;; (add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))  ;自动换行
+(global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 
 ;; 补全操作 company 
 (require 'company)
