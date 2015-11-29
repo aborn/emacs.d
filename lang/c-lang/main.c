@@ -8,6 +8,10 @@ int plus_auto(int a) {
     return a+1;
 }
 
+int plus_double(int a) {
+    return a*a;
+}
+
 int main() {
     printf("hello word\n");
     int a = 5;

@@ -38,6 +38,12 @@
 ;; (add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))  ;自动换行
 (global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 
+;; Compilation
+(global-set-key (kbd "<f5>") (lambda ()
+                               (interactive)
+                               (setq-local compilation-read-command nil)
+                               (call-interactively 'compile)))
+
 ;; 补全操作 company 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
