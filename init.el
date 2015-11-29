@@ -832,7 +832,10 @@
 (require 'package-part)
 (require 'c-lang-part)
 ;; (ab/list-packages)             ;; 异步打开下软件源
-(load-file helm-adaptive-history-file)
+(add-hook 'after-init-hook
+		  (lambda ()
+			(load-file helm-adaptive-history-file)))
+
 (setq debug-function-file "~/.emacs.d/debug-function.el")
 (when (file-readable-p debug-function-file)
   (load-file debug-function-file))
