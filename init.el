@@ -833,9 +833,12 @@
 (require 'c-lang-part)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (load-file helm-adaptive-history-file)
+(setq debug-function-file "~/.emacs.d/debug-function.el")
+(when (file-readable-p debug-function-file)
+  (load-file debug-function-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-27
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-29
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
@@ -855,6 +858,3 @@
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(session-use-package t nil (session)))
-
-
-
