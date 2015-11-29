@@ -6,7 +6,7 @@ CFLAGS = -g -Wall
 .PHONY: default all clean
 
 default: $(TARGET)
-	all: default
+all: default
 
 OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
 HEADERS = $(wildcard *.h)
