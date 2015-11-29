@@ -258,15 +258,6 @@
 ;; ;;(define-key ac-complete-mode-map (kbd "TAB") 'ac-complete-with-helm)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; set c/c++ mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq c-default-style "linux"
-      c-basic-offset 4
-      tab-width 4
-      indent-tabs-mode t)
-(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set markdown-mode download from 
 ;;                    http://jblevins.org/projects/markdown-mode/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -839,6 +830,7 @@
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
 (require 'package-part)
+(require 'c-lang-part)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (load-file helm-adaptive-history-file)
 
