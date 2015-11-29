@@ -64,7 +64,6 @@
 (require 'basic-key-binding)           ;; 基本的快捷键设置
 (require 'os-utils)
 (require 'extend-selection)
-(require 'init-helm-aborn)
 (require 'multi-term-config)
 (require 'csv-mode)
 (require 'rich-minority)
@@ -81,6 +80,7 @@
              '("melpa" . "http://melpa.org/packages/")
              t)
 (package-initialize)
+(require 'init-helm-aborn)
 
 ;; --------------------------------------------------------------------
 ;; set code indent
@@ -124,7 +124,8 @@
 (electric-pair-mode 1)              ; 自动插入右括号{}()[]等
 (setq gc-cons-threshold 100000000)  ; 100MB
 (delete-selection-mode 1)           ; yank into selected region
-(winner-mode 1)                     ; winner-undo and winner-redo 
+(winner-mode 1)                     ; winner-undo and winner-redo
+;; (toggle-debug-on-error 1)           ; 打开debug开关
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)

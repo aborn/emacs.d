@@ -27,3 +27,5 @@ site-lisp/helm
 helm-adaptive-history
 recentf
 test.el
+test.c
+trace.txt
