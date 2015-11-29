@@ -58,7 +58,7 @@
                  new-packages)
             (package-menu--generate nil t))
           ;; The package menu buffer has keybindings.  If the user types
-          ;; `M-x kd/list-packages', that suggests it should become current.
+          ;; `M-x ab/list-packages', that suggests it should become current.
           (switch-to-buffer buf))
 
         (let ((upgrades (package-menu--find-upgrades)))

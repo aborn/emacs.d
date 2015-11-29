@@ -789,7 +789,7 @@
 ;;         (equal (nth 4 (file-attributes dot-emacs)) (list 0 0)))
 ;;     (load dot-emacs)
 ;;   (load compiled-dot-emacs))
- 
+
 ;; (add-hook 'kill-emacs-hook
 ;;           '(lambda () (and (file-newer-than-file-p dot-emacs compiled-dot-emacs)
 ;;                            (byte-compile-file dot-emacs))))
@@ -839,7 +839,8 @@
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
 (require 'package-part)
-(ab/list-packages)             ;; 异步打开下软件源
+;; (ab/list-packages)             ;; 异步打开下软件源
+(load-file helm-adaptive-history-file)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-27
