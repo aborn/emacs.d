@@ -125,7 +125,7 @@
 (setq gc-cons-threshold 100000000)  ; 100MB
 (delete-selection-mode 1)           ; yank into selected region
 (winner-mode 1)                     ; winner-undo and winner-redo
-(toggle-debug-on-error 1)           ; 打开debug开关
+;; (toggle-debug-on-error 1)           ; 打开debug开关
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
