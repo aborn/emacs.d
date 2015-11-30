@@ -7,12 +7,10 @@
 ;; git clone https://github.com/emacs-helm/helm.git ~/.emacs.d/site-lisp
 ;; git clone https://github.com/jwiegley/emacs-async.git ~/.emacs.d/site-lisp
 ;; --------------------------------------------------------------------
-;;(tv-require 'helm-config)
 (require 'helm-config)
 (require 'helm-ls-git)
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
-;;; Enable Modes (This is loading nearly everything).
-;;
+
+;; Enable Modes (This is loading nearly everything).
 (helm-mode 1)
 (helm-adaptative-mode 1)
 (helm-autoresize-mode 1)
