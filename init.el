@@ -122,10 +122,9 @@
 (rich-minority-mode 1)
 (tool-bar-mode -1)                  ; 关闭toobar
 (electric-pair-mode 1)              ; 自动插入右括号{}()[]等
-(setq gc-cons-threshold 100000000)  ; 100MB
+(setq gc-cons-threshold 100000000)  ; 100MB,否则会偶尔crash
 (delete-selection-mode 1)           ; yank into selected region
 (winner-mode 1)                     ; winner-undo and winner-redo
-;; (toggle-debug-on-error 1)           ; 打开debug开关
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
@@ -831,7 +830,7 @@
 (require 'elixir-part)
 (require 'package-part)
 (require 'c-lang-part)
-;; (ab/list-packages)             ;; 异步打开下软件源
+(ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
 			(load-file helm-adaptive-history-file)))
@@ -841,7 +840,7 @@
   (load-file debug-function-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-29
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces

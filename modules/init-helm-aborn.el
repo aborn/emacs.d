@@ -10,7 +10,7 @@
 ;;(tv-require 'helm-config)
 (require 'helm-config)
 (require 'helm-ls-git)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 ;;; Enable Modes (This is loading nearly everything).
 ;;
 (helm-mode 1)
@@ -24,7 +24,6 @@
 
 ;;;; Test Sources or new helm code. 
 ;;   !!!WARNING EXPERIMENTAL!!!
-
 (defun helm-version ()
   (with-temp-buffer
     (insert-file-contents (find-library-name "helm-pkg"))
@@ -61,8 +60,6 @@
   )
 
 ;;; Helm-command-map
-;;
-;;
 (define-key helm-command-map (kbd "g")   'helm-apt)
 (define-key helm-command-map (kbd "w")   'helm-psession)
 (define-key helm-command-map (kbd "z")   'helm-complex-command-history)
@@ -72,8 +69,6 @@
 (define-key helm-command-map (kbd "I")   'helm-imenu-in-all-buffers)
 
 ;;; Global-map
-;;
-;;
 (global-set-key (kbd "M-x")                          'undefined)
 (global-set-key (kbd "M-x")                          'helm-M-x)
 (global-set-key (kbd "M-y")                          'helm-show-kill-ring)
@@ -147,7 +142,6 @@ First call indent, second complete symbol, third complete fname."
 ;; (define-key minibuffer-local-map [remap lisp-complete-symbol] 'helm-lisp-completion-at-point) ; <=24.3
 
 ;;; helm find files
-;;
 (define-key helm-find-files-map (kbd "C-d") 'helm-ff-persistent-delete)
 (define-key helm-buffer-map (kbd "C-d")     'helm-buffer-run-kill-persistent)
 
@@ -160,13 +154,6 @@ First call indent, second complete symbol, third complete fname."
 ;; (helm-descbinds-install)            ; C-h b, C-x C-h
 
 ;;; Helm-variables
-;;
-;;
-;; (when (executable-find "ack")
-;;   (message "ack program exists!")
-;;   (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
-;;         helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
-
 (setq helm-google-suggest-use-curl-p             t
                                         ;helm-kill-ring-threshold                   1
       helm-raise-command                         "wmctrl -xa %s"
@@ -247,8 +234,6 @@ First call indent, second complete symbol, third complete fname."
 ;; (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
 
 ;;; Toggle grep program
-;;
-;;
 (defun eselect-grep ()
   (interactive)
   (when (y-or-n-p (format "Current grep program is %s, switching? "
@@ -265,8 +250,6 @@ First call indent, second complete symbol, third complete fname."
     (message "Switched to %s" (helm-grep-command))))
 
 ;;; Debugging
-;;
-;;
 (defun helm-debug-toggle ()
   (interactive)
   (setq helm-debug (not helm-debug))
@@ -278,7 +261,6 @@ First call indent, second complete symbol, third complete fname."
            always (string-match "\.el$" cand)))
 
 ;;; Modify source attributes
-;;
 ;; Add actions to `helm-source-find-files' IF:
 
 (defmethod helm-setup-user-source ((source helm-source-ffiles))
@@ -292,7 +274,6 @@ First call indent, second complete symbol, third complete fname."
   (set-slot-value source 'candidate-number-limit 200))
 
 ;;; Psession windows
-;;
 (defun helm-psession-windows ()
   (interactive)
   (helm :sources (helm-build-sync-source "Psession windows"
@@ -304,12 +285,12 @@ First call indent, second complete symbol, third complete fname."
         :buffer "*helm psession*"))
 
 ;;; helm dictionary
-;;
 (setq helm-dictionary-database "~/helm-dictionary/dic-en-fr.iso")
 (setq helm-dictionary-online-dicts '(("translate.reference.com en->fr" .
                                       "http://translate.reference.com/translate?query=%s&src=en&dst=fr")
                                      ("translate.reference.com fr->en" .
                                       "http://translate.reference.com/translate?query=%s&src=fr&dst=en")))
+
 ;; --------------------------------------------------------------------
 ;; 下面配置helm-swoop.el,快速搜索
 ;; https://github.com/ShingoFukuyama/helm-swoop
