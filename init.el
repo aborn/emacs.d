@@ -830,7 +830,7 @@
 (require 'elixir-part)
 (require 'package-part)
 (require 'c-lang-part)
-;; (ab/list-packages)             ;; 异步打开下软件源
+(ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
 			(load-file helm-adaptive-history-file)))
@@ -840,7 +840,7 @@
   (load-file debug-function-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-29
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-11-30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
