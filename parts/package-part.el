@@ -22,7 +22,7 @@
   (with-temp-buffer
     (insert
      ";; -*- mode: emacs-lisp -*-\n"
-     ";; History entries used for helm adaptive display.\n")
+     ";; Installed packages list used for multi computer env.\n")
     (prin1 `(setq ab-installed-packages ',package-activated-list)
            (current-buffer))
     (insert ?\n)
