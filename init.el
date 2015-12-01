@@ -834,6 +834,7 @@
 (require 'elixir-part)
 (require 'package-part)
 (require 'c-lang-part)
+(require 'pkg-server)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
