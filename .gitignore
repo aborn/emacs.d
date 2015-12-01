@@ -30,3 +30,4 @@ test.el
 test.c
 trace.txt
 pkgserver/
+.cask

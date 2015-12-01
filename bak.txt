@@ -17,6 +17,7 @@ http://tuhdo.github.io/emacs-tutor.html
 http://emacs.stackexchange.com/questions/17401/how-can-i-set-up-an-elpa-server
 http://stackoverflow.com/questions/7244321/how-to-update-a-github-forked-repository
 https://help.github.com/articles/syncing-a-fork/
+http://elpa.popkit.org/packages/archive-contents
 
 (require 'cl-lib)
 (require 'package)
