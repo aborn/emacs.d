@@ -297,7 +297,7 @@ First call indent, second complete symbol, third complete fname."
 (require 'helm)
 
 ;; Locate the helm-swoop folder to your path
-(add-to-list 'load-path "~/.emacs.d/elisp/helm-swoop")
+;; (add-to-list 'load-path "~/.emacs.d/elisp/helm-swoop")
 (require 'helm-swoop)
 
 ;; Change the keybinds to whatever you like :)
