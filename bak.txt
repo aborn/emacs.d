@@ -18,3 +18,36 @@ http://emacs.stackexchange.com/questions/17401/how-can-i-set-up-an-elpa-server
 http://stackoverflow.com/questions/7244321/how-to-update-a-github-forked-repository
 https://help.github.com/articles/syncing-a-fork/
 
+(require 'cl-lib)
+(require 'package)
+(require 'lisp-mnt)
+(require 'json)
+
+;; (package-build--url-copy-file "http://elpa.popkit.org/packages/archive-contents" "~/.emacs.d/ttt.el")
+;; example (package-build--url-copy-file "https://raw.githubusercontent.com/aborn/melpa/master/package-build.el" "~/.emacs.d/ttt.el")
+(defun package-build--url-copy-file (url newname &optional ok-if-already-exists)
+  "Copy URL to NEWNAME.  Both args must be strings.
+Returns the http request's header as a string.
+Like `url-copy-file', but it produces an error if the http response is not 200.
+Signals a `file-already-exists' error if file NEWNAME already exists,
+unless a third argument OK-IF-ALREADY-EXISTS is supplied and non-nil.
+A number as third arg means request confirmation if NEWNAME already exists."
+  (if (and (file-exists-p newname)
+           (not ok-if-already-exists))
+      (error "Opening output file: File already exists, %s" newname))
+  (let ((buffer (url-retrieve-synchronously url))
+        (headers nil)
+        (handle nil))
+    (if (not buffer)
+        (error "Opening input file: No such file or directory, %s" url))
+    (with-current-buffer buffer
+      (unless (= 200 url-http-response-status)
+        (error "HTTP error %s fetching %s" url-http-response-status url))
+      (setq handle (mm-dissect-buffer t))
+      (mail-narrow-to-head)
+      (setq headers (buffer-string)))
+    (mm-save-part-to-file handle newname)
+    (kill-buffer buffer)
+    (mm-destroy-parts handle)
+    headers))
+
