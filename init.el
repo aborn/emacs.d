@@ -77,7 +77,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/")
+             '("melpa" . "https://melpa.org/packages/")
              t)
 (package-initialize)
 (require 'init-helm-aborn)
@@ -832,7 +832,7 @@
 (require 'elixir-part)
 (require 'package-part)
 (require 'c-lang-part)
-(ab/list-packages)             ;; 异步打开下软件源
+;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
 			(load-file helm-adaptive-history-file)))
