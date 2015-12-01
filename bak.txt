@@ -13,3 +13,8 @@ And you should increase memory to be used before garbage collecting, by setting 
 You set the threshold to 100MB and try again if it still crashes.
 
 http://tuhdo.github.io/emacs-tutor.html
+
+http://emacs.stackexchange.com/questions/17401/how-can-i-set-up-an-elpa-server
+http://stackoverflow.com/questions/7244321/how-to-update-a-github-forked-repository
+https://help.github.com/articles/syncing-a-fork/
+

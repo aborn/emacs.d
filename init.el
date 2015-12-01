@@ -74,11 +74,13 @@
 ;; 设置包管理源
 ;; --------------------------------------------------------------------
 (require 'package)
+;;(add-to-list 'package-archives
+             ;;'("marmalade" . "http://marmalade-repo.org/packages/"))
+;;(add-to-list 'package-archives
+             ;;'("melpa" . "https://melpa.org/packages/")
+;;t)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             t)
+             '("popkit" . "http://elpa.popkit.org/packages/"))
 (package-initialize)
 (require 'init-helm-aborn)
 
