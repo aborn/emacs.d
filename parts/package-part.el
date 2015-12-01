@@ -22,7 +22,7 @@
   (with-temp-buffer
     (insert
      ";; -*- mode: emacs-lisp -*-\n"
-     ";; History entries used for helm adaptive display.\n")
+     ";; Installed packages list used for multi computer env.\n")
     (prin1 `(setq ab-installed-packages ',package-activated-list)
            (current-buffer))
     (insert ?\n)
@@ -31,9 +31,30 @@
 
 ;; 关闭emacs的时候，保存下当前已经安装的packages
 (add-hook 'kill-emacs-hook 'ab/save-package-activated-list)
+;; 打开emacs的时候，load安装的packages
 (add-hook 'after-init-hook
           (lambda ()
             (when (file-readable-p ab/save-package-activated-list-file)
               (load-file ab/save-package-activated-list-file))))
+
+;;http://ergoemacs.org/emacs/elisp_printing.html
+(defun ab/print-installed-packages (&optional arg)
+  "print info installed packages"
+  (interactive "p")
+  (with-current-buffer (get-buffer-create ab-message-buffer-name)
+    (dolist (pkg ab-installed-packages)
+      (insert "\n")
+      (princ pkg (current-buffer)))))
+
+(defun ab/install-missed-package (&optional arg)
+  "install missed package"
+  (interactive "p")
+  (async-start
+   '(lambda ()
+      ;; install the missing packages
+      (dolist (package ab-installed-packages)
+        (message "package %s" package)
+        (unless (package-installed-p package)
+          (package-install package))))))
 
 (provide 'package-part)

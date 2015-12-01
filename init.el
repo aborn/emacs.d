@@ -83,6 +83,7 @@
 (require 'init-helm-aborn)
 
 ;; --------------------------------------------------------------------
+
 ;; set code indent
 ;; 设置代码格式化
 ;; --------------------------------------------------------------------
@@ -484,6 +485,7 @@
       user-mail-address "aborn.jiang@foxmail.com")
 (setq chinese-name "Guobao Jiang")             ;
 (setq shell-name "eshell")        ;; default for shell
+(defconst ab-message-buffer-name "*Aborn Info Buffer*")
 ;;(setq shell-name "shell")      ;; default value
 
 ;;------------------------------------------------------------------------------
