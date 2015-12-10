@@ -18,6 +18,7 @@ http://emacs.stackexchange.com/questions/17401/how-can-i-set-up-an-elpa-server
 http://stackoverflow.com/questions/7244321/how-to-update-a-github-forked-repository
 https://help.github.com/articles/syncing-a-fork/
 http://elpa.popkit.org/packages/archive-contents
+http://stackoverflow.com/questions/14095189/walk-up-the-directory-tree
 
 (require 'cl-lib)
 (require 'package)
