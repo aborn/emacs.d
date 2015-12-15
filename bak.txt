@@ -53,3 +53,6 @@ A number as third arg means request confirmation if NEWNAME already exists."
     (mm-destroy-parts handle)
     headers))
 
+Hex.Registry.open
+Hex.Registry.get_versions("ex_doc")
+Hex.Registry.get_versions("earmark")
