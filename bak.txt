@@ -56,3 +56,5 @@ A number as third arg means request confirmation if NEWNAME already exists."
 Hex.Registry.open
 Hex.Registry.get_versions("ex_doc")
 Hex.Registry.get_versions("earmark")
+
+d3ec36f68b9482003e0038ec3c4af276  registry.ets.gz
