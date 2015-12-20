@@ -837,6 +837,7 @@
 (require 'pkg-server)
 (require 'web-part)
 (require 'ace-jump-helm-line)
+(require 'ivy-parts)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
@@ -847,7 +848,7 @@
   (load-file debug-function-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-06
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
