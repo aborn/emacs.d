@@ -75,9 +75,9 @@
 ;; --------------------------------------------------------------------
 (require 'package)
 ;;(add-to-list 'package-archives
-             ;;'("marmalade" . "http://marmalade-repo.org/packages/"))
+;;'("marmalade" . "http://marmalade-repo.org/packages/"))
 ;;(add-to-list 'package-archives
-             ;;'("melpa" . "https://melpa.org/packages/")
+;;'("melpa" . "https://melpa.org/packages/")
 ;;t)
 (add-to-list 'package-archives
              '("popkit" . "http://elpa.popkit.org/packages/"))
@@ -660,7 +660,11 @@
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font 
 (set-face-attribute
- 'default nil :font "Monaco 14")
+ 'default nil :font "Fira Code 15")  ;;previous "Monaco 14"
+(when (window-system)
+  (set-frame-font "Fira Code 15")
+  (message "Fira Code turn on!"))
+
 ;; Chinese Font 配制中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
@@ -846,6 +850,7 @@
 (setq debug-function-file "~/.emacs.d/debug-function.el")
 (when (file-readable-p debug-function-file)
   (load-file debug-function-file))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-20
