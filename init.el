@@ -657,6 +657,7 @@
 
 ;; -----------------------------------------------------------------------------
 ;; setting font for mac system
+;; Fira Code font: https://github.com/tonsky/FiraCode
 ;; -----------------------------------------------------------------------------
 ;; Setting English Font 
 (set-face-attribute
