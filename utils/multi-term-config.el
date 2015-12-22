@@ -18,7 +18,8 @@
 ;;(add-to-list 'term-bind-key-alist '("M-f"))
 ;;(add-to-list 'term-bind-key-alist '("M-b"))
 (add-to-list 'term-bind-key-alist '("C-k"))
-(add-to-list 'term-bind-key-alist '("M-n"))
+(add-to-list 'term-bind-key-alist '("M-n"))  ;; 这句不起作用
+(define-key term-raw-map (kbd "M-n") 'ace-jump-mode) ;; 直接修改它的key-map有用
 
 (defun ab/is-at-end-line ()
   "判断是否在最后一行"

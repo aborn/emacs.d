@@ -59,7 +59,8 @@
             (local-set-key (kbd "C-j") 'helm-buffers-list)))
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-j") 'helm-buffers-list)))
+            (local-set-key (kbd "C-j") 'helm-buffers-list)
+            (local-set-key (kbd "M-n") 'ace-jump-mode)))
 
 ;; define the latex-mode and bibtex-mode
 ;; define latex-mode-map local binding
@@ -109,9 +110,5 @@
             (local-set-key (kbd "C-o") 'other-window)))
 
 (add-hook 'markdown-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-n") 'ace-jump-mode)))
-
-(add-hook 'term-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") 'ace-jump-mode)))
