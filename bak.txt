@@ -58,3 +58,5 @@ Hex.Registry.get_versions("ex_doc")
 Hex.Registry.get_versions("earmark")
 
 d3ec36f68b9482003e0038ec3c4af276  registry.ets.gz
+
+https://www.masteringemacs.org/article/mastering-key-bindings-emacs
