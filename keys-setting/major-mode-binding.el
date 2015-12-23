@@ -112,3 +112,5 @@
 (add-hook 'markdown-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") 'ace-jump-mode)))
+
+(define-key term-raw-map (kbd "M-n") 'ace-jump-mode) ;; 直接修改它的key-map有用
