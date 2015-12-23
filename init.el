@@ -860,6 +860,7 @@
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
 (require 'package-part)
+(require 'init-pkg-aborn)
 (require 'c-lang-part)
 (require 'pkg-server)
 (require 'web-part)
@@ -876,7 +877,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-23
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces

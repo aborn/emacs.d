@@ -55,3 +55,7 @@
 ;; comment-region and uncomment-region
 (global-set-key (kbd "C-(") 'comment-region)
 (global-set-key (kbd "C-)") 'uncomment-region)
+
+;; 设置find-file-in-project
+;; https://github.com/technomancy/find-file-in-project
+
