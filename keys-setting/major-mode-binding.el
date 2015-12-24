@@ -12,6 +12,8 @@
   (local-set-key (kbd "C-o") 'other-window)
   (local-set-key (kbd "M-j") 'helm-find-files)
   (local-set-key (kbd "C-x j") 'ab/run-current-file)
+  (local-set-key (kbd "C-;") 'move-forward-by-five)
+  (local-set-key (kbd "C-:") 'move-backward-by-five)
   (message "ab/major-mode-key-binding done!"))
 
 ;; define matlab-mode key-binding
@@ -104,6 +106,7 @@
 (add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
 (add-hook 'sh-mode-hook 'ab/major-mode-key-binding)
 
+(add-hook 'messages-buffer-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'term-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'term-exec-hook
           (lambda ()
