@@ -400,9 +400,8 @@
                        "WuBi" "WuBi"
                        "wubi") 
 (setq default-input-method "chinese-wubi")
-;; (global-set-key "\C-c\C-j" 'toggle-input-method)  ;; other except .md
-;; (global-set-key "\C-cj" 'toggle-input-method)     ;; .md
-(global-set-key [?\S- ] 'toggle-input-method)     ;; .md and other
+(unless (string= system-type "darwin")               ;; mac系统时用自带的输入法
+  (global-set-key [?\S- ] 'toggle-input-method))     ;; 快捷键为(Shift + space)
 
 ;;------------------------------------------------------------------------------
 ;; add sql-indent mode
