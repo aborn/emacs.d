@@ -73,6 +73,7 @@
 ;; Emacs is not a package manager, and here we load its package manager!
 ;; 设置包管理源
 ;; --------------------------------------------------------------------
+(prefer-coding-system 'utf-8)
 (require 'package)
 ;;(add-to-list 'package-archives
 ;;'("marmalade" . "http://marmalade-repo.org/packages/"))
