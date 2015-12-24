@@ -38,8 +38,8 @@
 (defun last-term-buffer (l)
   "Return most recently used term buffer."
   (when l
-	(if (eq 'term-mode (with-current-buffer (car l) major-mode))
-		(car l) (last-term-buffer (cdr l)))))
+    (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+        (car l) (last-term-buffer (cdr l)))))
 
 ;; 获得multi-term
 (defun get-term ()
@@ -48,17 +48,20 @@
   (interactive)
   (select-window (ab/get-window-at-right-botton))   ;; 先切换到右边的窗口
   (let ((b (last-term-buffer (buffer-list))))
-	(if (or (not b) (eq 'term-mode major-mode))
-		(multi-term)
-	  (switch-to-buffer b))))
+    (if (or (not b) (eq 'term-mode major-mode))
+        (progn (multi-term)
+               (message "create a new multi-term!"))
+      (progn (switch-to-buffer b)
+             (message "switch a exist multi-term!"))))
+  (define-key term-raw-map (kbd "M-n") 'ace-jump-mode))
 
 ;; 只后当是term-mode并且是最后一行时才采用 (term-send-left)
 (defun ab/backward-char ()
   "Custom "
   (interactive)
   (if (not (ab/is-term-mode))
-	  (backward-char)
-	(progn (if (not (ab/is-at-end-line))
+      (backward-char)
+    (progn (if (not (ab/is-at-end-line))
                (backward-char)
              (progn (term-send-left)
                     (message "term-send-left"))))))
@@ -68,8 +71,8 @@
   "Custom "
   (interactive)
   (if (not (ab/is-term-mode))
-	  (forward-char)
-	(progn (if (not (ab/is-at-end-line))
+      (forward-char)
+    (progn (if (not (ab/is-at-end-line))
                (forward-char)
              (progn (term-send-right)
                     (message "term-send-right"))))))
@@ -124,10 +127,10 @@
             (add-to-list 'term-bind-key-alist '("C-a" . ab/move-beginning-of-line))
             (add-to-list 'term-bind-key-alist '("M-k" . ab/kill-line))
             (add-to-list 'term-bind-key-alist '("C-d" . ab/delete-char))
-			(add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
+            (add-to-list 'term-bind-key-alist '("C-b" . ab/backward-char))
             (add-to-list 'term-bind-key-alist '("C-f" . ab/forward-char))
             (add-to-list 'term-bind-key-alist '("M-l" . ab/extend-selection)) ;; error
-			(setq show-trailing-whitespace nil)))
+            (setq show-trailing-whitespace nil)))
 
 ;; 初始化启动的时候打开一个terminal
 (get-term)

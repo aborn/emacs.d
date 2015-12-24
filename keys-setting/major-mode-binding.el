@@ -11,7 +11,8 @@
   (local-set-key (kbd "C-j") 'helm-buffers-list)
   (local-set-key (kbd "C-o") 'other-window)
   (local-set-key (kbd "M-j") 'helm-find-files)
-  (local-set-key (kbd "C-x j") 'ab/run-current-file))
+  (local-set-key (kbd "C-x j") 'ab/run-current-file)
+  (message "ab/major-mode-key-binding done!"))
 
 ;; define matlab-mode key-binding
 (require 'matlab)
@@ -103,4 +104,10 @@
 (add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
 (add-hook 'sh-mode-hook 'ab/major-mode-key-binding)
 
+(add-hook 'term-mode-hook 'ab/major-mode-key-binding)
+(add-hook 'term-exec-hook
+          (lambda ()
+            (define-key term-raw-map (kbd "M-n") 'ace-jump-mode)
+            (message "term-exec-hook exected!")
+            (local-set-key (kbd "M-n") 'ace-jump-mode)))
 (define-key term-raw-map (kbd "M-n") 'ace-jump-mode)  ;; 直接修改它的key-map有用
