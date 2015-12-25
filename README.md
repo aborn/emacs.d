@@ -103,7 +103,7 @@ Aborn Jiang (aborn.jiang@gmail.com)
 * 2015-11-27 v2.1   (use helm exec-path-from-shell highlight-indentation etc.)
 
 ## UPDATE TIME
-2015-12-24
+2015-12-25
 
 ## EMACS SCREENSHOT
 * emacs dream-theme  

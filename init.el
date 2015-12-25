@@ -15,6 +15,9 @@
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
 
+;; https://github.com/syl20bnr/spacemacs/issues/2705
+(setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -866,6 +869,7 @@
 (require 'web-part)
 (require 'ace-jump-helm-line)
 (require 'ivy-parts)
+(require 'web-utils)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
@@ -877,7 +881,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-24
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
