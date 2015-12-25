@@ -24,7 +24,7 @@ This is taken from RFC 2396.")
 ;; a-zA-Z0-9 及 special-characters 为 "-" "_" "." "~"
 ;;                                    45  95  46 126
 
-;; 把系统的url-unreserved-chars值back起来
+;; 把系统的url-unreserved-chars值backup起来
 (setq ab/bak-url-unreserved-chars url-unreserved-chars)
 
 ;; 按java的格式编码url
