@@ -32,6 +32,10 @@ This is taken from RFC 2396.")
   (setq url-unreserved-chars (remove-duplicates tmp-url-unreserved-chars))
   (url-hexify-string url))
 
+(defun dp/url-encode (url)
+  (interactive)
+  (concat "dianping://web?url=" (ab/url-encode-java url)))
+
 ;; 按elisp的默认方式编码url
 (defun ab/url-encode-default (url)
   (setq url-unreserved-chars ab/bak-url-unreserved-chars)
