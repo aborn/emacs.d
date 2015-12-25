@@ -1,3 +1,5 @@
+;; http://tools.ietf.org/html/rfc2396 (2.3节)
+;; rfc2396 "-_.!~*'()"
 (defconst mm-url-unreserved-chars
   '(?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?k ?l ?m ?n ?o ?p ?q ?r ?s ?t ?u ?v ?w ?x ?y ?z
        ?A ?B ?C ?D ?E ?F ?G ?H ?I ?J ?K ?L ?M ?N ?O ?P ?Q ?R ?S ?T ?U ?V ?W ?X ?Y ?Z
@@ -9,27 +11,26 @@ This is taken from RFC 2396.")
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/String-Conversion.html
 ;; 查某个character的unicode ?a 反之 (byte-to-string 97)
 
-;; 根据RFC1738 https://www.ietf.org/rfc/rfc1738.txt
-;; 通用的special characters有这些 "$-_.+!*'(),"
-;; 但java里只用了 ".", "-", "*", and "_"
-;;               46   45   42      95
+(defconst java-special-characters '(?. ?- ?* ?_))
+;; java里的special characters ".", "-", "*", and "_"
+;;                            46   45   42      95
 ;; 见: http://docs.oracle.com/javase/7/docs/api/java/net/URLEncoder.html
+;; java采用了 rfc2396
+;; http://www.w3.org/TR/html40/appendix/notes.html#non-ascii-chars
 
-;; 注意：默认的elisp里的 url-unreserved-chars
+;; 注意：elisp里的实现采用的是 https://www.ietf.org/rfc/rfc3986.txt  (2.3节)
+;;      rfc3986 obsoletes [RFC2396]
+;; unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
 ;; a-zA-Z0-9 及 special-characters 为 "-" "_" "." "~"
 ;;                                    45  95  46 126
-;; 
 
-(defconst java-special-characters '(?. ?- ?* ?_))
 ;; 把系统的url-unreserved-chars值back起来
 (setq ab/bak-url-unreserved-chars url-unreserved-chars)
 
 ;; 按java的格式编码url
 (defun ab/url-encode-java (url)
   (interactive)
-  (setq tmp-url-unreserved-chars (remove '126 url-unreserved-chars))
-  (add-to-list 'tmp-url-unreserved-chars '42)
-  (setq url-unreserved-chars (remove-duplicates tmp-url-unreserved-chars))
+  (setq url-unreserved-chars mm-url-unreserved-chars)
   (url-hexify-string url))
 
 (defun dp/url-encode (url)
