@@ -870,6 +870,7 @@
 (require 'ace-jump-helm-line)
 (require 'ivy-parts)
 (require 'web-utils)
+(require 'search-buffers)
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
