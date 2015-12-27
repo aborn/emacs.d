@@ -67,7 +67,9 @@
 (defun ab/get-pkg-info (pkg)
   (interactive)
   (setq file-content (with-temp-buffer
-                       (insert-file-contents (ab/get-readme-file-path pkg)) (buffer-string)))
+                       (insert-file-contents (ab/get-readme-file-path pkg))
+                       (buffer-string)))
+  
   (format "package %s info:\n %s\n\n %s"
           pkg
           (ab/get-readme-file-path pkg)
