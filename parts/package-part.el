@@ -61,15 +61,29 @@
         (unless (package-installed-p package)
           (package-install package))))))
 
+(defun ab/get-readme-file-path (name)
+  (format "%s/%s-readme.txt" package-user-dir name))
+
+(defun ab/get-pkg-info (pkg)
+  (interactive)
+  (setq file-content (with-temp-buffer
+                       (insert-file-contents (ab/get-readme-file-path pkg)) (buffer-string)))
+  (format "package %s info:\n %s\n\n %s"
+          pkg
+          (ab/get-readme-file-path pkg)
+          file-content))
+
 (defun ab/search-pkg-installed ()
-  "搜索已经安装的包名"
+  "搜索已经安装的包名,选择后显示包的ReadeMe内容"
   (interactive)
   (ivy-read "search installed package name: "
             (mapcar (lambda (elt)
                       (symbol-name elt))
                     ab-installed-packages)
             :action (lambda (x)
-                      (message "package %s has installed!" x))))
+                      (with-help-window
+                          (help-buffer)
+                        (print (ab/get-pkg-info x))))))
 
 ;; 异步的列出packages
 (defun ab/list-packages ()
