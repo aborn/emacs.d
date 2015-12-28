@@ -200,19 +200,7 @@
 (sml/setup)
 (require 'powerline)
 (powerline-default-theme)
-
 (add-hook 'after-init-hook 'global-company-mode)
-
-;; --------------------------------------------------------------------
-;; setting org-mode
-;; --------------------------------------------------------------------
-;; (setq org-todo-keywords
-;; '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
-(setq org-todo-keywords
-	  '((sequence "TODO" "ONGOING" "DONE" "DELEGATED")))
-(setq org-log-done 'time)   ;;  setting close time
-(setq org-log-done 'note)   ;;  setting a log note
-;; (set org-modules 'habits)
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
@@ -858,8 +846,8 @@
 
 ;; -----------------------------------------------------------------------------
 ;; some config-part
-;; elixir语言mode
-;; 需要通过elpa安装alchemist和alchemist
+;; 注意： elixir语言mode
+;;       需要通过elpa安装alchemist和alchemist
 ;; -----------------------------------------------------------------------------
 (require 'elixir-part)
 (require 'package-part)
@@ -872,6 +860,8 @@
 (require 'web-utils)
 (require 'search-buffers)
 (require 'org-page-part)
+(require 'org-mode-part)
+
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
 		  (lambda ()
@@ -883,7 +873,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-25
+;; last modified by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-28
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
