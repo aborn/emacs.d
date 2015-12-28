@@ -1,5 +1,5 @@
 (require 'org-page)
-(setq op/repository-directory "~/github/aborn.me")   ;; the repository location
+(setq op/repository-directory "~/github/blog.aborn.me")   ;; the repository location
 (setq op/site-domain "http://aborn.me/")         ;; your domain
 
 (setq op/site-main-title "aborn")

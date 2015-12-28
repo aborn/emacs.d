@@ -65,23 +65,24 @@
   (format "%s/%s-readme.txt" package-user-dir name))
 
 (defun ab/get-pkg-info (pkg)
+  "获得包的详细说明，readme文件内容"
   (interactive)
-  (setq file-content (with-temp-buffer
-                       (insert-file-contents (ab/get-readme-file-path pkg))
-                       (buffer-string)))
-  
-  (format "package %s info:\n %s\n\n %s"
-          pkg
-          (ab/get-readme-file-path pkg)
-          file-content))
+  (let ((file-content (with-temp-buffer
+                        (insert-file-contents (ab/get-readme-file-path pkg))
+                        (buffer-string))))
+    (format "package %s info:\n %s\n\n %s"
+            pkg
+            (ab/get-readme-file-path pkg)
+            file-content)))
 
 (defun ab/search-pkg-installed ()
   "搜索已经安装的包名,选择后显示包的ReadeMe内容"
   (interactive)
   (ivy-read "search installed package name: "
-            (mapcar (lambda (elt)
-                      (symbol-name elt))
-                    ab-installed-packages)
+            (remove-duplicates (mapcar (lambda (elt)
+                                         (symbol-name elt))
+                                       ab-installed-packages)
+                               :test 'string=)
             :action (lambda (x)
                       (with-help-window
                           (help-buffer)
