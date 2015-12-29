@@ -405,14 +405,16 @@
 ;;     https://github.com/abo-abo/avy
 ;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
-(global-set-key (kbd "M-z") 'ace-jump-mode)
 (global-set-key (kbd "M-n") 'ace-jump-mode)
-(define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
+(define-key global-map (kbd "C-x n") 'ace-jump-char-mode)
+(define-key global-map (kbd "C-x N") 'ace-jump-line-mode)
 
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
+(setq ace-pinyin-use-avy t)
+(setq ace-pinyin-global-mode t)
 
 ;;------------------------------------------------------------------------------
 ;; add quick-jump mode 
