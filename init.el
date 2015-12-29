@@ -413,8 +413,8 @@
 (eval-after-load "helm"
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
-(setq ace-pinyin-use-avy t)
-(setq ace-pinyin-global-mode t)
+;; (setq ace-pinyin-use-avy nil)
+(ace-pinyin-global-mode)   ;; 开启ace-pinyin mode
 
 ;;------------------------------------------------------------------------------
 ;; add quick-jump mode 
