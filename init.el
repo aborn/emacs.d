@@ -260,10 +260,6 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-;; define markdown-mode-map
-(define-key markdown-mode-map (kbd "\C-c\C-k") 'start-kbd-macro)
-(define-key markdown-mode-map (kbd "\C-x SPC") 'ace-jump-mode)
-(define-key markdown-mode-map (kbd "<M-return>") 'ab/quick-file-jump)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; install cedet and add speedbar download from 
@@ -409,8 +405,6 @@
 ;;     https://github.com/abo-abo/avy
 ;;------------------------------------------------------------------------------
 (require 'ace-jump-mode)
-;;(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-;;(global-set-key (kbd "C-x SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-z") 'ace-jump-mode)
 (global-set-key (kbd "M-n") 'ace-jump-mode)
 (define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
@@ -419,8 +413,6 @@
 (eval-after-load "helm"
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
-;; If you also use viper mode: (vim的一个模式)
-;; (define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
 
 ;;------------------------------------------------------------------------------
 ;; add quick-jump mode 
