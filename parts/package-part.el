@@ -95,9 +95,10 @@
   (async-start
    `(lambda ()
       (setq package-archives
-            '(("melpa"         . "http://melpa.org/packages/"); 
+            '(("melpa"         . "http://melpa.org/packages/")
               ("org"         . "http://orgmode.org/elpa/")
-              ("marmalade"   . "http://marmalade-repo.org/packages/")));
+              ("marmalade"   . "http://marmalade-repo.org/packages/")
+              ("popkit" . "http://elpa.popkit.org/packages/")))
       (require 'finder-inf nil t)
       ;; Initialize the package system if necessary.
       (package-initialize t)
