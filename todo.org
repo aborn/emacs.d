@@ -1,6 +1,0 @@
-
-* emacs
-** TODO fast move and back http://stackoverflow.com/questions/3393834/how-to-move-forward-and-backward-in-emacs-mark-ring
-
-* blog
-** TODO org-html-themes modify style
