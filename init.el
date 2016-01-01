@@ -94,7 +94,7 @@
 ;; --------------------------------------------------------------------
 (setq-default indent-tabs-mode nil)
 (setq indent-tabs-mode nil)
-;; (setq default-tab-width 4)   ;; 这个变量已经被废弃了!
+;; (setq default-tab-width 4)          ;; 这个变量已经被废弃了!
 (setq tab-width 4)
 ;;(setq max-lisp-eval-depth 3000)      ;; default 500
 ;;(setq max-specpdl-size 3000)         ;; default 1000
@@ -134,12 +134,12 @@
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'flyspell-mode)
-;; (flyspell-prog-mode)                ; flyspell mode for comments & strings only
+;; (flyspell-prog-mode)             ; flyspell mode for comments & strings only
 
 ;; (kill-buffer "*scratch*")
 (find-file "~/.emacs.d/init.el")    ; initial open init.el file 
 ;;(unless (get-buffer "*shell*")
-;;  (shell))                          ; open shell when boot up
+;;  (shell))                        ; open shell when boot up
 
 ;; coffee-mode for coffeescript programming
 ;; automatically clean up bad whitespace
@@ -204,7 +204,7 @@
 
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
-;; The hot-key binding to %
+;; The hot-key binding to % 快速移动到匹配到的括号
 ;; --------------------------------------------------------------------
 (global-set-key "%" 'match-paren)
 (defun match-paren (arg)				
@@ -295,7 +295,7 @@
 ;; setting speedbar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'sr-speedbar)
-(global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
+;; (global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
 (setq sr-speedbar-right-side nil)  ;; nil means speedbar appears on left
 (setq sr-speedbar-skip-other-window-p t)
 (setq speedbar-show-unknown-files t)
@@ -485,6 +485,7 @@
 ;; http://www.emacswiki.org/cgi-bin/wiki/buffer-move.el
 ;;------------------------------------------------------------------------------
 (require 'buffer-move)
+
 ;;------------------------------------------------------------------------------
 ;; add gnus, download using following command.
 ;; supported on begin emacs 24.4
@@ -867,7 +868,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2015-12-31
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-01
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-faces
