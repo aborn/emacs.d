@@ -205,17 +205,22 @@
 ;; --------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
 ;; The hot-key binding to % 快速移动到匹配到的括号
+;; (%%%)
 ;; --------------------------------------------------------------------
-(global-set-key "%" 'match-paren)
 (defun match-paren (arg)				
-  "Go to the matching paren if on a paren; otherwise insert %."
-  (interactive "p")
+  "Go to the matching paren if on a paren; otherwise insert %.
+  If position just right in middle of (), only insert %."
+  (interactive "P")
+  (when (equal current-prefix-arg '(4))
+      (message "insert %% only"))
   (cond
-   ((and (char-equal (char-after) ?\))   ;;当前位置正处于()中间时
+   ((equal current-prefix-arg '(4)) (self-insert-command 1))
+   ((and (char-equal (char-after) ?\))
 		 (char-equal (char-before) ?\()) (self-insert-command (or arg 1)))
    ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
    ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
    (t (self-insert-command (or arg 1)))))
+(global-set-key "%" 'match-paren)
 
 ;; --------------------------------------------------------------------
 ;; column-marker.el and fill-column-indicator.el setting

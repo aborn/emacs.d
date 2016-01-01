@@ -61,3 +61,12 @@
             :action (lambda (x)
                       (package-install (intern x)))
             :caller 'counsel-package-install))
+
+;; (global-set-key (kbd "M-p") 'display-prefix)
+(defun display-prefix (arg)
+  "Display the value of the raw prefix arg."
+  (interactive "P")
+  (if (equal current-prefix-arg '(4))
+      (message "ggg")
+    (message "kkk"))
+  (message "%s%s" arg current-prefix-arg))
