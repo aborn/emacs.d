@@ -215,6 +215,8 @@
       (message "insert %% only"))
   (cond
    ((equal current-prefix-arg '(4)) (self-insert-command 1))
+   ((and (char-equal (char-after) ?])
+		 (char-equal (char-before) ?[)) (self-insert-command (or arg 1)))
    ((and (char-equal (char-after) ?\))
 		 (char-equal (char-before) ?\()) (self-insert-command (or arg 1)))
    ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
