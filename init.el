@@ -869,6 +869,7 @@
 (require 'search-buffers)
 (require 'org-page-part)
 (require 'org-mode-part)
+(require 'erlang-part)
 
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
